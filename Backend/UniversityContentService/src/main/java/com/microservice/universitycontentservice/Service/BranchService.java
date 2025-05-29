@@ -1,7 +1,7 @@
 package com.microservice.universitycontentservice.Service;
 
-import com.microservice.universitycontentservice.Dto.Mapper.BranchMapper;
-import com.microservice.universitycontentservice.Dto.BranchDTO;
+import com.microservice.universitycontentservice.DTO.Mapper.BranchMapper;
+import com.microservice.universitycontentservice.DTO.BranchDTO;
 import com.microservice.universitycontentservice.Entity.Branch;
 import com.microservice.universitycontentservice.Exceptions.Branch.BranchAlreadyExistsException;
 import com.microservice.universitycontentservice.Exceptions.Branch.BranchNotFoundException;

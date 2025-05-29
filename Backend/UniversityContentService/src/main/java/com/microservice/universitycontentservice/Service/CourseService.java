@@ -1,7 +1,7 @@
 package com.microservice.universitycontentservice.Service;
 
-import com.microservice.universitycontentservice.Dto.Mapper.CourseMapper;
-import com.microservice.universitycontentservice.Dto.CourseDTO;
+import com.microservice.universitycontentservice.DTO.Mapper.CourseMapper;
+import com.microservice.universitycontentservice.DTO.CourseDTO;
 import com.microservice.universitycontentservice.Entity.Course;
 import com.microservice.universitycontentservice.Exceptions.Course.CourseAlreadyExistsException;
 import com.microservice.universitycontentservice.Exceptions.Course.CourseNotFoundException;

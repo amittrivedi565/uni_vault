@@ -1,6 +1,6 @@
 package com.microservice.universitycontentservice.Controller;
 
-import com.microservice.universitycontentservice.Dto.InstituteDTO;
+import com.microservice.universitycontentservice.DTO.InstituteDTO;
 import com.microservice.universitycontentservice.Entity.Institute;
 import com.microservice.universitycontentservice.Service.InstituteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +15,35 @@ import java.util.UUID;
 @RequestMapping("/api/institute")
 public class InstituteController {
 
+    private final InstituteService instituteService;
+
     @Autowired
-    private InstituteService service;
+    InstituteController(InstituteService instituteService){
+        this.instituteService = instituteService;
+    }
+
 
     @GetMapping
     public ResponseEntity<List<InstituteDTO>> getAllInstitutesController() {
-        List<InstituteDTO> fetchAllInstitutes = service.getAllInstitutesService();
+        List<InstituteDTO> fetchAllInstitutes = instituteService.getAllInstitutesService();
         return new ResponseEntity<>(fetchAllInstitutes, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<InstituteDTO> createInstituteController(@RequestBody Institute institute) {
-        InstituteDTO createdInstitute = service.postInstituteService(institute);
+        InstituteDTO createdInstitute = instituteService.postInstituteService(institute);
         return new ResponseEntity<>(createdInstitute, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{instituteId}")
     public ResponseEntity<String> deleteInstitute(@PathVariable UUID instituteId) {
-        service.deleteInstituteService(instituteId);
+        instituteService.deleteInstituteService(instituteId);
         return ResponseEntity.status(HttpStatus.OK).body("Institute deleted successfully");
     }
 
     @PutMapping("/{instituteId}")
     public ResponseEntity<InstituteDTO> updateInstituteController(@PathVariable UUID instituteId, @RequestBody Institute updatedInstituteData) {
-        InstituteDTO updatedInstitute = service.updateInstituteService(instituteId, updatedInstituteData);
+        InstituteDTO updatedInstitute = instituteService.updateInstituteService(instituteId, updatedInstituteData);
         return new ResponseEntity<>(updatedInstitute, HttpStatus.OK);
     }
 }

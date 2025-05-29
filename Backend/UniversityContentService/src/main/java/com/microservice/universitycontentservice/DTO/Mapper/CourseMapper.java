@@ -1,6 +1,6 @@
-package com.microservice.universitycontentservice.Dto.Mapper;
-import com.microservice.universitycontentservice.Dto.BranchDTO;
-import com.microservice.universitycontentservice.Dto.CourseDTO;
+package com.microservice.universitycontentservice.DTO.Mapper;
+import com.microservice.universitycontentservice.DTO.BranchDTO;
+import com.microservice.universitycontentservice.DTO.CourseDTO;
 import com.microservice.universitycontentservice.Entity.Course;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.microservice.universitycontentservice.Dto;
+package com.microservice.universitycontentservice.DTO;
 
 import lombok.Data;
 import lombok.Getter;

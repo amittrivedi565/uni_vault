@@ -1,7 +1,7 @@
 package com.microservice.universitycontentservice.Service;
 
-import com.microservice.universitycontentservice.Dto.Mapper.InstituteMapper;
-import com.microservice.universitycontentservice.Dto.InstituteDTO;
+import com.microservice.universitycontentservice.DTO.InstituteDTO;
+import com.microservice.universitycontentservice.DTO.Mapper.InstituteMapper;
 import com.microservice.universitycontentservice.Entity.Institute;
 import com.microservice.universitycontentservice.Exceptions.Institute.InstituteAlreadyExistsException;
 import com.microservice.universitycontentservice.Exceptions.Institute.InstituteNotFoundException;

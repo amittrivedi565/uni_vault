@@ -1,7 +1,7 @@
 package com.microservice.universitycontentservice.Controller;
 
-import com.microservice.universitycontentservice.Dto.Mapper.CourseMapper;
-import com.microservice.universitycontentservice.Dto.CourseDTO;
+import com.microservice.universitycontentservice.DTO.Mapper.CourseMapper;
+import com.microservice.universitycontentservice.DTO.CourseDTO;
 import com.microservice.universitycontentservice.Entity.Course;
 import com.microservice.universitycontentservice.Service.CourseService;
 
@@ -18,31 +18,37 @@ import java.util.UUID;
 @RequestMapping("/api/course")
 public class CourseController {
 
+    private final CourseService courseService;
+
     @Autowired
-    private CourseService service;
+    CourseController(CourseService courseService){
+        this.courseService = courseService;
+    }
+
+
 
     @GetMapping
     public ResponseEntity<List<CourseDTO>> getAllCoursesController() {
-        List<CourseDTO> fetchAllCourses = service.getAllCoursesService();
+        List<CourseDTO> fetchAllCourses = courseService.getAllCoursesService();
         return new ResponseEntity<>(fetchAllCourses, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<CourseDTO> createCourseController(@RequestBody Course course) {
-        Course createdCourse = service.postCourseService(course);
+        Course createdCourse = courseService.postCourseService(course);
         CourseDTO responseDTO = CourseMapper.toDto(createdCourse);
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{courseId}")
     public ResponseEntity<String> deleteCourseController(@PathVariable UUID courseId) {
-        service.deleteCourseService(courseId);
+        courseService.deleteCourseService(courseId);
         return ResponseEntity.status(HttpStatus.OK).body("Course deleted successfully");
     }
 
     @PutMapping("/{courseId}")
     public ResponseEntity<CourseDTO> updateCourseController(@PathVariable UUID courseId, @RequestBody Course course) {
-        CourseDTO updatedCourse = service.updateCourseService(courseId, course);
+        CourseDTO updatedCourse = courseService.updateCourseService(courseId, course);
         return ResponseEntity.status(HttpStatus.OK).body(updatedCourse);
     }
 }
