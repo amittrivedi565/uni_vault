@@ -1,6 +1,6 @@
 package com.microservice.universitycontentservice.Repository;
 
-import com.microservice.universitycontentservice.Entity.courseEntity;
+import com.microservice.universitycontentservice.Entity.Course;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +10,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface courseRepository extends JpaRepository<courseEntity, UUID> {
-    Optional<courseEntity> findByName(@NotBlank(message = "Course name is required") @Size(min=3,max=100) String name);
+public interface CourseRepository extends JpaRepository<Course, UUID> {
+    Optional<Course> findByName(@NotBlank(message = "Course name is required") @Size(min=3,max=100) String name);
 }

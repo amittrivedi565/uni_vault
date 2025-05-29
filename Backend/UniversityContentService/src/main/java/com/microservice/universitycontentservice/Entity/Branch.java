@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "Branch")
-public class branchEntity {
+public class Branch {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,5 +35,5 @@ public class branchEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
-    private courseEntity course;
+    private Course course;
 }

@@ -1,8 +1,8 @@
 package com.microservice.universitycontentservice.Controller;
 
-import com.microservice.universitycontentservice.Dto.Response.branchResponseDto;
-import com.microservice.universitycontentservice.Entity.branchEntity;
-import com.microservice.universitycontentservice.Service.branchService;
+import com.microservice.universitycontentservice.Dto.BranchDTO;
+import com.microservice.universitycontentservice.Entity.Branch;
+import com.microservice.universitycontentservice.Service.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,20 +14,20 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/branch")
-public class branchController {
+public class BranchController {
 
     @Autowired
-    private branchService service;
+    private BranchService service;
 
     @GetMapping
-    public ResponseEntity<List<branchResponseDto>> getAllBranchesController() {
-        List<branchResponseDto> fetchAllBranches = service.getAllBranchesService();
+    public ResponseEntity<List<BranchDTO>> getAllBranchesController() {
+        List<BranchDTO> fetchAllBranches = service.getAllBranchesService();
         return new ResponseEntity<>(fetchAllBranches, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<branchResponseDto> createBranchController(@RequestBody branchEntity branch) {
-        branchResponseDto createdBranch = service.postBranchService(branch);
+    public ResponseEntity<BranchDTO> createBranchController(@RequestBody Branch branch) {
+        BranchDTO createdBranch = service.postBranchService(branch);
         return new ResponseEntity<>(createdBranch, HttpStatus.CREATED);
     }
 
@@ -38,8 +38,8 @@ public class branchController {
     }
 
     @PutMapping("/{branchId}")
-    public ResponseEntity<branchResponseDto> updateBranchController(@PathVariable UUID branchId, @RequestBody branchEntity toBeUpdatedBranchData) {
-        branchResponseDto updatedBranch = service.updateBranchService(branchId,toBeUpdatedBranchData);
+    public ResponseEntity<BranchDTO> updateBranchController(@PathVariable UUID branchId, @RequestBody Branch toBeUpdatedBranchData) {
+        BranchDTO updatedBranch = service.updateBranchService(branchId,toBeUpdatedBranchData);
         return ResponseEntity.status(HttpStatus.OK).body(updatedBranch);
     }
 }

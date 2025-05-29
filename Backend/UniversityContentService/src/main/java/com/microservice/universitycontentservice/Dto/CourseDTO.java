@@ -1,4 +1,4 @@
-package com.microservice.universitycontentservice.Dto.Response;
+package com.microservice.universitycontentservice.Dto;
 
 import lombok.Data;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-public class courseResponseDto {
+public class CourseDTO {
 
     private UUID id;
     private String name;
@@ -18,6 +18,6 @@ public class courseResponseDto {
 
     @Setter
     @Getter
-    private List<branchResponseDto> branches;
+    private List<BranchDTO> branches;
 
 }

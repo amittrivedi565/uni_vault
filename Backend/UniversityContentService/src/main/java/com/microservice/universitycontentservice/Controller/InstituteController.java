@@ -1,8 +1,8 @@
 package com.microservice.universitycontentservice.Controller;
 
-import com.microservice.universitycontentservice.Dto.Response.instituteResponseDto;
-import com.microservice.universitycontentservice.Entity.instituteEntity;
-import com.microservice.universitycontentservice.Service.instituteService;
+import com.microservice.universitycontentservice.Dto.InstituteDTO;
+import com.microservice.universitycontentservice.Entity.Institute;
+import com.microservice.universitycontentservice.Service.InstituteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,20 +13,20 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/institute")
-public class instituteController {
+public class InstituteController {
 
     @Autowired
-    private instituteService service;
+    private InstituteService service;
 
     @GetMapping
-    public ResponseEntity<List<instituteResponseDto>> getAllInstitutesController() {
-        List<instituteResponseDto> fetchAllInstitutes = service.getAllInstitutesService();
+    public ResponseEntity<List<InstituteDTO>> getAllInstitutesController() {
+        List<InstituteDTO> fetchAllInstitutes = service.getAllInstitutesService();
         return new ResponseEntity<>(fetchAllInstitutes, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<instituteResponseDto> createInstituteController(@RequestBody instituteEntity institute) {
-        instituteResponseDto createdInstitute = service.postInstituteService(institute);
+    public ResponseEntity<InstituteDTO> createInstituteController(@RequestBody Institute institute) {
+        InstituteDTO createdInstitute = service.postInstituteService(institute);
         return new ResponseEntity<>(createdInstitute, HttpStatus.CREATED);
     }
 
@@ -37,8 +37,8 @@ public class instituteController {
     }
 
     @PutMapping("/{instituteId}")
-    public ResponseEntity<instituteResponseDto> updateInstituteController(@PathVariable UUID instituteId, @RequestBody instituteEntity updatedInstituteData) {
-        instituteResponseDto updatedInstitute = service.updateInstituteService(instituteId, updatedInstituteData);
+    public ResponseEntity<InstituteDTO> updateInstituteController(@PathVariable UUID instituteId, @RequestBody Institute updatedInstituteData) {
+        InstituteDTO updatedInstitute = service.updateInstituteService(instituteId, updatedInstituteData);
         return new ResponseEntity<>(updatedInstitute, HttpStatus.OK);
     }
 }

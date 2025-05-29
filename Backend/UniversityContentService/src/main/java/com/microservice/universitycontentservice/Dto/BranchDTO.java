@@ -1,11 +1,11 @@
-package com.microservice.universitycontentservice.Dto.Response;
+package com.microservice.universitycontentservice.Dto;
 
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
-public class branchResponseDto {
+public class BranchDTO {
     private UUID id;
     private String name;
     private String code;
