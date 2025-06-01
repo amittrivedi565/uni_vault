@@ -25,8 +25,6 @@ public class CourseController {
         this.courseService = courseService;
     }
 
-
-
     @GetMapping
     public ResponseEntity<List<CourseDTO>> getAllCoursesController() {
         List<CourseDTO> fetchAllCourses = courseService.getAllCoursesService();
@@ -34,9 +32,8 @@ public class CourseController {
     }
 
     @PostMapping
-    public ResponseEntity<CourseDTO> createCourseController(@RequestBody Course course) {
-        Course createdCourse = courseService.postCourseService(course);
-        CourseDTO responseDTO = CourseMapper.toDto(createdCourse);
+    public ResponseEntity<CourseDTO> createCourseController(@RequestBody CourseDTO courseDTO) {
+        CourseDTO responseDTO = courseService.postCourseService(courseDTO);
         return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
     }
 

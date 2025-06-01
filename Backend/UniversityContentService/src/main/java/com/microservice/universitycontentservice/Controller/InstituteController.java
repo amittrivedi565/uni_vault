@@ -22,7 +22,6 @@ public class InstituteController {
         this.instituteService = instituteService;
     }
 
-
     @GetMapping
     public ResponseEntity<List<InstituteDTO>> getAllInstitutesController() {
         List<InstituteDTO> fetchAllInstitutes = instituteService.getAllInstitutesService();

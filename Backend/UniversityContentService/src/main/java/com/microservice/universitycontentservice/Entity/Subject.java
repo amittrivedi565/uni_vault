@@ -9,33 +9,33 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name="Course")
-public class Course {
+@Table(name="Subject")
+public class Subject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @NotBlank(message = "Course name is required")
+    @NotBlank(message = "Subject name is required")
     @Size(min=3,max=100)
     private String name;
 
     @Size(min=3,max=100)
-    @NotBlank(message = "Course shortname is required")
+    @NotBlank(message = "Subject shortname is required")
     private String shortname;
 
     @Size(min=3,max=20)
-    @NotBlank(message = "Course code is required")
+    @NotBlank(message = "Subject code is required")
     private String code;
 
     @Size(min=3,max=100)
-    @NotBlank(message = "Course description is required")
+    @NotBlank(message = "Subject description is required")
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "institute_id", nullable = false)
-    private Institute institute;
+    @JoinColumn(name = "semester_id", nullable = false)
+    private Semester semester;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Branch> branches;
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Unit> units;
 }

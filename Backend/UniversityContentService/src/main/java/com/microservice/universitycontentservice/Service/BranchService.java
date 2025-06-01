@@ -37,7 +37,7 @@ public class BranchService {
             }
 
             return fetchedBranches.stream()
-                    .map(BranchMapper::toDto)
+                    .map(BranchMapper::toDTO)
                     .collect(Collectors.toList());
 
         } catch (Exception e) {
@@ -54,7 +54,7 @@ public class BranchService {
             }
 
             Branch savedBranch = branchRepo.save(branch);
-            return BranchMapper.toDto(savedBranch);
+            return BranchMapper.toDTO(savedBranch);
 
         } catch (DataAccessException e) {
             logger.error("DataAccessException in postBranchService: {}", e.getMessage(), e);
@@ -98,7 +98,7 @@ public class BranchService {
             existingBranch.setDescription(updatedBranchData.getDescription());
 
             Branch updatedBranch = branchRepo.save(existingBranch);
-            return BranchMapper.toDto(updatedBranch);
+            return BranchMapper.toDTO(updatedBranch);
 
         } catch (DataAccessException e) {
             logger.error("DataAccessException in updateBranchService: {}", e.getMessage(), e);

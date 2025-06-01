@@ -39,7 +39,7 @@ public class InstituteService {
             }
 
             return fetchedInstitutes.stream()
-                    .map(InstituteMapper::toDto)
+                    .map(InstituteMapper::toDTO)
                     .collect(Collectors.toList());
 
         } catch (Exception e) {
@@ -57,7 +57,7 @@ public class InstituteService {
             }
 
             Institute savedInstitute = instituteRepo.save(institute);
-            return InstituteMapper.toDto(savedInstitute);
+            return InstituteMapper.toDTO(savedInstitute);
 
         } catch (DataAccessException e) {
             logger.error("DataAccessException in postInstituteService: {}", e.getMessage(), e);
@@ -101,7 +101,7 @@ public class InstituteService {
             existingInstitute.setDescription(updatedInstituteData.getDescription());
 
             Institute updatedInstitute = instituteRepo.save(existingInstitute);
-            return InstituteMapper.toDto(updatedInstitute);
+            return InstituteMapper.toDTO(updatedInstitute);
 
         } catch (DataAccessException e) {
             logger.error("DataAccessException in updateInstituteService: {}", e.getMessage(), e);

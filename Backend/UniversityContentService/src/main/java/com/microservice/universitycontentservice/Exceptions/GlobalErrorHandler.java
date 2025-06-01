@@ -42,9 +42,9 @@ public class GlobalErrorHandler {
 
     // Handle Course Exceptions
     @ExceptionHandler(CourseServiceException.class)
-    public ResponseEntity<?> handleCourseServiceException(CourseServiceException ex, WebRequest request) {
-        ErrorDetail error = new ErrorDetail(new Date(), ex.getMessage(), request.getDescription(false));
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity<String> handleCourseServiceException(CourseServiceException ex, WebRequest request) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Error: " + ex.getMessage());
     }
 
     @ExceptionHandler(CourseAlreadyExistsException.class)

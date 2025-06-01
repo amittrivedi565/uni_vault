@@ -3,13 +3,17 @@ package com.microservice.universitycontentservice.Service;
 import com.microservice.universitycontentservice.DTO.Mapper.CourseMapper;
 import com.microservice.universitycontentservice.DTO.CourseDTO;
 import com.microservice.universitycontentservice.Entity.Course;
+import com.microservice.universitycontentservice.Entity.Institute;
 import com.microservice.universitycontentservice.Exceptions.Course.CourseAlreadyExistsException;
 import com.microservice.universitycontentservice.Exceptions.Course.CourseNotFoundException;
 import com.microservice.universitycontentservice.Exceptions.Course.CourseServiceException;
+import com.microservice.universitycontentservice.Exceptions.Institute.InstituteNotFoundException;
 import com.microservice.universitycontentservice.Repository.CourseRepository;
+import com.microservice.universitycontentservice.Repository.InstituteRepository;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -19,22 +23,23 @@ import java.util.stream.Collectors;
 
 @Service
 public class CourseService {
-
-    // Initialize logger
     private static final Logger logger = LoggerFactory.getLogger(CourseService.class);
 
+
+    private final InstituteRepository instituteRepo;
     private final CourseRepository courseRepo;
 
-    public CourseService(CourseRepository courseRepo) {
+    @Autowired
+    public CourseService(CourseRepository courseRepo, InstituteRepository instituteRepo) {
         this.courseRepo = courseRepo;
+        this.instituteRepo = instituteRepo;
     }
 
-    // Get all courses
     public List<CourseDTO> getAllCoursesService() {
         try {
             List<Course> fetchedCourses = courseRepo.findAll();
             return fetchedCourses.stream()
-                    .map(CourseMapper::toDto)
+                    .map(CourseMapper::toDTO)
                     .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("Error in getAllCoursesService: {}", e.getMessage());
@@ -42,24 +47,33 @@ public class CourseService {
         }
     }
 
-    // Create a new course
-    public Course postCourseService(Course course) {
+    public CourseDTO postCourseService(CourseDTO courseDTO) {
         try {
-            Optional<Course> existingCourse = courseRepo.findByName(course.getName());
+            Optional<Course> existingCourse = courseRepo.findByName(courseDTO.getName());
             if (existingCourse.isPresent()) {
-                throw new CourseAlreadyExistsException("Course " + course.getName() + " already exists.");
+                throw new CourseAlreadyExistsException("Course already exists");
             }
-            return courseRepo.save(course);
+
+            UUID instituteId = courseDTO.getInstituteId();
+
+            Institute institute = instituteRepo.findById(courseDTO.getInstituteId())
+                    .orElseThrow(() -> new InstituteNotFoundException("Institute not found"));
+
+            Course courseEntity = CourseMapper.toEntity(courseDTO,institute);
+
+            Course savedCourse = courseRepo.save(courseEntity);
+
+            return CourseMapper.toDTO(savedCourse);
+
         } catch (DataAccessException dae) {
-            logger.error("DataAccessException in postCourseService: {}", dae.getMessage());
+            logger.error("DataAccessException in postCourseService", dae);
             throw new CourseServiceException("An error has occurred while accessing the database.");
         } catch (Exception e) {
-            logger.error("Error in postCourseService: {}", e.getMessage());
+            logger.error("Error in postCourseService", e);
             throw new CourseServiceException("An error occurred while creating the course. Please try again later.");
         }
     }
 
-    // Delete a course by ID
     @Transactional
     public void deleteCourseService(UUID courseId) {
         try {
@@ -78,7 +92,6 @@ public class CourseService {
         }
     }
 
-    // Update an existing course
     @Transactional
     public CourseDTO updateCourseService(UUID courseId, Course updatedCourseData) {
         try {
@@ -91,7 +104,8 @@ public class CourseService {
             existingCourse.setDescription(updatedCourseData.getDescription());
 
             Course updatedCourse = courseRepo.save(existingCourse);
-            return CourseMapper.toDto(updatedCourse);
+            return CourseMapper.toDTO(updatedCourse);
+
         } catch (DataAccessException dae) {
             logger.error("DataAccessException in updateCourse: {}", dae.getMessage());
             throw new CourseServiceException("An error has occurred while accessing the database.");

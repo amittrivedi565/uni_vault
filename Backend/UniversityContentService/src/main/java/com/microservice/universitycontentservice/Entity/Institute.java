@@ -17,20 +17,20 @@ public class Institute {
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
-    @NotBlank(message = "University name is required")
+    @NotBlank(message = "Institute name is required")
     @Size(min=3,max=100)
     private String name;
 
     @Size(min=3,max=100)
-    @NotBlank(message = "University shortname is required")
+    @NotBlank(message = "Institute shortname is required")
     private String shortname;
 
     @Size(min=3,max=20)
-    @NotBlank(message = "University code is required")
+    @NotBlank(message = "Institute code is required")
     private String code;
 
     @Size(min=3,max=100)
-    @NotBlank(message = "University description is required")
+    @NotBlank(message = "Institute description is required")
     private String description;
 
     @OneToMany(mappedBy = "institute", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

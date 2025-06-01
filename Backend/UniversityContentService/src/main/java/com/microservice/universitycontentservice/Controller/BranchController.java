@@ -23,8 +23,6 @@ public class BranchController {
         this.branchService = branchService;
     }
 
-
-
     @GetMapping
     public ResponseEntity<List<BranchDTO>> getAllBranchesController() {
         List<BranchDTO> fetchAllBranches = branchService.getAllBranchesService();

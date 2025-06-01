@@ -10,4 +10,5 @@ public class BranchDTO {
     private String name;
     private String code;
     private String description;
+    private UUID courseId;
 }

@@ -8,17 +8,19 @@ import java.util.stream.Collectors;
 
 public class InstituteMapper {
 
-    public static InstituteDTO toDto(Institute entity) {
-        InstituteDTO dto = new InstituteDTO();
-        dto.setId(entity.getId());
-        dto.setName(entity.getName());
-        dto.setShortname(entity.getShortname());
-        dto.setCode(entity.getCode());
-        dto.setDescription(entity.getDescription());
+    public static InstituteDTO toDTO(Institute request) {
+        if (request == null) return null;
 
-        if (entity.getCourses() != null) {
-            List<CourseDTO> courseDto = entity.getCourses().stream()
-                    .map(CourseMapper::toDto)
+        InstituteDTO dto = new InstituteDTO();
+
+        dto.setId(request.getId());
+        dto.setName(request.getName());
+        dto.setShortname(request.getShortname());
+        dto.setCode(request.getCode());
+        dto.setDescription(request.getDescription());
+        if (request.getCourses() != null) {
+            List<CourseDTO> courseDto = request.getCourses().stream()
+                    .map(CourseMapper::toDTO)
                     .collect(Collectors.toList());
             dto.setCourses(courseDto);
         }
