@@ -1,10 +1,8 @@
 package com.microservice.universitycontentservice.Controller;
 
-import com.microservice.universitycontentservice.DTO.Mapper.CourseMapper;
 import com.microservice.universitycontentservice.DTO.CourseDTO;
 import com.microservice.universitycontentservice.Entity.Course;
 import com.microservice.universitycontentservice.Service.CourseService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-
 @RestController
 @RequestMapping("/api/course")
 public class CourseController {
@@ -21,32 +18,31 @@ public class CourseController {
     private final CourseService courseService;
 
     @Autowired
-    CourseController(CourseService courseService){
+    public CourseController(CourseService courseService) {
         this.courseService = courseService;
     }
 
     @GetMapping
     public ResponseEntity<List<CourseDTO>> getAllCoursesController() {
-        List<CourseDTO> fetchAllCourses = courseService.getAllCoursesService();
-        return new ResponseEntity<>(fetchAllCourses, HttpStatus.OK);
+        List<CourseDTO> allCourses = courseService.getAllCourses();
+        return new ResponseEntity<>(allCourses, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<CourseDTO> createCourseController(@RequestBody CourseDTO courseDTO) {
-        CourseDTO responseDTO = courseService.postCourseService(courseDTO);
-        return new ResponseEntity<>(responseDTO, HttpStatus.CREATED);
+    public ResponseEntity<CourseDTO> createCourseController(@RequestBody CourseDTO dto) {
+        CourseDTO createdCourse = courseService.createCourse(dto);
+        return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{courseId}")
     public ResponseEntity<String> deleteCourseController(@PathVariable UUID courseId) {
-        courseService.deleteCourseService(courseId);
-        return ResponseEntity.status(HttpStatus.OK).body("Course deleted successfully");
+        courseService.deleteCourse(courseId);
+        return ResponseEntity.ok("Course deleted successfully");
     }
 
     @PutMapping("/{courseId}")
-    public ResponseEntity<CourseDTO> updateCourseController(@PathVariable UUID courseId, @RequestBody Course course) {
-        CourseDTO updatedCourse = courseService.updateCourseService(courseId, course);
-        return ResponseEntity.status(HttpStatus.OK).body(updatedCourse);
+    public ResponseEntity<CourseDTO> updateCourseController(@PathVariable UUID courseId, @RequestBody Course updatedCourseData) {
+        CourseDTO updatedCourse = courseService.updateCourse(courseId, updatedCourseData);
+        return ResponseEntity.ok(updatedCourse);
     }
 }
-

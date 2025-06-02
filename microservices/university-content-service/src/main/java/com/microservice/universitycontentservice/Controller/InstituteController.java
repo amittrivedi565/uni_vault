@@ -18,31 +18,31 @@ public class InstituteController {
     private final InstituteService instituteService;
 
     @Autowired
-    InstituteController(InstituteService instituteService){
+    public InstituteController(InstituteService instituteService) {
         this.instituteService = instituteService;
     }
 
     @GetMapping
     public ResponseEntity<List<InstituteDTO>> getAllInstitutesController() {
-        List<InstituteDTO> fetchAllInstitutes = instituteService.getAllInstitutesService();
-        return new ResponseEntity<>(fetchAllInstitutes, HttpStatus.OK);
+        List<InstituteDTO> allInstitutes = instituteService.getAllInstitutes();
+        return new ResponseEntity<>(allInstitutes, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<InstituteDTO> createInstituteController(@RequestBody InstituteDTO institute) {
-        InstituteDTO createdInstitute = instituteService.postInstituteService(institute);
+    public ResponseEntity<InstituteDTO> createInstituteController(@RequestBody InstituteDTO dto) {
+        InstituteDTO createdInstitute = instituteService.createInstitute(dto);
         return new ResponseEntity<>(createdInstitute, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{instituteId}")
-    public ResponseEntity<String> deleteInstitute(@PathVariable UUID instituteId) {
-        instituteService.deleteInstituteService(instituteId);
-        return ResponseEntity.status(HttpStatus.OK).body("Institute deleted successfully");
+    public ResponseEntity<String> deleteInstituteController(@PathVariable UUID instituteId) {
+        instituteService.deleteInstitute(instituteId);
+        return ResponseEntity.ok("Institute deleted successfully");
     }
 
     @PutMapping("/{instituteId}")
     public ResponseEntity<InstituteDTO> updateInstituteController(@PathVariable UUID instituteId, @RequestBody Institute updatedInstituteData) {
-        InstituteDTO updatedInstitute = instituteService.updateInstituteService(instituteId, updatedInstituteData);
-        return new ResponseEntity<>(updatedInstitute, HttpStatus.OK);
+        InstituteDTO updatedInstitute = instituteService.updateInstitute(instituteId, updatedInstituteData);
+        return ResponseEntity.ok(updatedInstitute);
     }
 }

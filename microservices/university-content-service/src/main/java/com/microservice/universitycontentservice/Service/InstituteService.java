@@ -22,65 +22,53 @@ public class InstituteService {
 
     private final InstituteRepository instituteRepo;
 
-    public InstituteService(InstituteRepository instituteRepo){
+    public InstituteService(InstituteRepository instituteRepo) {
         this.instituteRepo = instituteRepo;
     }
 
-    public List<InstituteDTO> getAllInstitutesService() {
+    public List<InstituteDTO> getAllInstitutes() {
         try {
-            List<Institute> fetchedInstitutes = instituteRepo.findAll();
-
-            if (fetchedInstitutes.isEmpty()) {
-                logger.info("No institutes found in the database.");
-                return List.of();
-            }
-
-            return fetchedInstitutes.stream()
+            List<Institute> institutes = instituteRepo.findAll();
+            return institutes.stream()
                     .map(InstituteMapper::toDTO)
                     .collect(Collectors.toList());
-
         } catch (Exception e) {
-            logger.error("Error fetching institutes: {}", e.getMessage(), e);
+            logger.error("Error in getAllInstitutes: {}", e.getMessage(), e);
             throw new InstituteServiceException("An error occurred while fetching all institutes. Please try again later.");
         }
     }
 
-    public InstituteDTO postInstituteService(InstituteDTO institute) {
+    public InstituteDTO createInstitute(InstituteDTO dto) {
         try {
-            Optional<Institute> existingInstitute = instituteRepo.findByName(institute.getName());
-
+            Optional<Institute> existingInstitute = instituteRepo.findByName(dto.getName());
             if (existingInstitute.isPresent()) {
-                throw new InstituteServiceException("Institute " + institute.getName() + " already exists.");
+                throw new InstituteServiceException("Institute already exists with this name.");
             }
 
-            Institute entity = InstituteMapper.toEntity(institute);
-
+            Institute entity = InstituteMapper.toEntity(dto);
             Institute saved = instituteRepo.save(entity);
-
             return InstituteMapper.toDTO(saved);
-
         } catch (Exception e) {
-            logger.error("Unexpected error in postInstituteService: {}", e.getMessage(), e);
+            logger.error("Error in createInstitute", e);
             throw new InstituteServiceException("An error occurred while creating the institute. Please try again later.");
         }
     }
 
     @Transactional
-    public void deleteInstituteService(UUID instituteId) {
+    public void deleteInstitute(UUID instituteId) {
         try {
-
             instituteRepo.findById(instituteId)
                     .orElseThrow(() -> new InstituteServiceException("Institute with ID " + instituteId + " not found."));
-            instituteRepo.deleteById(instituteId);
 
+            instituteRepo.deleteById(instituteId);
         } catch (Exception e) {
-            logger.error("Unexpected error in deleteInstituteService: {}", e.getMessage(), e);
+            logger.error("Error in deleteInstitute: {}", e.getMessage(), e);
             throw new InstituteServiceException("An error occurred while deleting the institute. Please try again later.");
         }
     }
 
     @Transactional
-    public InstituteDTO updateInstituteService(UUID instituteId, Institute updatedInstituteData) {
+    public InstituteDTO updateInstitute(UUID instituteId, Institute updatedInstituteData) {
         try {
             Institute existingInstitute = instituteRepo.findById(instituteId)
                     .orElseThrow(() -> new InstituteServiceException("Institute with ID " + instituteId + " not found."));
@@ -90,11 +78,10 @@ public class InstituteService {
             existingInstitute.setCode(updatedInstituteData.getCode());
             existingInstitute.setDescription(updatedInstituteData.getDescription());
 
-            Institute updatedInstitute = instituteRepo.save(existingInstitute);
-            return InstituteMapper.toDTO(updatedInstitute);
-
+            Institute updated = instituteRepo.save(existingInstitute);
+            return InstituteMapper.toDTO(updated);
         } catch (Exception e) {
-            logger.error("Unexpected error in updateInstituteService: {}", e.getMessage(), e);
+            logger.error("Error in updateInstitute: {}", e.getMessage(), e);
             throw new InstituteServiceException("An error occurred while updating the institute. Please try again later.");
         }
     }

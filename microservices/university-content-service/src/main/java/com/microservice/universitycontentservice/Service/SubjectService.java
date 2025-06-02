@@ -52,7 +52,7 @@ public class SubjectService {
                 throw new SubjectServiceException("Subject already exists with this name.");
             }
 
-            Semester semester = semesterRepo.findById(subjectDTO.getSemesterId())
+            semesterRepo.findById(subjectDTO.getSemesterId())
                     .orElseThrow(() -> new SemesterServiceException("Semester not found with this ID."));
 
             Subject subjectEntity = SubjectMapper.toEntity(subjectDTO);
