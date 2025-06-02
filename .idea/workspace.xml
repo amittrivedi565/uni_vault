@@ -5,24 +5,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfb0fffb-45e7-433d-939e-fb1ae8bab105" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/YearDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Year/YearAlreadyExistsException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Year/YearNotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Year/YearServiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/BranchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/BranchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/InstituteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/InstituteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/BranchDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/BranchDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/CourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/CourseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/BranchMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/BranchMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/CourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/InstituteMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/InstituteMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/ErrorDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/ErrorDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/GlobalErrorHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/BranchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/BranchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/InstituteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/InstituteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/HELP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/BranchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/CourseController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Controller/InstituteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/BranchDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/CourseDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/InstituteDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/BranchMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/CourseMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/Mapper/InstituteMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/DTO/YearDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Branch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Institute.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Semester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Subject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Unit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Entity/Year.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Branch/BranchAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Branch/BranchNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Branch/BranchServiceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Course/CourseAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Course/CourseNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Course/CourseServiceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/ErrorDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/GlobalErrorHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Institute/InstituteAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Institute/InstituteNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Institute/InstituteServiceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Year/YearAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Year/YearNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Exceptions/Year/YearServiceException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Repository/BranchRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Repository/CourseRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Repository/InstituteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/BranchService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/CourseService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/Service/InstituteService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/microservice/universitycontentservice/UniversityContentServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/src/test/java/com/microservice/universitycontentservice/UniversityContentServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/UniversityContentService/target/classes/application.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,15 +87,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/amittrivedi/Desktop/UniVault Application"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/amittrivedi/Desktop/UniVault Application&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Backend/UniversityContentService/src/main/java/com/service" />
