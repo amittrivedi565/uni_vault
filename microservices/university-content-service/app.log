@@ -1,0 +1,1896 @@
+2025-06-02T22:39:39.757+05:30  INFO 14479 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 14479 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T22:39:39.758+05:30  INFO 14479 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T22:39:40.105+05:30  INFO 14479 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T22:39:40.141+05:30  INFO 14479 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 7 JPA repository interfaces.
+2025-06-02T22:39:40.389+05:30  INFO 14479 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T22:39:40.395+05:30  INFO 14479 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T22:39:40.396+05:30  INFO 14479 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T22:39:40.424+05:30  INFO 14479 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T22:39:40.424+05:30  INFO 14479 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 628 ms
+2025-06-02T22:39:40.505+05:30  INFO 14479 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T22:39:40.533+05:30  INFO 14479 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T22:39:40.547+05:30  INFO 14479 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T22:39:40.660+05:30  INFO 14479 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T22:39:40.679+05:30  INFO 14479 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T22:39:40.884+05:30  INFO 14479 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@598657cd
+2025-06-02T22:39:40.885+05:30  INFO 14479 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T22:39:40.913+05:30  WARN 14479 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7e81617a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6e73974)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3e28dc96) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@44eb2452)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@31940704) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@76b305e1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6be766d1)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7adae08e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@49c83262)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@273aaab7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5a48d186) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2086d469) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff)
+2025-06-02T22:39:40.924+05:30 DEBUG 14479 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17c53dfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@184de357)
+2025-06-02T22:39:41.389+05:30  INFO 14479 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T22:39:41.475+05:30  INFO 14479 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:39:41.774+05:30  WARN 14479 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T22:39:41.947+05:30  INFO 14479 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T22:39:41.953+05:30  INFO 14479 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.439 seconds (process running for 2.664)
+2025-06-02T22:39:56.565+05:30  INFO 14479 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-02T22:39:56.565+05:30  INFO 14479 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-02T22:39:56.570+05:30  INFO 14479 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2025-06-02T22:39:56.652+05:30 DEBUG 14479 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus,
+        s1_0.year_id 
+    from
+        semester s1_0
+2025-06-02T22:39:56.670+05:30 DEBUG 14479 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:41:15.793+05:30 DEBUG 14479 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.semester_id,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.name=?
+2025-06-02T22:41:15.803+05:30 DEBUG 14479 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus,
+        s1_0.year_id 
+    from
+        semester s1_0 
+    where
+        s1_0.id=?
+2025-06-02T22:41:15.819+05:30 DEBUG 14479 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        subject
+        (code, description, name, semester_id, shortname, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T22:41:53.693+05:30 DEBUG 14479 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0
+2025-06-02T22:41:53.704+05:30 DEBUG 14479 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-02T22:41:53.712+05:30 DEBUG 14479 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:41:53.715+05:30 DEBUG 14479 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:41:53.719+05:30 DEBUG 14479 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:42:02.968+05:30 DEBUG 14479 --- [http-nio-8090-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.semester_id,
+        s1_0.shortname 
+    from
+        subject s1_0
+2025-06-02T22:42:02.973+05:30 DEBUG 14479 --- [http-nio-8090-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:43:02.939+05:30 DEBUG 14479 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname,
+        u1_0.subject_id 
+    from
+        unit u1_0 
+    where
+        u1_0.name=?
+2025-06-02T22:43:02.948+05:30 DEBUG 14479 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.semester_id,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.id=?
+2025-06-02T22:43:02.956+05:30 DEBUG 14479 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        unit
+        (code, description, name, shortname, subject_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T22:43:06.084+05:30 DEBUG 14479 --- [http-nio-8090-exec-9] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0
+2025-06-02T22:43:06.088+05:30 DEBUG 14479 --- [http-nio-8090-exec-9] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-02T22:43:06.090+05:30 DEBUG 14479 --- [http-nio-8090-exec-9] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:43:06.093+05:30 DEBUG 14479 --- [http-nio-8090-exec-9] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:43:06.095+05:30 DEBUG 14479 --- [http-nio-8090-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:43:11.604+05:30 DEBUG 14479 --- [http-nio-8090-exec-10] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname,
+        u1_0.subject_id 
+    from
+        unit u1_0
+2025-06-02T22:43:42.775+05:30 DEBUG 14479 --- [http-nio-8090-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname,
+        u1_0.subject_id 
+    from
+        unit u1_0
+2025-06-02T22:44:06.414+05:30 DEBUG 14479 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0
+2025-06-02T22:44:06.420+05:30 DEBUG 14479 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:44:06.423+05:30 DEBUG 14479 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:44:06.425+05:30 DEBUG 14479 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:45:45.196+05:30 DEBUG 14479 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0
+2025-06-02T22:45:45.202+05:30 DEBUG 14479 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:45:45.205+05:30 DEBUG 14479 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:45:45.209+05:30 DEBUG 14479 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:46:15.251+05:30 DEBUG 14479 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.name=?
+2025-06-02T22:46:15.258+05:30 DEBUG 14479 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.id=?
+2025-06-02T22:46:15.262+05:30 ERROR 14479 --- [http-nio-8090-exec-8] c.m.u.Service.YearService                : Error in createYear
+
+com.microservice.universitycontentservice.Exceptions.Branch.BranchServiceException: Branch not found with this id.
+	at com.microservice.universitycontentservice.Service.YearService.lambda$createYear$0(YearService.java:54) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.microservice.universitycontentservice.Service.YearService.createYear(YearService.java:54) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.microservice.universitycontentservice.Service.YearService$$SpringCGLIB$$0.createYear(<generated>) ~[classes/:na]
+	at com.microservice.universitycontentservice.Controller.YearController.createYearController(YearController.java:33) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-06-02T22:46:19.473+05:30  INFO 14479 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:46:19.479+05:30  INFO 14479 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T22:46:19.484+05:30  INFO 14479 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T22:46:20.791+05:30  INFO 14556 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 14556 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T22:46:20.792+05:30  INFO 14556 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T22:46:21.290+05:30  INFO 14556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T22:46:21.328+05:30  INFO 14556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 7 JPA repository interfaces.
+2025-06-02T22:46:21.574+05:30  INFO 14556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T22:46:21.580+05:30  INFO 14556 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T22:46:21.580+05:30  INFO 14556 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T22:46:21.607+05:30  INFO 14556 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T22:46:21.608+05:30  INFO 14556 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 769 ms
+2025-06-02T22:46:21.683+05:30  INFO 14556 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T22:46:21.712+05:30  INFO 14556 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T22:46:21.726+05:30  INFO 14556 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T22:46:21.845+05:30  INFO 14556 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T22:46:21.861+05:30  INFO 14556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T22:46:22.092+05:30  INFO 14556 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cfcac13
+2025-06-02T22:46:22.093+05:30  INFO 14556 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T22:46:22.127+05:30  WARN 14556 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@31940704) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@273aaab7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5a48d186) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2086d469) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17c53dfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@184de357)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@efe49ab) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6dcf7b6a)
+2025-06-02T22:46:22.138+05:30 DEBUG 14556 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@53dba9cd) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@247bbfba)
+2025-06-02T22:46:22.587+05:30  INFO 14556 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T22:46:22.679+05:30  INFO 14556 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:46:22.980+05:30  WARN 14556 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T22:46:23.152+05:30  INFO 14556 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T22:46:23.157+05:30  INFO 14556 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.668 seconds (process running for 2.922)
+2025-06-02T22:46:26.519+05:30  INFO 14556 --- [http-nio-8090-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-02T22:46:26.519+05:30  INFO 14556 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-02T22:46:26.521+05:30  INFO 14556 --- [http-nio-8090-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-02T22:46:26.648+05:30 DEBUG 14556 --- [http-nio-8090-exec-1] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.name=?
+2025-06-02T22:46:26.661+05:30 DEBUG 14556 --- [http-nio-8090-exec-1] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.id=?
+2025-06-02T22:46:26.669+05:30 ERROR 14556 --- [http-nio-8090-exec-1] c.m.u.Service.YearService                : Error in createYear
+
+com.microservice.universitycontentservice.Exceptions.Branch.BranchServiceException: Branch not found with this id.
+	at com.microservice.universitycontentservice.Service.YearService.lambda$createYear$0(YearService.java:54) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.microservice.universitycontentservice.Service.YearService.createYear(YearService.java:54) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.microservice.universitycontentservice.Service.YearService$$SpringCGLIB$$0.createYear(<generated>) ~[classes/:na]
+	at com.microservice.universitycontentservice.Controller.YearController.createYearController(YearController.java:33) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-06-02T22:46:45.343+05:30 DEBUG 14556 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0
+2025-06-02T22:46:45.371+05:30 DEBUG 14556 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-02T22:46:45.373+05:30 DEBUG 14556 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:46:45.376+05:30 DEBUG 14556 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:46:45.378+05:30 DEBUG 14556 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:47:01.972+05:30 DEBUG 14556 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.name=?
+2025-06-02T22:47:01.977+05:30 DEBUG 14556 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.id=?
+2025-06-02T22:47:02.005+05:30 DEBUG 14556 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        year
+        (branch_id, code, name, id) 
+    values
+        (?, ?, ?, ?)
+2025-06-02T22:47:58.036+05:30 DEBUG 14556 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.id=?
+2025-06-02T22:47:58.046+05:30 DEBUG 14556 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:47:58.053+05:30 DEBUG 14556 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    delete 
+    from
+        year 
+    where
+        id=?
+2025-06-02T22:48:07.764+05:30 DEBUG 14556 --- [http-nio-8090-exec-7] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0
+2025-06-02T22:48:07.769+05:30 DEBUG 14556 --- [http-nio-8090-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:48:07.772+05:30 DEBUG 14556 --- [http-nio-8090-exec-7] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:48:07.774+05:30 DEBUG 14556 --- [http-nio-8090-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:49:01.906+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0
+2025-06-02T22:49:01.917+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        c1_0.institute_id,
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.institute_id=?
+2025-06-02T22:49:01.919+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        b1_0.course_id,
+        b1_0.id,
+        b1_0.code,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.course_id=?
+2025-06-02T22:49:01.920+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-02T22:49:01.922+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:49:01.922+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:49:01.923+05:30 DEBUG 14556 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:49:58.951+05:30  INFO 14556 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:49:58.954+05:30  INFO 14556 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T22:49:58.960+05:30  INFO 14556 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T22:50:00.300+05:30  INFO 14572 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 14572 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T22:50:00.301+05:30  INFO 14572 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T22:50:00.690+05:30  INFO 14572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T22:50:00.730+05:30  INFO 14572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 7 JPA repository interfaces.
+2025-06-02T22:50:01.036+05:30  INFO 14572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T22:50:01.041+05:30  INFO 14572 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T22:50:01.042+05:30  INFO 14572 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T22:50:01.066+05:30  INFO 14572 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T22:50:01.066+05:30  INFO 14572 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 719 ms
+2025-06-02T22:50:01.144+05:30  INFO 14572 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T22:50:01.169+05:30  INFO 14572 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T22:50:01.182+05:30  INFO 14572 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T22:50:01.288+05:30  INFO 14572 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T22:50:01.306+05:30  INFO 14572 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T22:50:01.480+05:30  INFO 14572 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@19dac2d6
+2025-06-02T22:50:01.481+05:30  INFO 14572 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T22:50:01.515+05:30  WARN 14572 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T22:50:01.529+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@51132514) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@20864cd1)
+2025-06-02T22:50:01.529+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5c839677) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3193e21d)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@79604abe) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6b126187)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2b6262bc) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5cffec7)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7e81617a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6e73974)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e28dc96) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@44eb2452)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@31940704) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@e07b4db)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6be766d1)
+2025-06-02T22:50:01.530+05:30 DEBUG 14572 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@49c83262)
+2025-06-02T22:50:01.976+05:30  INFO 14572 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T22:50:02.061+05:30  INFO 14572 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:50:02.363+05:30  WARN 14572 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T22:50:02.573+05:30  INFO 14572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T22:50:02.579+05:30  INFO 14572 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.578 seconds (process running for 2.84)
+2025-06-02T22:50:14.498+05:30  INFO 14572 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-02T22:50:14.499+05:30  INFO 14572 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-02T22:50:14.500+05:30  INFO 14572 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-02T22:51:10.434+05:30  INFO 14572 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:51:10.436+05:30  INFO 14572 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T22:51:10.439+05:30  INFO 14572 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T22:51:11.544+05:30  INFO 14583 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 14583 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T22:51:11.545+05:30  INFO 14583 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T22:51:11.910+05:30  INFO 14583 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T22:51:11.942+05:30  INFO 14583 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28 ms. Found 7 JPA repository interfaces.
+2025-06-02T22:51:12.173+05:30  INFO 14583 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T22:51:12.179+05:30  INFO 14583 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T22:51:12.179+05:30  INFO 14583 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T22:51:12.203+05:30  INFO 14583 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T22:51:12.204+05:30  INFO 14583 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 621 ms
+2025-06-02T22:51:12.275+05:30  INFO 14583 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T22:51:12.297+05:30  INFO 14583 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T22:51:12.309+05:30  INFO 14583 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T22:51:12.409+05:30  INFO 14583 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T22:51:12.427+05:30  INFO 14583 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T22:51:12.600+05:30  INFO 14583 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@60a01cb
+2025-06-02T22:51:12.601+05:30  INFO 14583 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T22:51:12.631+05:30  WARN 14583 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@59a2d756) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@165d1d54)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@4be12f6c) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@52cb52bd)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@1d1c37d5) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@63553e9f)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@218df7d6) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@295b07e0)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@55053f81) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@1fee4278)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@51132514) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@20864cd1)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5c839677) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3193e21d)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@79604abe) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6b126187)
+2025-06-02T22:51:12.646+05:30 DEBUG 14583 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2b6262bc) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5cffec7)
+2025-06-02T22:51:13.088+05:30  INFO 14583 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T22:51:13.163+05:30  INFO 14583 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:51:13.476+05:30  WARN 14583 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T22:51:13.692+05:30  INFO 14583 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T22:51:13.698+05:30  INFO 14583 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.403 seconds (process running for 2.635)
+2025-06-02T22:51:18.746+05:30  INFO 14583 --- [http-nio-8090-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-02T22:51:18.746+05:30  INFO 14583 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-02T22:51:18.747+05:30  INFO 14583 --- [http-nio-8090-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-02T22:51:18.868+05:30 DEBUG 14583 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.institute_id,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.name=?
+2025-06-02T22:51:18.880+05:30 DEBUG 14583 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0 
+    where
+        i1_0.id=?
+2025-06-02T22:51:18.902+05:30 DEBUG 14583 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        course
+        (code, description, institute_id, name, shortname, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T22:51:28.295+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.institute_id,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0
+2025-06-02T22:51:28.311+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        b1_0.course_id,
+        b1_0.id,
+        b1_0.code,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.course_id=?
+2025-06-02T22:51:28.315+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-02T22:51:28.318+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T22:51:28.320+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T22:51:28.322+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T22:51:28.323+05:30 DEBUG 14583 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        b1_0.course_id,
+        b1_0.id,
+        b1_0.code,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.course_id=?
+2025-06-02T22:58:29.347+05:30  INFO 14583 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:58:29.350+05:30  INFO 14583 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T22:58:29.356+05:30  INFO 14583 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T22:58:30.563+05:30  INFO 14631 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 14631 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T22:58:30.564+05:30  INFO 14631 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T22:58:30.926+05:30  INFO 14631 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T22:58:30.964+05:30  INFO 14631 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 34 ms. Found 7 JPA repository interfaces.
+2025-06-02T22:58:31.199+05:30  INFO 14631 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T22:58:31.205+05:30  INFO 14631 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T22:58:31.206+05:30  INFO 14631 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T22:58:31.230+05:30  INFO 14631 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T22:58:31.231+05:30  INFO 14631 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 625 ms
+2025-06-02T22:58:31.306+05:30  INFO 14631 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T22:58:31.329+05:30  INFO 14631 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T22:58:31.341+05:30  INFO 14631 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T22:58:31.451+05:30  INFO 14631 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T22:58:31.468+05:30  INFO 14631 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T22:58:31.644+05:30  INFO 14631 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c25d0d1
+2025-06-02T22:58:31.645+05:30  INFO 14631 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T22:58:31.672+05:30  WARN 14631 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@273aaab7)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5a48d186)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2086d469)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@17c53dfb)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@184de357) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@efe49ab)
+2025-06-02T22:58:31.687+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6dcf7b6a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@53dba9cd)
+2025-06-02T22:58:31.688+05:30 DEBUG 14631 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@247bbfba) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5834198f)
+2025-06-02T22:58:32.122+05:30  INFO 14631 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T22:58:32.129+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table branch 
+       drop 
+       foreign key FKpvy9siypglx2ib0jevtuttgbq
+2025-06-02T22:58:32.170+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table course 
+       drop 
+       foreign key FKbyyciv7mbmmkp7e6t9db0m9w4
+2025-06-02T22:58:32.180+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table semester 
+       drop 
+       foreign key FK7w0wxawgsexa0ifu262tob1ep
+2025-06-02T22:58:32.202+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table subject 
+       drop 
+       foreign key FKmphheehxn35mmxxh67nnexukv
+2025-06-02T22:58:32.214+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table unit 
+       drop 
+       foreign key FKtkr779s2vm6m1sb9m3idspig1
+2025-06-02T22:58:32.221+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table year 
+       drop 
+       foreign key FKiydqk5nc9fu9w1o90j927xppg
+2025-06-02T22:58:32.227+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists branch
+2025-06-02T22:58:32.236+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists course
+2025-06-02T22:58:32.241+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists institute
+2025-06-02T22:58:32.243+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists semester
+2025-06-02T22:58:32.246+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists subject
+2025-06-02T22:58:32.254+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists unit
+2025-06-02T22:58:32.257+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    drop table if exists year
+2025-06-02T22:58:32.265+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table branch (
+        course_id binary(16) not null,
+        id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.272+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table course (
+        id binary(16) not null,
+        institute_id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.277+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table institute (
+        id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.280+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table semester (
+        id binary(16) not null,
+        year_id binary(16) not null,
+        code varchar(255),
+        name varchar(255),
+        syllabus varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.284+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table subject (
+        id binary(16) not null,
+        semester_id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.287+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table unit (
+        id binary(16) not null,
+        subject_id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.291+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    create table year (
+        branch_id binary(16) not null,
+        id binary(16) not null,
+        code varchar(255),
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T22:58:32.294+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table branch 
+       add constraint FKpvy9siypglx2ib0jevtuttgbq 
+       foreign key (course_id) 
+       references course (id)
+2025-06-02T22:58:32.307+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table course 
+       add constraint FKbyyciv7mbmmkp7e6t9db0m9w4 
+       foreign key (institute_id) 
+       references institute (id)
+2025-06-02T22:58:32.322+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table semester 
+       add constraint FK7w0wxawgsexa0ifu262tob1ep 
+       foreign key (year_id) 
+       references year (id)
+2025-06-02T22:58:32.359+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table subject 
+       add constraint FKmphheehxn35mmxxh67nnexukv 
+       foreign key (semester_id) 
+       references semester (id)
+2025-06-02T22:58:32.370+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table unit 
+       add constraint FKtkr779s2vm6m1sb9m3idspig1 
+       foreign key (subject_id) 
+       references subject (id)
+2025-06-02T22:58:32.381+05:30 DEBUG 14631 --- [main] org.hibernate.SQL                        : 
+    alter table year 
+       add constraint FKiydqk5nc9fu9w1o90j927xppg 
+       foreign key (branch_id) 
+       references branch (id)
+2025-06-02T22:58:32.393+05:30  INFO 14631 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T22:58:32.716+05:30  WARN 14631 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T22:58:32.886+05:30  INFO 14631 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T22:58:32.892+05:30  INFO 14631 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.574 seconds (process running for 2.811)
+2025-06-02T23:04:22.505+05:30  INFO 14631 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:04:22.510+05:30  INFO 14631 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T23:04:22.521+05:30  INFO 14631 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T23:04:23.982+05:30  INFO 15429 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 15429 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T23:04:23.984+05:30  INFO 15429 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T23:04:24.394+05:30  INFO 15429 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T23:04:24.437+05:30  INFO 15429 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38 ms. Found 7 JPA repository interfaces.
+2025-06-02T23:04:24.711+05:30  INFO 15429 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T23:04:24.718+05:30  INFO 15429 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T23:04:24.718+05:30  INFO 15429 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T23:04:24.744+05:30  INFO 15429 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T23:04:24.744+05:30  INFO 15429 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 704 ms
+2025-06-02T23:04:24.822+05:30  INFO 15429 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T23:04:24.848+05:30  INFO 15429 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T23:04:24.862+05:30  INFO 15429 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T23:04:24.989+05:30  INFO 15429 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T23:04:25.006+05:30  INFO 15429 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T23:04:25.239+05:30  INFO 15429 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cfcac13
+2025-06-02T23:04:25.240+05:30  INFO 15429 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T23:04:25.267+05:30  WARN 15429 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T23:04:25.279+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@31940704) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db)
+2025-06-02T23:04:25.279+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@273aaab7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5a48d186) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2086d469) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17c53dfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@184de357)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@efe49ab) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6dcf7b6a)
+2025-06-02T23:04:25.280+05:30 DEBUG 15429 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@53dba9cd) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@247bbfba)
+2025-06-02T23:04:25.751+05:30  INFO 15429 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T23:04:25.757+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table branch 
+       drop 
+       foreign key FKpvy9siypglx2ib0jevtuttgbq
+2025-06-02T23:04:25.791+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table course 
+       drop 
+       foreign key FKbyyciv7mbmmkp7e6t9db0m9w4
+2025-06-02T23:04:25.801+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table semester 
+       drop 
+       foreign key FK7w0wxawgsexa0ifu262tob1ep
+2025-06-02T23:04:25.812+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table subject 
+       drop 
+       foreign key FKmphheehxn35mmxxh67nnexukv
+2025-06-02T23:04:25.823+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table unit 
+       drop 
+       foreign key FKtkr779s2vm6m1sb9m3idspig1
+2025-06-02T23:04:25.826+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table year 
+       drop 
+       foreign key FKiydqk5nc9fu9w1o90j927xppg
+2025-06-02T23:04:25.832+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists branch
+2025-06-02T23:04:25.837+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists course
+2025-06-02T23:04:25.839+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists institute
+2025-06-02T23:04:25.842+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists semester
+2025-06-02T23:04:25.844+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists subject
+2025-06-02T23:04:25.847+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists unit
+2025-06-02T23:04:25.850+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    drop table if exists year
+2025-06-02T23:04:25.855+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table branch (
+        course_id binary(16) not null,
+        id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.860+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table course (
+        id binary(16) not null,
+        institute_id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.864+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table institute (
+        id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.867+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table semester (
+        id binary(16) not null,
+        year_id binary(16) not null,
+        code varchar(255),
+        name varchar(255),
+        syllabus varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.870+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table subject (
+        id binary(16) not null,
+        semester_id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.873+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table unit (
+        id binary(16) not null,
+        subject_id binary(16) not null,
+        code varchar(255),
+        description varchar(255),
+        name varchar(255),
+        shortname varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.876+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    create table year (
+        branch_id binary(16) not null,
+        id binary(16) not null,
+        code varchar(255),
+        name varchar(255),
+        primary key (id)
+    ) engine=InnoDB
+2025-06-02T23:04:25.881+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table branch 
+       add constraint FKpvy9siypglx2ib0jevtuttgbq 
+       foreign key (course_id) 
+       references course (id)
+2025-06-02T23:04:25.895+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table course 
+       add constraint FKbyyciv7mbmmkp7e6t9db0m9w4 
+       foreign key (institute_id) 
+       references institute (id)
+2025-06-02T23:04:25.904+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table semester 
+       add constraint FK7w0wxawgsexa0ifu262tob1ep 
+       foreign key (year_id) 
+       references year (id)
+2025-06-02T23:04:25.913+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table subject 
+       add constraint FKmphheehxn35mmxxh67nnexukv 
+       foreign key (semester_id) 
+       references semester (id)
+2025-06-02T23:04:25.921+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table unit 
+       add constraint FKtkr779s2vm6m1sb9m3idspig1 
+       foreign key (subject_id) 
+       references subject (id)
+2025-06-02T23:04:25.931+05:30 DEBUG 15429 --- [main] org.hibernate.SQL                        : 
+    alter table year 
+       add constraint FKiydqk5nc9fu9w1o90j927xppg 
+       foreign key (branch_id) 
+       references branch (id)
+2025-06-02T23:04:25.942+05:30  INFO 15429 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:04:26.264+05:30  WARN 15429 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T23:04:26.446+05:30  INFO 15429 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T23:04:26.451+05:30  INFO 15429 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.736 seconds (process running for 3.056)
+2025-06-02T23:04:32.382+05:30  INFO 15429 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:04:32.383+05:30  INFO 15429 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T23:04:32.386+05:30  INFO 15429 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T23:04:33.513+05:30  INFO 15436 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 15436 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T23:04:33.514+05:30  INFO 15436 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T23:04:33.850+05:30  INFO 15436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T23:04:33.886+05:30  INFO 15436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 7 JPA repository interfaces.
+2025-06-02T23:04:34.123+05:30  INFO 15436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T23:04:34.129+05:30  INFO 15436 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T23:04:34.129+05:30  INFO 15436 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T23:04:34.156+05:30  INFO 15436 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T23:04:34.156+05:30  INFO 15436 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 605 ms
+2025-06-02T23:04:34.230+05:30  INFO 15436 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T23:04:34.252+05:30  INFO 15436 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T23:04:34.265+05:30  INFO 15436 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T23:04:34.370+05:30  INFO 15436 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T23:04:34.387+05:30  INFO 15436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T23:04:34.557+05:30  INFO 15436 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e2bc2f4
+2025-06-02T23:04:34.558+05:30  INFO 15436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T23:04:34.586+05:30  WARN 15436 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@20864cd1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5c839677)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@3193e21d) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@79604abe)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6b126187) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@2b6262bc)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5cffec7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7e81617a)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6e73974) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@3e28dc96)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@44eb2452) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@31940704)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@76b305e1)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@7adae08e)
+2025-06-02T23:04:34.601+05:30 DEBUG 15436 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@273aaab7)
+2025-06-02T23:04:35.207+05:30  INFO 15436 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T23:04:35.325+05:30  INFO 15436 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:04:35.644+05:30  WARN 15436 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T23:04:35.821+05:30  INFO 15436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T23:04:35.827+05:30  INFO 15436 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.546 seconds (process running for 2.785)
+2025-06-02T23:04:38.511+05:30  INFO 15436 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-02T23:04:38.511+05:30  INFO 15436 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-02T23:04:38.512+05:30  INFO 15436 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-02T23:04:38.629+05:30 DEBUG 15436 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0 
+    where
+        i1_0.name=?
+2025-06-02T23:04:38.643+05:30 DEBUG 15436 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname,
+        c1_0.institute_id,
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        institute i1_0 
+    left join
+        course c1_0 
+            on i1_0.id=c1_0.institute_id 
+    where
+        i1_0.id=?
+2025-06-02T23:04:38.655+05:30 DEBUG 15436 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        institute
+        (code, description, name, shortname, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-06-02T23:05:01.297+05:30 DEBUG 15436 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.institute_id,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.name=?
+2025-06-02T23:05:01.311+05:30 DEBUG 15436 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0 
+    where
+        i1_0.id=?
+2025-06-02T23:05:01.314+05:30 ERROR 15436 --- [http-nio-8090-exec-3] c.m.u.Service.CourseService              : Error in createCourse
+
+com.microservice.universitycontentservice.Exceptions.Institute.InstituteServiceException: Institute not found with this ID.
+	at com.microservice.universitycontentservice.Service.CourseService.lambda$createCourse$0(CourseService.java:56) ~[classes/:na]
+	at java.base/java.util.Optional.orElseThrow(Optional.java:403) ~[na:na]
+	at com.microservice.universitycontentservice.Service.CourseService.createCourse(CourseService.java:56) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.microservice.universitycontentservice.Service.CourseService$$SpringCGLIB$$0.createCourse(<generated>) ~[classes/:na]
+	at com.microservice.universitycontentservice.Controller.CourseController.createCourseController(CourseController.java:33) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-06-02T23:05:11.682+05:30  INFO 15436 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:05:11.684+05:30  INFO 15436 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T23:05:11.688+05:30  INFO 15436 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-02T23:05:12.890+05:30  INFO 15455 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 15455 (/Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault Application/microservices/university-content-service)
+2025-06-02T23:05:12.891+05:30  INFO 15455 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-02T23:05:13.255+05:30  INFO 15455 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-02T23:05:13.288+05:30  INFO 15455 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 7 JPA repository interfaces.
+2025-06-02T23:05:13.522+05:30  INFO 15455 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-02T23:05:13.528+05:30  INFO 15455 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-02T23:05:13.529+05:30  INFO 15455 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-02T23:05:13.553+05:30  INFO 15455 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-02T23:05:13.554+05:30  INFO 15455 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 629 ms
+2025-06-02T23:05:13.628+05:30  INFO 15455 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-02T23:05:13.650+05:30  INFO 15455 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-02T23:05:13.663+05:30  INFO 15455 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-02T23:05:13.766+05:30  INFO 15455 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-02T23:05:13.785+05:30  INFO 15455 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-02T23:05:14.063+05:30  INFO 15455 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c25d0d1
+2025-06-02T23:05:14.064+05:30  INFO 15455 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-02T23:05:14.093+05:30  WARN 15455 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-02T23:05:14.107+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1)
+2025-06-02T23:05:14.107+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e)
+2025-06-02T23:05:14.107+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@273aaab7)
+2025-06-02T23:05:14.107+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5a48d186)
+2025-06-02T23:05:14.107+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2086d469)
+2025-06-02T23:05:14.107+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@17c53dfb)
+2025-06-02T23:05:14.108+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@184de357) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@efe49ab)
+2025-06-02T23:05:14.108+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6dcf7b6a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@53dba9cd)
+2025-06-02T23:05:14.108+05:30 DEBUG 15455 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@247bbfba) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5834198f)
+2025-06-02T23:05:14.670+05:30  INFO 15455 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-02T23:05:14.753+05:30  INFO 15455 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:05:15.089+05:30  WARN 15455 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-02T23:05:15.255+05:30  INFO 15455 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-02T23:05:15.260+05:30  INFO 15455 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.612 seconds (process running for 2.856)
+2025-06-02T23:05:21.977+05:30  INFO 15455 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-02T23:05:21.977+05:30  INFO 15455 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-02T23:05:21.978+05:30  INFO 15455 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-02T23:05:22.098+05:30 DEBUG 15455 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0 
+    where
+        i1_0.name=?
+2025-06-02T23:05:22.108+05:30 ERROR 15455 --- [http-nio-8090-exec-2] c.m.u.Service.InstituteService           : Error in createInstitute
+
+com.microservice.universitycontentservice.Exceptions.Institute.InstituteServiceException: Institute already exists with this name.
+	at com.microservice.universitycontentservice.Service.InstituteService.createInstitute(InstituteService.java:45) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:351) ~[spring-aop-6.1.4.jar:6.1.4]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713) ~[spring-aop-6.1.4.jar:6.1.4]
+	at com.microservice.universitycontentservice.Service.InstituteService$$SpringCGLIB$$0.createInstitute(<generated>) ~[classes/:na]
+	at com.microservice.universitycontentservice.Controller.InstituteController.createInstituteController(InstituteController.java:33) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:259) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:192) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:920) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:830) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.4.jar:6.1.4]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.19.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.4.jar:6.1.4]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.19.jar:10.1.19]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-06-02T23:05:33.037+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0
+2025-06-02T23:05:33.052+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.institute_id,
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.institute_id=?
+2025-06-02T23:05:53.743+05:30 DEBUG 15455 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.institute_id,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.name=?
+2025-06-02T23:05:53.757+05:30 DEBUG 15455 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0 
+    where
+        i1_0.id=?
+2025-06-02T23:05:53.778+05:30 DEBUG 15455 --- [http-nio-8090-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        course
+        (code, description, institute_id, name, shortname, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T23:06:46.668+05:30 DEBUG 15455 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.name=?
+2025-06-02T23:06:46.676+05:30 DEBUG 15455 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.institute_id,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.id=?
+2025-06-02T23:06:46.692+05:30 DEBUG 15455 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname,
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        branch b1_0 
+    left join
+        year y1_0 
+            on b1_0.id=y1_0.branch_id 
+    where
+        b1_0.id=?
+2025-06-02T23:06:46.695+05:30 DEBUG 15455 --- [http-nio-8090-exec-6] org.hibernate.SQL                        : 
+    insert 
+    into
+        branch
+        (code, course_id, description, name, shortname, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T23:07:50.511+05:30 DEBUG 15455 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.name=?
+2025-06-02T23:07:50.519+05:30 DEBUG 15455 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    select
+        b1_0.id,
+        b1_0.code,
+        b1_0.course_id,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.id=?
+2025-06-02T23:07:50.526+05:30 DEBUG 15455 --- [http-nio-8090-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        year
+        (branch_id, code, name, id) 
+    values
+        (?, ?, ?, ?)
+2025-06-02T23:08:18.867+05:30 DEBUG 15455 --- [http-nio-8090-exec-10] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus,
+        s1_0.year_id 
+    from
+        semester s1_0 
+    where
+        s1_0.name=?
+2025-06-02T23:08:18.874+05:30 DEBUG 15455 --- [http-nio-8090-exec-10] org.hibernate.SQL                        : 
+    select
+        y1_0.id,
+        y1_0.branch_id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.id=?
+2025-06-02T23:08:18.881+05:30 DEBUG 15455 --- [http-nio-8090-exec-10] org.hibernate.SQL                        : 
+    insert 
+    into
+        semester
+        (code, name, syllabus, year_id, id) 
+    values
+        (?, ?, ?, ?, ?)
+2025-06-02T23:08:58.685+05:30 DEBUG 15455 --- [http-nio-8090-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.semester_id,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.name=?
+2025-06-02T23:08:58.690+05:30 DEBUG 15455 --- [http-nio-8090-exec-1] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus,
+        s1_0.year_id 
+    from
+        semester s1_0 
+    where
+        s1_0.id=?
+2025-06-02T23:08:58.699+05:30 DEBUG 15455 --- [http-nio-8090-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        subject
+        (code, description, name, semester_id, shortname, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T23:09:30.662+05:30 DEBUG 15455 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname,
+        u1_0.subject_id 
+    from
+        unit u1_0 
+    where
+        u1_0.name=?
+2025-06-02T23:09:30.667+05:30 DEBUG 15455 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.semester_id,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.id=?
+2025-06-02T23:09:30.676+05:30 DEBUG 15455 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        unit
+        (code, description, name, shortname, subject_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2025-06-02T23:10:08.829+05:30 DEBUG 15455 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    select
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.semester_id,
+        s1_0.shortname 
+    from
+        subject s1_0
+2025-06-02T23:10:08.839+05:30 DEBUG 15455 --- [http-nio-8090-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T23:10:17.856+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        i1_0.id,
+        i1_0.code,
+        i1_0.description,
+        i1_0.name,
+        i1_0.shortname 
+    from
+        institute i1_0
+2025-06-02T23:10:17.859+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        c1_0.institute_id,
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0 
+    where
+        c1_0.institute_id=?
+2025-06-02T23:10:17.862+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        b1_0.course_id,
+        b1_0.id,
+        b1_0.code,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.course_id=?
+2025-06-02T23:10:17.866+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-02T23:10:17.871+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-02T23:10:17.874+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-02T23:10:17.876+05:30 DEBUG 15455 --- [http-nio-8090-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-02T23:10:54.797+05:30  INFO 15455 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-02T23:10:54.800+05:30  INFO 15455 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-02T23:10:54.804+05:30  INFO 15455 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
