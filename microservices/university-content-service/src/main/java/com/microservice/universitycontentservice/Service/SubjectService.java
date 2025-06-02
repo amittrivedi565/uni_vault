@@ -55,7 +55,7 @@ public class SubjectService {
             }
 
             semesterRepo.findById(subjectDTO.getSemesterId())
-                    .orElseThrow(() -> new SemesterServiceException("Semester not found with this ID."));
+                    .orElseThrow(() -> new SubjectServiceException("Semester not found with this ID."));
 
             Subject subjectEntity = SubjectMapper.toEntity(subjectDTO);
             Subject savedSubject = subjectRepo.save(subjectEntity);

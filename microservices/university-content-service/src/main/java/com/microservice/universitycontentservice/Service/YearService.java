@@ -3,7 +3,6 @@ package com.microservice.universitycontentservice.Service;
 import com.microservice.universitycontentservice.DTO.YearDTO;
 import com.microservice.universitycontentservice.DTO.Mapper.YearMapper;
 import com.microservice.universitycontentservice.Entity.Year;
-import com.microservice.universitycontentservice.Exceptions.Branch.BranchServiceException;
 import com.microservice.universitycontentservice.Exceptions.Subject.SubjectServiceException;
 import com.microservice.universitycontentservice.Exceptions.Year.YearServiceException;
 import com.microservice.universitycontentservice.Repository.BranchRepository;

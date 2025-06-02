@@ -44,6 +44,12 @@ public class InstituteService {
 
     public InstituteDTO createInstitute(InstituteDTO dto) {
         try {
+             Optional<Institute> duplicateRecordChecking = instituteRepo.findByName(dto.getName());
+
+            if(duplicateRecordChecking.isPresent()){
+                throw new InstituteServiceException("Institute with this data already exists");
+            }
+
             Institute entity = InstituteMapper.toEntity(dto);
             Institute saved = instituteRepo.save(entity);
             return InstituteMapper.toDTO(saved);

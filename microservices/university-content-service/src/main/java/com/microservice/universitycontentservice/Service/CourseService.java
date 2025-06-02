@@ -55,7 +55,7 @@ public class CourseService {
             }
 
             Institute institute = instituteRepo.findById(courseDTO.getInstituteId())
-                    .orElseThrow(() -> new InstituteServiceException("Institute not found with this ID."));
+                    .orElseThrow(() -> new CourseServiceException("Institute not found with this ID."));
 
             Course courseEntity = CourseMapper.toEntity(courseDTO);
             courseEntity.setInstitute(institute);

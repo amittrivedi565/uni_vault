@@ -54,7 +54,7 @@ public class BranchService {
             }
 
             Course course = courseRepo.findById(branchDTO.getCourseId())
-                    .orElseThrow(() -> new CourseServiceException("Course not found with this id."));
+                    .orElseThrow(() -> new BranchServiceException("Course not found with this id."));
 
             Branch branchEntity = BranchMapper.toEntity(branchDTO, course);
 

@@ -55,7 +55,7 @@ public class SemesterService {
             }
 
             yearRepo.findById(semesterDTO.getYearId())
-                    .orElseThrow(() -> new YearServiceException("Year not found with this id."));
+                    .orElseThrow(() -> new SemesterServiceException("Year not found with this id."));
 
             Semester semesterEntity = SemesterMapper.toEntity(semesterDTO);
 
