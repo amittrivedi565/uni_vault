@@ -39,6 +39,8 @@ public class SubjectService {
             return subjects.stream()
                     .map(SubjectMapper::toDTO)
                     .collect(Collectors.toList());
+        } catch (SubjectServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in getAllSubjects: {}", e.getMessage());
             throw new SubjectServiceException("An error occurred while fetching all subjects. Please try again later.");
@@ -59,6 +61,8 @@ public class SubjectService {
             Subject savedSubject = subjectRepo.save(subjectEntity);
 
             return SubjectMapper.toDTO(savedSubject);
+        } catch (SubjectServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createSubject", e);
             throw new SubjectServiceException("An error occurred while creating the subject. Please try again later.");
@@ -73,6 +77,8 @@ public class SubjectService {
 
             subjectRepo.deleteById(subjectId);
 
+        } catch (SubjectServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteSubject: {}", e.getMessage());
             throw new SubjectServiceException("An error occurred while deleting the subject. Please try again later.");
@@ -93,6 +99,8 @@ public class SubjectService {
             Subject updatedSubject = subjectRepo.save(existingSubject);
             return SubjectMapper.toDTO(updatedSubject);
 
+        } catch (SubjectServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateSubject: {}", e.getMessage());
             throw new SubjectServiceException("An error occurred while updating the subject. Please try again later.");

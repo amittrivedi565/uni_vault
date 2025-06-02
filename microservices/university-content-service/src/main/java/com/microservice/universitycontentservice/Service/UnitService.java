@@ -39,6 +39,8 @@ public class UnitService {
             return units.stream()
                     .map(UnitMapper::toDTO)
                     .collect(Collectors.toList());
+        } catch (UnitServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in getAllUnits: {}", e.getMessage());
             throw new UnitServiceException("An error occurred while fetching all units. Please try again later.");
@@ -53,7 +55,7 @@ public class UnitService {
             }
 
             Subject subject = subjectRepo.findById(unitDTO.getSubjectId())
-                    .orElseThrow(() -> new SubjectServiceException("Subject not found with this ID."));
+                    .orElseThrow(() -> new UnitServiceException("Subject not found with this ID."));
 
             Unit unitEntity = UnitMapper.toEntity(unitDTO);
             unitEntity.setSubject(subject);
@@ -61,6 +63,8 @@ public class UnitService {
             Unit savedUnit = unitRepo.save(unitEntity);
             return UnitMapper.toDTO(savedUnit);
 
+        } catch (UnitServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createUnit", e);
             throw new UnitServiceException("An error occurred while creating the unit. Please try again later.");
@@ -75,6 +79,8 @@ public class UnitService {
 
             unitRepo.deleteById(unitId);
 
+        } catch (UnitServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteUnit: {}", e.getMessage());
             throw new UnitServiceException("An error occurred while deleting the unit. Please try again later.");
@@ -95,6 +101,8 @@ public class UnitService {
             Unit updatedUnit = unitRepo.save(existingUnit);
             return UnitMapper.toDTO(updatedUnit);
 
+        } catch (UnitServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateUnit: {}", e.getMessage());
             throw new UnitServiceException("An error occurred while updating the unit. Please try again later.");

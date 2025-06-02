@@ -4,6 +4,7 @@ import com.microservice.universitycontentservice.DTO.YearDTO;
 import com.microservice.universitycontentservice.DTO.Mapper.YearMapper;
 import com.microservice.universitycontentservice.Entity.Year;
 import com.microservice.universitycontentservice.Exceptions.Branch.BranchServiceException;
+import com.microservice.universitycontentservice.Exceptions.Subject.SubjectServiceException;
 import com.microservice.universitycontentservice.Exceptions.Year.YearServiceException;
 import com.microservice.universitycontentservice.Repository.BranchRepository;
 import com.microservice.universitycontentservice.Repository.YearRepository;
@@ -37,6 +38,8 @@ public class YearService {
             return years.stream()
                     .map(YearMapper::toDTO)
                     .collect(Collectors.toList());
+        }catch (YearServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in getAllYears: {}", e.getMessage());
             throw new YearServiceException("An error occurred while fetching all years. Please try again later.");
@@ -51,7 +54,7 @@ public class YearService {
             }
 
             branchRepo.findById(yearDTO.getBranchId())
-                    .orElseThrow(() -> new BranchServiceException("Branch not found with this id."));
+                    .orElseThrow(() -> new YearServiceException("Branch not found with this id."));
 
             Year yearEntity = YearMapper.toEntity(yearDTO);
 
@@ -59,6 +62,8 @@ public class YearService {
 
             return YearMapper.toDTO(savedYear);
 
+        } catch (YearServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createYear", e);
             throw new YearServiceException("An error occurred while creating the year. Please try again later.");
@@ -73,6 +78,8 @@ public class YearService {
 
             yearRepo.deleteById(yearId);
 
+        } catch (SubjectServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteYear: {}", e.getMessage());
             throw new YearServiceException("An error occurred while deleting the year. Please try again later.");
@@ -89,6 +96,9 @@ public class YearService {
             existingYear.setCode(updatedYearData.getCode());
             Year updatedYear = yearRepo.save(existingYear);
             return YearMapper.toDTO(updatedYear);
+
+        } catch (YearServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateYear: {}", e.getMessage());
             throw new YearServiceException("An error occurred while updating the year. Please try again later.");

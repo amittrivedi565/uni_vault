@@ -38,6 +38,8 @@ public class BranchService {
             return branches.stream()
                     .map(BranchMapper::toDTO)
                     .collect(Collectors.toList());
+        } catch (BranchServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in getAllBranches: {}", e.getMessage());
             throw new BranchServiceException("An error occurred while fetching all branches. Please try again later.");
@@ -60,6 +62,8 @@ public class BranchService {
 
             return BranchMapper.toDTO(savedBranch);
 
+        } catch (BranchServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createBranch", e);
             throw new BranchServiceException("An error occurred while creating the branch. Please try again later.");
@@ -73,6 +77,8 @@ public class BranchService {
                     .orElseThrow(() -> new BranchServiceException("Branch with Id " + branchId + " not found."));
 
             branchRepo.deleteById(branchId);
+        } catch (BranchServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteBranch: {}", e.getMessage());
             throw new BranchServiceException("An error occurred while deleting the branch. Please try again later.");
@@ -92,6 +98,8 @@ public class BranchService {
             Branch updatedBranch = branchRepo.save(existingBranch);
             return BranchMapper.toDTO(updatedBranch);
 
+        } catch (BranchServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateBranch: {}", e.getMessage());
             throw new BranchServiceException("An error occurred while updating the branch. Please try again later.");

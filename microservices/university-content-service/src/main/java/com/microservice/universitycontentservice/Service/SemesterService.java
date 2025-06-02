@@ -3,6 +3,7 @@ package com.microservice.universitycontentservice.Service;
 import com.microservice.universitycontentservice.DTO.SemesterDTO;
 import com.microservice.universitycontentservice.DTO.Mapper.SemesterMapper;
 import com.microservice.universitycontentservice.Entity.Semester;
+import com.microservice.universitycontentservice.Exceptions.Branch.BranchServiceException;
 import com.microservice.universitycontentservice.Exceptions.Semester.SemesterServiceException;
 import com.microservice.universitycontentservice.Exceptions.Year.YearServiceException;
 import com.microservice.universitycontentservice.Repository.SemesterRepository;
@@ -38,6 +39,8 @@ public class SemesterService {
             return semesters.stream()
                     .map(SemesterMapper::toDTO)
                     .collect(Collectors.toList());
+        } catch (SemesterServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in getAllSemesters: {}", e.getMessage());
             throw new SemesterServiceException("An error occurred while fetching all semesters. Please try again later.");
@@ -60,6 +63,8 @@ public class SemesterService {
 
             return SemesterMapper.toDTO(savedSemester);
 
+        }catch (SemesterServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createSemester", e);
             throw new SemesterServiceException("An error occurred while creating the semester. Please try again later.");
@@ -74,6 +79,8 @@ public class SemesterService {
 
             semesterRepo.deleteById(semesterId);
 
+        } catch (SemesterServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteSemester: {}", e.getMessage());
             throw new SemesterServiceException("An error occurred while deleting the semester. Please try again later.");
@@ -93,6 +100,8 @@ public class SemesterService {
             Semester updatedSemester = semesterRepo.save(existingSemester);
             return SemesterMapper.toDTO(updatedSemester);
 
+        } catch (SemesterServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateSemester: {}", e.getMessage());
             throw new SemesterServiceException("An error occurred while updating the semester. Please try again later.");

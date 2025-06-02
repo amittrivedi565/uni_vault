@@ -39,6 +39,8 @@ public class CourseService {
             return courses.stream()
                     .map(CourseMapper::toDTO)
                     .collect(Collectors.toList());
+        } catch (CourseServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in getAllCourses: {}", e.getMessage());
             throw new CourseServiceException("An error occurred while fetching all courses. Please try again later.");
@@ -61,6 +63,8 @@ public class CourseService {
             Course savedCourse = courseRepo.save(courseEntity);
             return CourseMapper.toDTO(savedCourse);
 
+        } catch (CourseServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createCourse", e);
             throw new CourseServiceException("An error occurred while creating the course. Please try again later.");
@@ -75,6 +79,8 @@ public class CourseService {
 
             courseRepo.deleteById(courseId);
 
+        } catch (CourseServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteCourse: {}", e.getMessage());
             throw new CourseServiceException("An error occurred while deleting the course. Please try again later.");
@@ -95,6 +101,8 @@ public class CourseService {
             Course updatedCourse = courseRepo.save(existingCourse);
             return CourseMapper.toDTO(updatedCourse);
 
+        } catch (CourseServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateCourse: {}", e.getMessage());
             throw new CourseServiceException("An error occurred while updating the course. Please try again later.");

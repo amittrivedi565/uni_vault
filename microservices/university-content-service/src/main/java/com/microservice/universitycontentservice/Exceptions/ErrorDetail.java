@@ -12,17 +12,4 @@ public class ErrorDetail {
         this.message = message;
         this.details = details;
     }
-
-    // Make sure to have getters (and optionally setters)
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getDetails() {
-        return details;
-    }
 }

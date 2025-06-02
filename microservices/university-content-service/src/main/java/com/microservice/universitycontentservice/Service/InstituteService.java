@@ -3,6 +3,7 @@ package com.microservice.universitycontentservice.Service;
 import com.microservice.universitycontentservice.DTO.InstituteDTO;
 import com.microservice.universitycontentservice.DTO.Mapper.InstituteMapper;
 import com.microservice.universitycontentservice.Entity.Institute;
+import com.microservice.universitycontentservice.Exceptions.Course.CourseServiceException;
 import com.microservice.universitycontentservice.Exceptions.Institute.InstituteServiceException;
 import com.microservice.universitycontentservice.Repository.InstituteRepository;
 import jakarta.transaction.Transactional;
@@ -32,7 +33,10 @@ public class InstituteService {
             return institutes.stream()
                     .map(InstituteMapper::toDTO)
                     .collect(Collectors.toList());
-        } catch (Exception e) {
+        } catch (InstituteServiceException ex) {
+            throw ex;
+        }
+        catch (Exception e) {
             logger.error("Error in getAllInstitutes: {}", e.getMessage(), e);
             throw new InstituteServiceException("An error occurred while fetching all institutes. Please try again later.");
         }
@@ -40,17 +44,14 @@ public class InstituteService {
 
     public InstituteDTO createInstitute(InstituteDTO dto) {
         try {
-            Optional<Institute> existingInstitute = instituteRepo.findByName(dto.getName());
-            if (existingInstitute.isPresent()) {
-                throw new InstituteServiceException("Institute already exists with this name.");
-            }
-
             Institute entity = InstituteMapper.toEntity(dto);
             Institute saved = instituteRepo.save(entity);
             return InstituteMapper.toDTO(saved);
+        } catch (InstituteServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in createInstitute", e);
-            throw new InstituteServiceException("An error occurred while creating the institute. Please try again later.");
+            throw new InstituteServiceException("An error occurred while creating the institute. Please try again later....");
         }
     }
 
@@ -61,6 +62,8 @@ public class InstituteService {
                     .orElseThrow(() -> new InstituteServiceException("Institute with ID " + instituteId + " not found."));
 
             instituteRepo.deleteById(instituteId);
+        } catch (InstituteServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in deleteInstitute: {}", e.getMessage(), e);
             throw new InstituteServiceException("An error occurred while deleting the institute. Please try again later.");
@@ -80,6 +83,8 @@ public class InstituteService {
 
             Institute updated = instituteRepo.save(existingInstitute);
             return InstituteMapper.toDTO(updated);
+        } catch (InstituteServiceException ex) {
+            throw ex;
         } catch (Exception e) {
             logger.error("Error in updateInstitute: {}", e.getMessage(), e);
             throw new InstituteServiceException("An error occurred while updating the institute. Please try again later.");
