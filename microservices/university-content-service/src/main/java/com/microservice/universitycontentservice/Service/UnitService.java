@@ -49,7 +49,7 @@ public class UnitService {
 
     public UnitDTO createUnit(UnitDTO unitDTO) {
         try {
-            Optional<Unit> existingUnit = unitRepo.findByName(unitDTO.getName());
+            Optional<Unit> existingUnit = unitRepo.findByNameAndSubjectId(unitDTO.getName(),unitDTO.getSubjectId());
             if (existingUnit.isPresent()) {
                 throw new UnitServiceException("Unit already exists with this name.");
             }

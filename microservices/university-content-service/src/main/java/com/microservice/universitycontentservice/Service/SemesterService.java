@@ -49,7 +49,7 @@ public class SemesterService {
 
     public SemesterDTO createSemester(SemesterDTO semesterDTO) {
         try {
-            Optional<Semester> existingSemester = semesterRepo.findByName(semesterDTO.getName());
+            Optional<Semester> existingSemester = semesterRepo.findByNameAndYearId(semesterDTO.getName(),semesterDTO.getYearId());
             if (existingSemester.isPresent()) {
                 throw new SemesterServiceException("Semester already exists with this name.");
             }

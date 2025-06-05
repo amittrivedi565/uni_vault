@@ -49,7 +49,7 @@ public class SubjectService {
 
     public SubjectDTO createSubject(SubjectDTO subjectDTO) {
         try {
-            Optional<Subject> existingSubject = subjectRepo.findByName(subjectDTO.getName());
+            Optional<Subject> existingSubject = subjectRepo.findByNameAndSemesterId(subjectDTO.getName(),subjectDTO.getSemesterId());
             if (existingSubject.isPresent()) {
                 throw new SubjectServiceException("Subject already exists with this name.");
             }

@@ -11,5 +11,6 @@ import java.util.UUID;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, UUID> {
-    Optional<Course> findByName(@NotBlank(message = "Course name is required") @Size(min=3,max=100) String name);
+    Optional<Course> findByName(String name);
+    Optional<Course> findByNameAndInstituteId(String name, UUID id);
 }

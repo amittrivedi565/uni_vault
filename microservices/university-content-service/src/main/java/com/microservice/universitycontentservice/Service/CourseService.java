@@ -49,7 +49,7 @@ public class CourseService {
 
     public CourseDTO createCourse(CourseDTO courseDTO) {
         try {
-            Optional<Course> existingCourse = courseRepo.findByName(courseDTO.getName());
+            Optional<Course> existingCourse = courseRepo.findByNameAndInstituteId(courseDTO.getName(), courseDTO.getInstituteId());
             if (existingCourse.isPresent()) {
                 throw new CourseServiceException("Course already exists with this name.");
             }

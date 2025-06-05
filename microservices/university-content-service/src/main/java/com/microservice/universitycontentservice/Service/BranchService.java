@@ -48,7 +48,7 @@ public class BranchService {
 
     public BranchDTO createBranch(BranchDTO branchDTO) {
         try {
-            Optional<Branch> existingBranch = branchRepo.findByName(branchDTO.getName());
+            Optional<Branch> existingBranch = branchRepo.findByNameAndCourseId(branchDTO.getName(),branchDTO.getCourseId());
             if (existingBranch.isPresent()) {
                 throw new BranchServiceException("Branch already exists with this name.");
             }

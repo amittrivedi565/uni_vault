@@ -47,7 +47,7 @@ public class YearService {
 
     public YearDTO createYear(YearDTO yearDTO) {
         try {
-            Optional<Year> existingYear = yearRepo.findByName(yearDTO.getName());
+            Optional<Year> existingYear = yearRepo.findByNameAndBranchId(yearDTO.getName(),yearDTO.getBranchId());
             if (existingYear.isPresent()) {
                 throw new YearServiceException("Year already exists with this name.");
             }

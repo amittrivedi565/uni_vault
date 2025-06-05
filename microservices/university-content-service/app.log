@@ -1925,3 +1925,153 @@ com.microservice.universitycontentservice.Exceptions.Institute.InstituteServiceE
 2025-06-02T23:46:30.873+05:30  WARN 20151 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2025-06-02T23:46:31.042+05:30  INFO 20151 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
 2025-06-02T23:46:31.049+05:30  INFO 20151 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.436 seconds (process running for 2.667)
+2025-06-05T18:38:31.031+05:30  INFO 6878 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 6878 (/Users/amittrivedi/Desktop/UniVault-Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault-Application/microservices/university-content-service)
+2025-06-05T18:38:31.032+05:30  INFO 6878 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-05T18:38:31.399+05:30  INFO 6878 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-05T18:38:31.433+05:30  INFO 6878 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 30 ms. Found 7 JPA repository interfaces.
+2025-06-05T18:38:31.714+05:30  INFO 6878 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-05T18:38:31.720+05:30  INFO 6878 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-05T18:38:31.720+05:30  INFO 6878 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-05T18:38:31.746+05:30  INFO 6878 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-05T18:38:31.746+05:30  INFO 6878 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 682 ms
+2025-06-05T18:38:31.819+05:30  INFO 6878 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-05T18:38:31.848+05:30  INFO 6878 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-05T18:38:31.862+05:30  INFO 6878 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-05T18:38:31.992+05:30  INFO 6878 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-05T18:38:32.010+05:30  INFO 6878 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-05T18:38:32.257+05:30  INFO 6878 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4cfcac13
+2025-06-05T18:38:32.258+05:30  INFO 6878 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-05T18:38:32.301+05:30  WARN 6878 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-05T18:38:32.312+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@31940704) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@273aaab7) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5a48d186) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2086d469) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@17c53dfb) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@184de357)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@efe49ab) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@6dcf7b6a)
+2025-06-05T18:38:32.313+05:30 DEBUG 6878 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@53dba9cd) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@247bbfba)
+2025-06-05T18:38:32.823+05:30  INFO 6878 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-05T18:38:32.941+05:30  INFO 6878 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-05T18:38:33.266+05:30  WARN 6878 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-05T18:38:33.446+05:30  INFO 6878 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-05T18:38:33.452+05:30  INFO 6878 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.757 seconds (process running for 3.05)
+2025-06-05T18:39:24.930+05:30  INFO 6878 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-05T18:39:24.933+05:30  INFO 6878 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-05T18:39:24.937+05:30  INFO 6878 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-06-05T18:46:05.328+05:30  INFO 7077 --- [main] .m.u.UniversityContentServiceApplication : Starting UniversityContentServiceApplication using Java 23.0.1 with PID 7077 (/Users/amittrivedi/Desktop/UniVault-Application/microservices/university-content-service/target/classes started by amittrivedi in /Users/amittrivedi/Desktop/UniVault-Application/microservices/university-content-service)
+2025-06-05T18:46:05.330+05:30  INFO 7077 --- [main] .m.u.UniversityContentServiceApplication : No active profile set, falling back to 1 default profile: "default"
+2025-06-05T18:46:05.687+05:30  INFO 7077 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-05T18:46:05.723+05:30  INFO 7077 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 7 JPA repository interfaces.
+2025-06-05T18:46:05.989+05:30  INFO 7077 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8090 (http)
+2025-06-05T18:46:05.995+05:30  INFO 7077 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-06-05T18:46:05.995+05:30  INFO 7077 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2025-06-05T18:46:06.022+05:30  INFO 7077 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-06-05T18:46:06.022+05:30  INFO 7077 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 648 ms
+2025-06-05T18:46:06.106+05:30  INFO 7077 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-05T18:46:06.134+05:30  INFO 7077 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-05T18:46:06.151+05:30  INFO 7077 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-05T18:46:06.274+05:30  INFO 7077 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-05T18:46:06.290+05:30  INFO 7077 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-05T18:46:06.465+05:30  INFO 7077 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c25d0d1
+2025-06-05T18:46:06.466+05:30  INFO 7077 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-05T18:46:06.498+05:30  WARN 7077 --- [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-05T18:46:06.513+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(12, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@e07b4db) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@76b305e1)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-9, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6be766d1) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@7adae08e)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(-3, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@49c83262) replaced previous registration(org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@273aaab7)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4003, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@77bb916f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5a48d186)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4001, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@521ba38f) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@2086d469)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(4002, org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@b1d19ff) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@17c53dfb)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2004, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@184de357) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@efe49ab)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2005, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@6dcf7b6a) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@53dba9cd)
+2025-06-05T18:46:06.514+05:30 DEBUG 7077 --- [main] o.h.t.d.sql.spi.DdlTypeRegistry          : addDescriptor(2011, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@247bbfba) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5834198f)
+2025-06-05T18:46:07.019+05:30  INFO 7077 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-05T18:46:07.121+05:30  INFO 7077 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-05T18:46:07.447+05:30  WARN 7077 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-05T18:46:07.628+05:30  INFO 7077 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8090 (http) with context path ''
+2025-06-05T18:46:07.633+05:30  INFO 7077 --- [main] .m.u.UniversityContentServiceApplication : Started UniversityContentServiceApplication in 2.538 seconds (process running for 2.776)
+2025-06-05T18:46:18.422+05:30  INFO 7077 --- [http-nio-8090-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-05T18:46:18.423+05:30  INFO 7077 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-06-05T18:46:18.424+05:30  INFO 7077 --- [http-nio-8090-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-06-05T18:46:18.514+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.code,
+        c1_0.description,
+        c1_0.institute_id,
+        c1_0.name,
+        c1_0.shortname 
+    from
+        course c1_0
+2025-06-05T18:46:18.540+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        b1_0.course_id,
+        b1_0.id,
+        b1_0.code,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.course_id=?
+2025-06-05T18:46:18.544+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        y1_0.branch_id,
+        y1_0.id,
+        y1_0.code,
+        y1_0.name 
+    from
+        year y1_0 
+    where
+        y1_0.branch_id=?
+2025-06-05T18:46:18.549+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.year_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.name,
+        s1_0.syllabus 
+    from
+        semester s1_0 
+    where
+        s1_0.year_id=?
+2025-06-05T18:46:18.567+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        s1_0.semester_id,
+        s1_0.id,
+        s1_0.code,
+        s1_0.description,
+        s1_0.name,
+        s1_0.shortname 
+    from
+        subject s1_0 
+    where
+        s1_0.semester_id=?
+2025-06-05T18:46:18.569+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.subject_id,
+        u1_0.id,
+        u1_0.code,
+        u1_0.description,
+        u1_0.name,
+        u1_0.shortname 
+    from
+        unit u1_0 
+    where
+        u1_0.subject_id=?
+2025-06-05T18:46:18.578+05:30 DEBUG 7077 --- [http-nio-8090-exec-2] org.hibernate.SQL                        : 
+    select
+        b1_0.course_id,
+        b1_0.id,
+        b1_0.code,
+        b1_0.description,
+        b1_0.name,
+        b1_0.shortname 
+    from
+        branch b1_0 
+    where
+        b1_0.course_id=?
+2025-06-05T18:46:36.694+05:30  INFO 7077 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-06-05T18:46:36.698+05:30  INFO 7077 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-06-05T18:46:36.704+05:30  INFO 7077 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -7,6 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface YearRepository extends JpaRepository<Year, UUID> {
-
     Optional<Year> findByName(String name);
+    Optional<Year> findByNameAndBranchId(String name, UUID id);
 }
