@@ -14,6 +14,8 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -57,7 +59,7 @@ public class StorageService {
             // Ensure directory exists.
             Files.createDirectories(targetPath.getParent());
 
-            // Generate hash for file verification & tempering protection
+            // Generate hash for file verification and tempering protection
             String etag = storageUtilities.calculateMD5Hash(file.getInputStream(), chunkSize);
 
             // Get the data from the input stream, write the data on our system on targeted-path.
@@ -70,8 +72,21 @@ public class StorageService {
             StorageEntity storageObject = new StorageEntity(
                     bucket, key, file.getSize(), file.getContentType(), etag, filePath);
 
-            StorageEntity save = repository.save(storageObject);
-            return new StorageDTO(save);
+            Optional<StorageEntity> existing = repository.findByBucketAndObjectKey(bucket,key);
+
+            if(existing.isPresent()) {
+                StorageEntity existingObj = existing.get();
+                storageUtilities.deletePhysicalFile(existingObj.getFilePath());
+                existingObj.setSize(existingObj.getSize());
+                existingObj.setContentType(existingObj.getContentType());
+                existingObj.setEtag(etag);
+                existingObj.setFilePath(filePath);
+                existingObj.setLastModified(LocalDateTime.now());
+                storageObject = repository.save(existingObj);
+            }else{
+               storageObject = repository.save(storageObject);
+            }
+            return new StorageDTO(storageObject);
 
         } catch (Exception e) {
             throw new StorageServiceException("Upload File Service Exception", e);

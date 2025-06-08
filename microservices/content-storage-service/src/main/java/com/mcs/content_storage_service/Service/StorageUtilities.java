@@ -3,6 +3,9 @@ package com.mcs.content_storage_service.Service;
 import com.mcs.content_storage_service.Exceptions.StorageUtilitiesException;
 
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 
 public class StorageUtilities {
@@ -32,8 +35,8 @@ public class StorageUtilities {
 
         // after hash generated, directory or file path is generated.
         // this is the path where files will be stored.
-        // file path will be /bucket-name/A9/G4/key.
-        // example hash is A9G4DCV...., we will 0,2 & 2,4 indexes.
+        // the file path will be /bucket-name/A9/G4/key.
+        // example hash is A9G4DCV…, we will 0,2 & 2,4 indexes.
         return String.format("%s%s%s%s",bucket,hash.substring(0,2),hash.substring(2,4),key);
     }
 
@@ -43,7 +46,7 @@ public class StorageUtilities {
             MessageDigest md = MessageDigest.getInstance("MD5");
 
             // array of type bytes, that will store the incoming bytes from the input stream.
-            // buffer can only store up to 8192 bytes ~ 8kb of data at a time.
+            // buffer can only store up to 8192 bytes ~ 8 kb of data at a time.
             byte[] buffer = new byte[chunkSize];
 
             // status check for how many bytes has been read till now.
@@ -51,7 +54,7 @@ public class StorageUtilities {
 
             // looping through the incoming input stream and storing them onto buffer.
             // after being stored, check if we have reached the end of the bye length.
-            // reads data in the chunk format, everytime new chunk arrives, hash is updated.
+            // read data in the chunk format; every time a new chunk arrives, hash is updated.
             while((byteRead = inputStream.read(buffer)) != -1){
                 md.update(buffer,0,byteRead);
             }
@@ -63,9 +66,19 @@ public class StorageUtilities {
 
             // iterate over bytes stored in the digest and format them.
             // format them human-readable hexadecimal string.
-            for(byte b : buffer){
+            for(byte b : digest){
                 sb.append(String.format("02x",b));
             }
             return  sb.toString();
+    }
+
+    public void deletePhysicalFile(String filePath){
+        Path path =  Paths.get(filePath);
+        try{
+            Files.deleteIfExists(path);
+            System.out.println("Files deleted successfully: "+filePath);
+        }catch (Exception e){
+            throw new StorageUtilitiesException(e.getMessage());
+        }
     }
 }
