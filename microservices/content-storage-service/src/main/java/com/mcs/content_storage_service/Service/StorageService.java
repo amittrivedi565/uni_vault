@@ -5,7 +5,10 @@ import com.mcs.content_storage_service.Exceptions.StorageServiceException;
 import com.mcs.content_storage_service.Repository.StorageRepository;
 import jakarta.transaction.Transactional;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,6 +28,7 @@ public class StorageService {
     private final int chunkSize;
     private final StorageUtilities storageUtilities = new StorageUtilities();
 
+    @Autowired
     public StorageService(StorageRepository repository,
                           @Value("${storage.base-path}") String basePath,
                           @Value("${storage.chunk-size}") int chunkSize) {
@@ -52,9 +56,9 @@ public class StorageService {
 
             // Generate file-path based on given parameters.
             String filePath = storageUtilities.generateFilePath(key, bucket);
-
             // Create given path with base directory.
             Path targetPath = Paths.get(basePath, filePath);
+
 
             // Ensure directory exists.
             Files.createDirectories(targetPath.getParent());
@@ -92,4 +96,30 @@ public class StorageService {
             throw new StorageServiceException("Upload File Service Exception", e);
         }
     }
+
+    public Resource downloadFile(String bucket, String key) {
+        try {
+            // Get a file path for the required file/resource from the database
+            Optional<StorageEntity> storageObject = repository.findByBucketAndObjectKey(bucket, key);
+
+            if (storageObject.isEmpty()) {
+                throw new StorageServiceException("No storage object found for key: " + key);
+            }
+
+            // Get the full directory
+            Path filePath = Paths.get(basePath, storageObject.get().getFilePath());
+            System.out.println("Attempting to download file from path: " + filePath);
+
+            if (!Files.exists(filePath)) {
+                throw new StorageServiceException("Physical file not found with corresponding details");
+            }
+
+            // Stream the data
+            return new InputStreamResource(Files.newInputStream(filePath));
+
+        } catch (Exception e) {
+            throw new StorageServiceException("downloadFile service error: ", e);
+        }
+    }
+
 }

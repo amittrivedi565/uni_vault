@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
+import java.util.UUID;
 
 public class StorageUtilities {
 
@@ -37,7 +38,7 @@ public class StorageUtilities {
         // this is the path where files will be stored.
         // the file path will be /bucket-name/A9/G4/key.
         // example hash is A9G4DCV…, we will 0,2 & 2,4 indexes.
-        return String.format("%s%s%s%s",bucket,hash.substring(0,2),hash.substring(2,4),key);
+        return String.format("%s/%s/%s/%s",bucket,hash.substring(0,2),hash.substring(2,4),key);
     }
 
     public String calculateMD5Hash(InputStream inputStream, int chunkSize) throws Exception {
@@ -80,5 +81,10 @@ public class StorageUtilities {
         }catch (Exception e){
             throw new StorageUtilitiesException(e.getMessage());
         }
+    }
+
+    public String generateUniqueKey(String originalKey) {
+        String uniqueId = UUID.randomUUID().toString();
+        return originalKey + "_" + uniqueId;
     }
 }
