@@ -1,7 +1,7 @@
-package com.mcs.content_storage_service.Controller;
+package com.microservice.content_storage_service.Controller;
 
-import com.mcs.content_storage_service.DTO.StorageDTO;
-import com.mcs.content_storage_service.Service.StorageService;
+import com.microservice.content_storage_service.DTO.StorageDTO;
+import com.microservice.content_storage_service.Service.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

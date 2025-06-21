@@ -1,6 +1,6 @@
-package com.mcs.content_storage_service.DTO;
+package com.microservice.content_storage_service.DTO;
 
-import com.mcs.content_storage_service.Entity.StorageEntity;
+import com.microservice.content_storage_service.Entity.StorageEntity;
 
 import java.time.LocalDateTime;
 

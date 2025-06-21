@@ -1,4 +1,4 @@
-package com.mcs.content_storage_service.Entity;
+package com.microservice.content_storage_service.Entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

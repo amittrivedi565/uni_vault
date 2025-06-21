@@ -1,6 +1,6 @@
-package com.mcs.content_storage_service.Repository;
+package com.microservice.content_storage_service.Repository;
 
-import com.mcs.content_storage_service.Entity.StorageEntity;
+import com.microservice.content_storage_service.Entity.StorageEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

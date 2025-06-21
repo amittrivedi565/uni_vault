@@ -1,8 +1,8 @@
-package com.mcs.content_storage_service.Service;
-import com.mcs.content_storage_service.DTO.StorageDTO;
-import com.mcs.content_storage_service.Entity.StorageEntity;
-import com.mcs.content_storage_service.Exceptions.StorageServiceException;
-import com.mcs.content_storage_service.Repository.StorageRepository;
+package com.microservice.content_storage_service.Service;
+import com.microservice.content_storage_service.DTO.StorageDTO;
+import com.microservice.content_storage_service.Entity.StorageEntity;
+import com.microservice.content_storage_service.Exceptions.StorageServiceException;
+import com.microservice.content_storage_service.Repository.StorageRepository;
 import jakarta.transaction.Transactional;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;

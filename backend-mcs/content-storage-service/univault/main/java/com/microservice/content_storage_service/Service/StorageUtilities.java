@@ -1,13 +1,12 @@
-package com.mcs.content_storage_service.Service;
+package com.microservice.content_storage_service.Service;
 
-import com.mcs.content_storage_service.Exceptions.StorageUtilitiesException;
+import com.microservice.content_storage_service.Exceptions.StorageUtilitiesException;
 
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.MessageDigest;
-import java.util.UUID;
 
 public class StorageUtilities {
 

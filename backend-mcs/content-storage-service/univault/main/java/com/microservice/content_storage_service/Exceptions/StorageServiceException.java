@@ -1,4 +1,4 @@
-package com.mcs.content_storage_service.Exceptions;
+package com.microservice.content_storage_service.Exceptions;
 
 public class StorageServiceException extends RuntimeException {
     public StorageServiceException(String message) {

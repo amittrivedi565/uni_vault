@@ -1,4 +1,4 @@
-package com.mcs.content_storage_service.Exceptions;
+package com.microservice.content_storage_service.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

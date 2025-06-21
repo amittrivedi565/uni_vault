@@ -1,4 +1,4 @@
-package com.mcs.content_storage_service;
+package com.microservice.content_storage_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
