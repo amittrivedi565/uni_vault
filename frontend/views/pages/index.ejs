@@ -7,10 +7,10 @@
   </p>
 </section>
 
-<section class="quote">
+<!-- <section class="quote">
   “Debugging is like being the detective in a crime movie where you are also the
   murderer.”
-  <span>— 0x developer</span>
+  <span>— 0x developer</span> -->
 </section>
 
 <section>
@@ -36,17 +36,18 @@
   </p>
 </section>
 
-<h1 class="notex-label">NoteX</h1>
+<h1 class="notex-heading">NoteX</h1>
 <p>
   Download Notes, our AI-powered content assistant, to get personalized help
   with your studies.
 </p>
 
 <section>
-  <h2 class="notex"></h2>
+  <h2 class="gradient-line"></h2>
+
   <% if (Array.isArray(institutes)) { %> <% institutes.forEach(institute=> { %>
   <details>
-    <summary><%= institute.name %></summary>
+    <summary class="summary"><%= institute.name %></summary>
     <% institute.courses.forEach(course=> { %> <%
     course.branches.forEach(branch=> { %>
     <p>

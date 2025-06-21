@@ -34,8 +34,7 @@ app.get('/resources/:branchId', async (req, res) => {
     const branchId = req.params.branchId;
 
     const data = await getSemestersByBranch(branchId);
-    console.log(data);
-
+    
     res.render('pages/courses', {
       title: 'NoteX',
       data,
