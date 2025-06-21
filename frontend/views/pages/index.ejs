@@ -1,0 +1,68 @@
+<section>
+  <h2>What is UniVault?</h2>
+  <p>
+    Powered by AI for students who forgot there was a test, lost the professor's
+    slides, and made Wikipedia file a restraining order. Get notes, projects,
+    and smart study help—no tears (okay, maybe a few).
+  </p>
+</section>
+
+<section class="quote">
+  “Debugging is like being the detective in a crime movie where you are also the
+  murderer.”
+  <span>— 0x developer</span>
+</section>
+
+<section>
+  <h2>Key Features</h2>
+  <ul>
+    <li>Content According To University Syllabus</li>
+    <li>Notes, Previous Year Question Papers, Summary Of Notes</li>
+    <li>Highly Moderated & Validated Content</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Why Choose UniVault?</h2>
+  <p>
+    Let’s face it — most <span>other study sites</span> are either
+    <span>abandoned group projects from 2012</span> or look like they were built
+    during a <span>coffee-fueled all-nighter</span>... and never touched again.
+    <br /><br />
+    <strong>UniVault is different.</strong> We’re <span>alive</span>,
+    <span>organized</span>, and <span>actually useful</span>. We make
+    <strong>high-quality academic content</strong> easy to find, fun to use, and
+    <em>impossible to forget</em>.
+  </p>
+</section>
+
+<h1 class="notex-label">NoteX</h1>
+<p>
+  Download Notes, our AI-powered content assistant, to get personalized help
+  with your studies.
+</p>
+
+<section>
+  <h2 class="notex"></h2>
+  <% if (Array.isArray(institutes)) { %> <% institutes.forEach(institute=> { %>
+  <details>
+    <summary><%= institute.name %></summary>
+    <% institute.courses.forEach(course=> { %> <%
+    course.branches.forEach(branch=> { %>
+    <p>
+      <a href="/api/<%= institute.shortname %>/<%= course.shortname %>/<%= branch.shortname %>"> <%= course.shortname %> <%= branch.name %> </a>
+    </p>
+    <% }) %> <% }) %>
+  </details>
+  <% }) %> <% } else { %>
+  <p>No institutes found or server error</p>
+  <% } %>
+</section>
+
+<section>
+  <h2>Join Us</h2>
+  <p>
+    Subscribe to our newsletter for updates, tips, and the occasional meme.
+    <a href="#">Sign up now</a>
+  </p>
+</section>

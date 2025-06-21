@@ -1,0 +1,19 @@
+{
+  "name": "univault_frontend_ejs",
+  "version": "0.0.1",
+  "description": "Uni_Vault Client Application",
+  "license": "ISC",
+  "author": "Uni_Vault",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}
