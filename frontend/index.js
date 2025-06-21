@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const express_layouts = require('express-ejs-layouts');
-const {getInstitutes} = require('./apis/home');
+const {getInstitutes, getSemestersByBranch} = require('./apis/microservice_endpoints');
 
 
 const PORT = process.env.PORT || 4010;
@@ -29,16 +29,17 @@ app.get('/', async (req, res) => {
 });
 
 
-app.get('/:api/:uni/:course/:branch', async (req, res) => {
+app.get('/resources/:branchId', async (req, res) => {
   try {
-    const data = await getInstitutes();
+    const branchId = req.params.branchId;
+
+    const data = await getSemestersByBranch(branchId);
+    console.log(data);
+
     res.render('pages/courses', {
       title: 'NoteX',
       data,
-      api: req.params.api,
-      uni: req.params.uni,
-      course: req.params.course,
-      branch: req.params.branch
+      branchId
     });
   } catch (error) {
     console.error('Error fetching courses:', error.message);

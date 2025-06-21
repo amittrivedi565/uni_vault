@@ -1,6 +1,7 @@
 package com.microservice.universitycontentservice.Controller;
 
 import com.microservice.universitycontentservice.DTO.BranchDTO;
+import com.microservice.universitycontentservice.DTO.SemesterDTO;
 import com.microservice.universitycontentservice.Entity.Branch;
 import com.microservice.universitycontentservice.Service.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class BranchController {
     @GetMapping
     public ResponseEntity<List<BranchDTO>> getAllBranchesController() {
         List<BranchDTO> allBranches = branchService.getAllBranches();
+        return new ResponseEntity<>(allBranches, HttpStatus.OK);
+    }
+
+    @GetMapping("/{branchId}")
+    public ResponseEntity<List<BranchDTO>> getSemestersByBranch(@PathVariable UUID branchId) {
+        List<BranchDTO> allBranches = branchService.getSemestersByBranchId(branchId);
         return new ResponseEntity<>(allBranches, HttpStatus.OK);
     }
 

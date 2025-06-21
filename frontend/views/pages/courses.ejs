@@ -2,33 +2,42 @@
   <a href="/" class="back-link">Back To Home</a>
 
   <section>
-    <h2>Choose Your</h2>
-    <p>
-      Explore semester-wise courses for Computer Science & Engineering. From
-      first year fundamentals to final year specializations—we've got notes,
-      projects, and resources for every step of your journey.
-    </p>
+    <h2>Choose Your Resources</h2>
+    <quote class="">
+      Explore semester-wise subjects for various branches / fields. From
+        first year fundamentals to final year.
+    </quote>
   </section>
 
+  <h2 class="notex"></h2>
+
   <section id="semesters-section">
-    <h3># Computer Science & Engineering</h3>
+
+    <% data.forEach(element => { %>
+    <h3>1. <%= element.name %></h3>
+    <% }) %>
 
     <div class="accordion-container">
+      <% data.forEach(branch => { %> <% branch.semesters.forEach(semester => {
+      %>
+      <!-- Loop through subjects for each semester -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <span>Semester 1</span>
+          <span># <%= semester.name %></span>
+          <!-- Semester Name -->
         </div>
-        <div class="accordion-content">
+        <div class="accordion-content" id="content">
           <ul>
-            <li><a href="#">Engineering Mathematics I</a></li>
-            <li><a href="#">Engineering Physics</a></li>
-            <li><a href="#">Programming in C</a></li>
-            <li><a href="#">Engineering Graphics</a></li>
-            <li><a href="#">Basic Electronics</a></li>
-            <li><a href="#">English Communication</a></li>
+            <% semester.subjects.forEach(subject => { %>
+            <li>
+              <a href="#"><%= subject.name %></a>
+              <!-- Subject Name -->
+            </li>
+            <% }) %>
           </ul>
         </div>
       </div>
+      <% }) %> <% }) %>
     </div>
   </section>
 

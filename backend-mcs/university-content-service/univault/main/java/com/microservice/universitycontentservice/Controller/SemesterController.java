@@ -34,7 +34,6 @@ public class SemesterController {
         return new ResponseEntity<>(createdSemester, HttpStatus.CREATED);
     }
 
-
     @DeleteMapping("/{semesterId}")
     public ResponseEntity<String> deleteSemester(@PathVariable UUID semesterId) {
         semesterService.deleteSemester(semesterId);

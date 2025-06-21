@@ -8,6 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface BranchRepository extends JpaRepository<Branch, UUID> {
-    Optional<Branch> findByName(String name);
     Optional<Branch> findByNameAndCourseId(String name, UUID id);
 }

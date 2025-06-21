@@ -50,7 +50,7 @@
     <% institute.courses.forEach(course=> { %> <%
     course.branches.forEach(branch=> { %>
     <p>
-      <a href="/api/<%= institute.shortname %>/<%= course.shortname %>/<%= branch.shortname %>"> <%= course.shortname %> <%= branch.name %> </a>
+      <a href="/resources/<%= branch.id %>"> <%= course.shortname %> <%= branch.name %> </a>
     </p>
     <% }) %> <% }) %>
   </details>

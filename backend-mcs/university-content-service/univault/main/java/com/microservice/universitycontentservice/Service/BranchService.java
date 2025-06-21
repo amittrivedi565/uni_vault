@@ -2,10 +2,14 @@ package com.microservice.universitycontentservice.Service;
 
 import com.microservice.universitycontentservice.DTO.BranchDTO;
 import com.microservice.universitycontentservice.DTO.Mapper.BranchMapper;
+import com.microservice.universitycontentservice.DTO.Mapper.SemesterMapper;
+import com.microservice.universitycontentservice.DTO.SemesterDTO;
 import com.microservice.universitycontentservice.Entity.Branch;
 import com.microservice.universitycontentservice.Entity.Course;
+import com.microservice.universitycontentservice.Entity.Semester;
 import com.microservice.universitycontentservice.Exceptions.Branch.BranchServiceException;
 import com.microservice.universitycontentservice.Exceptions.Course.CourseServiceException;
+import com.microservice.universitycontentservice.Exceptions.Semester.SemesterServiceException;
 import com.microservice.universitycontentservice.Repository.BranchRepository;
 import com.microservice.universitycontentservice.Repository.CourseRepository;
 import jakarta.transaction.Transactional;
@@ -45,6 +49,24 @@ public class BranchService {
             throw new BranchServiceException("An error occurred while fetching all branches. Please try again later.");
         }
     }
+
+    public List<BranchDTO> getSemestersByBranchId(UUID id) {
+        try {
+            Optional<Branch> branches = branchRepo.findById(id);
+            if (branches.isEmpty()) {
+                throw new BranchServiceException("No Branches found for the given id.");
+            }
+            // Convert to DTOs and return
+            return branches.stream()
+                    .map(BranchMapper::toDTO)
+                    .collect(Collectors.toList());
+        } catch (SemesterServiceException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw new SemesterServiceException("An error occurred while fetching the semesters.");
+        }
+    }
+
 
     public BranchDTO createBranch(BranchDTO branchDTO) {
         try {

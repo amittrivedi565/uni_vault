@@ -45,6 +45,23 @@ public class SemesterService {
         }
     }
 
+    public List<SemesterDTO> getSemestersByBranch(UUID branchId) {
+        try {
+            List<Semester> semesters = semesterRepo.findByBranchId(branchId);
+            if (semesters.isEmpty()) {
+                throw new SemesterServiceException("No semesters found for the given branch.");
+            }
+            // Convert to DTOs and return
+            return semesters.stream()
+                    .map(SemesterMapper::toDTO)
+                    .collect(Collectors.toList());
+        } catch (SemesterServiceException ex) {
+            throw ex; // rethrow custom exception
+        } catch (Exception e) {
+            throw new SemesterServiceException("An error occurred while fetching the semesters.");
+        }
+    }
+
     public SemesterDTO createSemester(SemesterDTO semesterDTO) {
         try {
             Optional<Semester> existingSemester = semesterRepo.findByNameAndBranchId(semesterDTO.getName(),semesterDTO.getBranchId());
