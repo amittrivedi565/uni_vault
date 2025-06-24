@@ -1,0 +1,73 @@
+<main>
+  <a href="/" class="back-link">Back To Home</a>
+
+  <section>
+    <h2>Choose Your Resources</h2>
+    <quote class="">
+      Explore semester-wise subjects for various branches / fields. From first
+      year fundamentals to final year.
+    </quote>
+  </section>
+
+  <h2 class="gradient-line"></h2>
+
+  <section id="semesters-section">
+    <% data.forEach(element => { %>
+    <h3>1. <%= element.name %></h3>
+    <% }) %>
+
+    <div class="accordion-container">
+      <% data.forEach(branch => { %> <% branch.semesters.forEach(semester => {
+      %>
+      <!-- Loop through subjects for each semester -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3># <%= semester.name %></h3>
+          <!-- Semester Name -->
+        </div>
+        <div class="accordion-content" id="content">
+          <ul class = 'accordion-list'>
+            <% semester.subjects.forEach(subject => { %>
+            <% if (subject.units && subject.units.length > 0) { %>
+            <li>
+              <details>
+              <summary><%= subject.code %> <%= subject.name %></summary>
+              <ul>
+                &nbsp;
+                <% subject.units.forEach(units => { %>
+                <li>
+                  <a href="/cdn/<%= units.resourceId %>"><%= units.shortname %>&nbsp;<%= units.name %></a>
+                </li>
+                <% }) %>
+                &nbsp;
+              </ul>
+              </details>
+            </li>
+            <% } else { %>
+            <li>
+              <details>
+              <summary><%= subject.code %> <%= subject.name %></summary>
+              <ul>
+                <br>
+                <li>No units available.</li>
+                <br>
+              </ul>
+              </details>
+            </li>
+            <% } %>
+            <% }) %>
+          </ul>
+        </div>
+      </div>
+      <% }) %> <% }) %>
+    </div>
+  </section>
+
+  <section>
+    <h2>Need Help?</h2>
+    <p>
+      Can't find your specific course or semester? <a href="#">Contact us</a>.
+      We're always expanding our vault of academic resources.
+    </p>
+  </section>
+</main>
