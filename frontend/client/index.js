@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const express_layouts = require('express-ejs-layouts');
 const { getInstitutes, getSemestersByBranch } = require('./apis/microservices_endpoints');
+const {log_error} = require("./log_errors");
 
 
 const PORT = process.env.PORT || 4010;

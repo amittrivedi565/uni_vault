@@ -1,5 +1,5 @@
 const client = require('./axios_client');
-const log_error  = require('../log_errors');
+const {log_error}  = require('../log_errors');
 
 
 async function getInstitutes() {

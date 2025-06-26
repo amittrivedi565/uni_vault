@@ -11,8 +11,8 @@
 		<relativePath/><!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>com.service</groupId>
-	<artifactId>source</artifactId>
+	<groupId>com.univault</groupId>
+	<artifactId>universiy_content_service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>UniversityContentService</name>
 	<description>UniversityContentService</description>

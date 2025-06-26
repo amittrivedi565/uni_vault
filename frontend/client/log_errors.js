@@ -4,3 +4,4 @@ async function log_error(error) {
         console.error(error.stack);
     }
 }
+module.exports = {log_error}
