@@ -9,7 +9,9 @@ function MainContent(){
         <div className="main-content-container">
         <Header/>
             <div className="main-content-heading">
-                <h4>Create Flow</h4>
+                <h4>Content Flow</h4>
+                &nbsp;
+                <button>+</button>
             </div>
             <span className="showing-results">Showing results</span>
             <TableComponent/>
