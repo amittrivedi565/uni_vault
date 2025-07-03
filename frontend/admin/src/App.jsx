@@ -1,14 +1,8 @@
-import Navbar from "./components/Navbar/Navbar";
-import Main from "./layouts/Main"
-import Header from "./components/Header/Header"
-import "./App.css"
+import { RouterProvider } from "react-router-dom";
+import router from "./router";
+
 function App() {
-  return (
-    <>
-      <Navbar />
-      <Main />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

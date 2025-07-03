@@ -1,0 +1,31 @@
+.header-bar{
+    display: flex;
+    align-items: center;
+    width: 90%;
+    height: 75px;
+    margin-top: 30px;
+    border-bottom: .5px solid #000;
+
+}
+.header-bar-left{
+    display: flex;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+}
+
+.header-bar-right{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 85%;
+    height: 100%;
+    font-size: 15px;
+    font-weight: 200;
+    color: #7B7F8B;
+}
+
+.header-bar-right i {
+    font-size: 15px;
+    margin-right: 20px;
+}
