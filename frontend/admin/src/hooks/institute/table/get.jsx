@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import institute_api_get from "../../../apis/institute/get"; 
+import { useEffect, useState } from "react";
 
 const get_institutes = () => {
   const [data, setData] = useState([]);
@@ -7,6 +7,7 @@ const get_institutes = () => {
   const [error, setError] = useState(null);
 
   const endpoint = import.meta.env.VITE_INSTITUTE_ENDPOINT;
+
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,24 +1,20 @@
-import InstituteGet from "../pages/institute/get"
-import InstitutePost from "../pages/institute/post"
-import InstituteUpdate from "../pages/institute/update"
-const routes = [
-    {
-        path: '/institutes',
-        element:
-            <InstituteGet />
-    },
-    {
-        path: '/institutes/create',
-        element: (
-            <InstitutePost />
-        )
-    },
-    {
-        path: '/institutes/update/:id',
-        element: (
-            <InstituteUpdate />
-        )
-    }
-]
+import InstituteGet from "../pages/institute/get";
+import InstitutePost from "../pages/institute/post";
+import InstituteUpdate from "../pages/institute/update";
 
-export default routes
+const instituteRoutes = [
+  {
+    path: "institutes",
+    element: <InstituteGet />,
+  },
+  {
+    path: "institutes/create",
+    element: <InstitutePost />,
+  },
+  {
+    path: "institutes/update/:id",
+    element: <InstituteUpdate />,
+  },
+];
+
+export default instituteRoutes;
