@@ -1,5 +1,5 @@
 {
-  "name": "uni_vault SystemPanel",
+  "name": "uni_vault_system_panel",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -21,9 +21,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import institute_post_api from "../../../apis/institute/post"
+import institute_post_api from "../../apis/institute/institute_post";
 
 const post_institute = () => {
   const navigate = useNavigate();
-  const { error, post_data } = institute_post_api()
+  const { error, post_data, fieldErrors } = institute_post_api();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -23,7 +23,7 @@ const post_institute = () => {
 
   const handle_submit = async (e) => {
     e.preventDefault();
-    const created_institute = post_data(formData)
+    const created_institute = await post_data(formData); 
 
     if (created_institute && !error) {
       alert("Institute created successfully!");
@@ -35,7 +35,8 @@ const post_institute = () => {
       });
       navigate("/institutes");
     } else {
-      alert("Failed to submit. " + error);
+      // Don't show alert here for field-level errors
+      if (error) alert("Failed to submit. " + error);
     }
   };
 
@@ -43,7 +44,8 @@ const post_institute = () => {
     formData,
     handle_input_change,
     handle_submit,
-    error
+    error,
+    fieldErrors,
   };
 };
 

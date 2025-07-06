@@ -1,78 +1,84 @@
-import "./form.css";
-import institute_post_hook from "../../../hooks/institute/form/post"
+import "../../../styles/globals.css";
 
-export default function post() {
-
-  const {
-    formData,
-    handle_input_change,
-    handle_submit,
-    error
-  } = institute_post_hook()
-
-  
-  return (<>
-    <div style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
+export default function post({ formData, handle_input_change, handle_submit, error, fieldErrors }) {
+  return (
+    <>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <div className="form-container">
-        <form onSubmit={handle_submit}>
-          <div className="form-group">
-            <label className="form-label">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handle_input_change}
-              className="form-input"
-              placeholder="Enter institute name"
-              required
-            />
-          </div>
+      <div style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
+        <div className="form-container">
+          <form onSubmit={handle_submit}>
+            {/* Name */}
+            <div className="form-group">
+              <label className="form-label required">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handle_input_change}
+                className="form-input"
+                placeholder="Enter institute name"
+                required
+              />
+              {fieldErrors?.name && (
+                <p className="form-error">{fieldErrors.name}</p>
+              )}
+            </div>
 
-          <div className="form-group">
-            <label className="form-label">Shortname</label>
-            <input
-              type="text"
-              name="shortname"
-              value={formData.shortname}
-              onChange={handle_input_change}
-              className="form-input"
-              placeholder="Enter short name"
-              required
-            />
-          </div>
+            {/* Shortname */}
+            <div className="form-group">
+              <label className="form-label required">Shortname</label>
+              <input
+                type="text"
+                name="shortname"
+                value={formData.shortname}
+                onChange={handle_input_change}
+                className="form-input"
+                placeholder="Enter short name"
+                required
+              />
+              {fieldErrors?.shortname && (
+                <p className="form-error">{fieldErrors.shortname}</p>
+              )}
+            </div>
 
-          <div className="form-group">
-            <label className="form-label">Code</label>
-            <input
-              name="code"
-              value={formData.code}
-              onChange={handle_input_change}
-              type="text"
-              className="form-input"
-              placeholder="Enter institute code"
-              required
-            />
-          </div>
+            {/* Code */}
+            <div className="form-group">
+              <label className="form-label required">Code</label>
+              <input
+                type="text"
+                name="code"
+                value={formData.code}
+                onChange={handle_input_change}
+                className="form-input"
+                placeholder="Enter institute code"
+                required
+              />
+              {fieldErrors?.code && (
+                <p className="form-error">{fieldErrors.code}</p>
+              )}
+            </div>
 
-          <div className="form-group">
-            <label className="form-label">Description</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handle_input_change}
-              className="form-textarea"
-              placeholder="Brief description about the institute..."
-            ></textarea>
-          </div>
+            {/* Description */}
+            <div className="form-group">
+              <label className="form-label">Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handle_input_change}
+                className="form-textarea"
+                placeholder="Brief description about the institute..."
+              ></textarea>
+              {fieldErrors?.description && (
+                <p className="form-error">{fieldErrors.description}</p>
+              )}
+            </div>
 
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
-            
-        </form>
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  </>)
+    </>
+  );
 }
-

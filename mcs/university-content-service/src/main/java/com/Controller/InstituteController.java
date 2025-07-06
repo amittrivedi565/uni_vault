@@ -3,6 +3,7 @@ package com.Controller;
 import com.DTO.InstituteDTO;
 import com.Entity.Institute;
 import com.Service.InstituteService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/institute")
+@CrossOrigin(origins = "*")
 public class InstituteController {
 
     private final InstituteService instituteService;
@@ -36,7 +37,8 @@ public class InstituteController {
     }
 
     @PostMapping
-    public ResponseEntity<InstituteDTO> createInstituteController(@RequestBody InstituteDTO dto) {
+    public ResponseEntity<InstituteDTO> createInstituteController(@RequestBody @Valid InstituteDTO dto) {
+        System.out.println("Received DTO: " + dto);
         InstituteDTO createdInstitute = instituteService.createInstitute(dto);
         return new ResponseEntity<>(createdInstitute, HttpStatus.CREATED);
     }

@@ -1,5 +1,6 @@
 package com.DTO;
 
+import jakarta.validation.Valid;
 import lombok.Data;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -28,6 +29,7 @@ public class InstituteDTO {
     @Size(min = 3, max = 100, message = "Institute description must be between 3 and 100 characters")
     private String description;
 
+    @Valid
     private List<CourseDTO> courses;
 
     private LocalDateTime createdAt;

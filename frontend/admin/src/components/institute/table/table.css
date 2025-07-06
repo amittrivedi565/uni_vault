@@ -105,3 +105,12 @@
   color: #0052cc;
   text-decoration: none;
 }
+
+.institute-table-a{
+  color:#111827;
+  text-decoration: none;
+}
+
+.institute-table-a:hover{
+  text-decoration: underline;
+}

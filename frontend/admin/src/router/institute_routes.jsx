@@ -1,11 +1,12 @@
-import InstituteGet from "../pages/institute/get";
-import InstitutePost from "../pages/institute/post";
+import InstituteGet from "../pages/institute/view";
+import InstitutePost from "../pages/institute/create";
 import InstituteUpdate from "../pages/institute/update";
+import InstituteDetaiView from "../pages/institute/detail_view"
 
 const instituteRoutes = [
   {
     path: "institutes",
-    element: <InstituteGet />,
+    element: <InstituteGet/>,
   },
   {
     path: "institutes/create",
@@ -14,6 +15,10 @@ const instituteRoutes = [
   {
     path: "institutes/update/:id",
     element: <InstituteUpdate />,
+  },
+  {
+    path: "institutes/details/:id",
+    element: <InstituteDetaiView />,
   },
 ];
 

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import instituteRoutes from "./institute";
 import Home from "../pages/home";
 import Default from "../layouts/default";
+import instituteRoutes from "./institute_routes";
 
 const router = createBrowserRouter([
   {

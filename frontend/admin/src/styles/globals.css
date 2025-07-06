@@ -1,3 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.required::after {
+  content: " *";
+  color: red;
+}
+.default{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.form-error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.row{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+
 .form-container {
   background: white;
   border-radius: 2px;
@@ -72,4 +101,13 @@
 
 .submit-button:active {
   background-color: #2a56c6;
+}
+
+
+.institute-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }

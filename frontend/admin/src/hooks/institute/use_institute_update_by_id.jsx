@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import institute_hook_fetch_by_id from "./fetch_by_id";
-import institute_api_update from "../../../apis/institute/update_by_id"; 
+import institute_api_update from "../../apis/institute/institute_update_by_id"; 
+import institute_hook_fetch_by_id from "./use_institute_fetch_by_id";
 
 const update_institute = () => {
   const { id } = useParams();

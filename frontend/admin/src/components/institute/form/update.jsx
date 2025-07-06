@@ -1,13 +1,6 @@
-import "./form.css";
-import institute_update_hook from "../../../hooks/institute/form/update_by_id"
-export default function update() {
+import "../../../styles/globals.css";
 
-  const { formData,
-    handle_input_change,
-    handle_submit,
-    loading,
-    error,
-  } = institute_update_hook()
+export default function update({formData, handle_input_change, handle_submit, loading, error}) {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
