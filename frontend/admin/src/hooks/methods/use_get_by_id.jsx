@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import institute_api_fetch_by_id from "../../apis/institute/institute_fetch_by_id";
 
-const fetch_institute_by_id = (id) => {
+const use_fetch_by_id = (id, fetchFunction) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!id) return;
+
     const fetch_by_id = async () => {
+      setLoading(true);
       try {
-        const json = await institute_api_fetch_by_id(id);
-        setData(json);
+        const result = await fetchFunction(id);
+        setData(result);
       } catch (err) {
         console.error(err);
         setError(err.message || "Unknown error");
@@ -21,9 +22,9 @@ const fetch_institute_by_id = (id) => {
     };
 
     fetch_by_id();
-  }, [id]);
+  }, [id, fetchFunction]);
 
   return { data, loading, error };
-}
+};
 
-export default fetch_institute_by_id
+export default use_fetch_by_id;

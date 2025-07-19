@@ -32,7 +32,7 @@ public class SemesterMapper {
         if (includeAssociations && semester.getSubjects() != null) {
             dto.setSubjects(
                     semester.getSubjects().stream()
-                            .map(subject -> SubjectMapper.toDTO(subject, false)) // optional deep nesting
+                            .map(subject -> SubjectMapper.toDTO(subject, true)) // optional deep nesting
                             .collect(Collectors.toList())
             );
         } else {
@@ -43,7 +43,7 @@ public class SemesterMapper {
     }
 
     public static Semester toEntity(SemesterDTO dto) {
-        return toEntity(dto, false);
+        return toEntity(dto, true);
     }
 
     public static Semester toEntity(SemesterDTO dto, boolean includeAssociations) {
@@ -66,7 +66,7 @@ public class SemesterMapper {
         if (includeAssociations && dto.getSubjects() != null) {
             List<Subject> subjects = dto.getSubjects().stream()
                     .map(subjectDTO -> {
-                        Subject subject = SubjectMapper.toEntity(subjectDTO, false); // optional nesting
+                        Subject subject = SubjectMapper.toEntity(subjectDTO, true); // optional nesting
                         subject.setSemester(semester);
                         return subject;
                     })

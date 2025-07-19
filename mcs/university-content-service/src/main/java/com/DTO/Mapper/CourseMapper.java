@@ -33,7 +33,7 @@ public class CourseMapper {
         if (includeAssociations && course.getBranches() != null) {
             dto.setBranches(
                     course.getBranches().stream()
-                            .map(branch -> BranchMapper.toDTO(branch, false)) // include nested only if needed
+                            .map(branch -> BranchMapper.toDTO(branch, true)) // include nested only if needed
                             .collect(Collectors.toList())
             );
         } else {
@@ -44,7 +44,7 @@ public class CourseMapper {
     }
 
     public static Course toEntity(CourseDTO dto) {
-        return toEntity(dto, false);
+        return toEntity(dto, true);
     }
 
     public static Course toEntity(CourseDTO dto, boolean includeAssociations) {
@@ -67,7 +67,7 @@ public class CourseMapper {
 
         if (includeAssociations && dto.getBranches() != null) {
             List<Branch> branches = dto.getBranches().stream()
-                    .map(branchDTO -> BranchMapper.toEntity(branchDTO, course, false)) // new signature expected
+                    .map(branchDTO -> BranchMapper.toEntity(branchDTO, course, true)) // new signature expected
                     .collect(Collectors.toList());
             course.setBranches(branches);
         }

@@ -25,8 +25,7 @@ public class InstituteDTO {
     @Size(min = 3, max = 20, message = "Institute code must be between 3 and 20 characters")
     private String code;
 
-    @NotBlank(message = "Institute description is required")
-    @Size(min = 3, max = 100, message = "Institute description must be between 3 and 100 characters")
+    @Size(min = 0, max = 100, message = "Institute description must be between 0 and 200 characters")
     private String description;
 
     @Valid

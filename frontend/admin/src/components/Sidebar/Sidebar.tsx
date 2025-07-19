@@ -10,7 +10,10 @@ function Sidebar() {
         Manage Notes
       </a>
       <a className='sidebar-sub-heading ' href='/pyqp'>
-        Manage Pyqp's
+        Manage PYQP
+      </a>
+      <a className='sidebar-sub-heading ' href='/storage-bucket'>
+        Manage Kill Interview
       </a>
       <a className='sidebar-sub-heading ' href='/storage-bucket'>
         Storage Bucket

@@ -1,4 +1,4 @@
-import "../../../styles/globals.css";
+import "../../styles/globals.css";
 
 export default function post({ formData, handle_input_change, handle_submit, error, fieldErrors }) {
   return (
@@ -16,7 +16,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.name}
                 onChange={handle_input_change}
                 className="form-input"
-                placeholder="Enter institute name"
+                placeholder="Enter course name"
                 required
               />
               {fieldErrors?.name && (
@@ -33,7 +33,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.shortname}
                 onChange={handle_input_change}
                 className="form-input"
-                placeholder="Enter short name"
+                placeholder="Enter course shortname"
                 required
               />
               {fieldErrors?.shortname && (
@@ -50,7 +50,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.code}
                 onChange={handle_input_change}
                 className="form-input"
-                placeholder="Enter institute code"
+                placeholder="Enter course code"
                 required
               />
               {fieldErrors?.code && (
@@ -66,7 +66,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.description}
                 onChange={handle_input_change}
                 className="form-textarea"
-                placeholder="Brief description about the institute..."
+                placeholder="Brief description about the course..."
               ></textarea>
               {fieldErrors?.description && (
                 <p className="form-error">{fieldErrors.description}</p>

@@ -1,12 +1,16 @@
 import "./institute_info.css"
-function box() {
-    return (
+import { useParams } from "react-router-dom";
+function box({data, loading, error}) {
+    const { id } = useParams();
+     if (loading) return <p>Loading...</p>;
+     if (error) return <p>Error: {error}</p>;
+     return (
         <>
             <div className="institute-info-container">
                 <div className="institute-info-container-left">
-                    <p>Rajiv Gandhi Proudyogiki Vishwavidyalaya (R.G.P.V)</p>
-                    <p className="meta-tags">Established 2005 • Mumbai, Maharashtra</p>
-                    <p className="last-updated">Last updated: 5 July 2024 at 04:00 pm</p>
+                    <p>{data.name}</p>
+                    <p className="meta-tags">{data?.established ? `Established ${data.established}` : "Established year not available"}</p>
+                    <p className="last-updated">Last updated: {data.updatedAt}</p>
                 </div>
                 <div className="institute-info-container-right">
                     <p className="stats-label">Total Downloads</p>

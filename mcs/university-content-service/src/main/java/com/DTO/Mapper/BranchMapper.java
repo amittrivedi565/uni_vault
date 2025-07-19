@@ -34,7 +34,7 @@ public class BranchMapper {
         if (includeAssociations && branch.getSemesters() != null) {
             dto.setSemesters(
                     branch.getSemesters().stream()
-                            .map(semester -> SemesterMapper.toDTO(semester, false)) // you can later support nested if needed
+                            .map(semester -> SemesterMapper.toDTO(semester, true)) // you can later support nested if needed
                             .collect(Collectors.toList())
             );
         } else {
@@ -65,7 +65,7 @@ public class BranchMapper {
         if (includeAssociations && dto.getSemesters() != null) {
             List<Semester> semesters = dto.getSemesters().stream()
                     .map(semesterDTO -> {
-                        Semester semester = SemesterMapper.toEntity(semesterDTO, false); // optionally limit nesting
+                        Semester semester = SemesterMapper.toEntity(semesterDTO, true); // optionally limit nesting
                         semester.setBranch(branch);
                         return semester;
                     })

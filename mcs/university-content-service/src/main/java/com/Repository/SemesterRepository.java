@@ -8,7 +8,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface SemesterRepository extends JpaRepository<Semester, UUID> {
-    Optional<Semester> findByName(String name);
     Optional<Semester> findByNameAndBranchId(String name, UUID id);
     List<Semester> findByBranchId(UUID branchId);
 }

@@ -1,4 +1,4 @@
-import InstituteGet from "../pages/institute/view";
+import InstituteGet from "../pages/institute/view_delete";
 import InstitutePost from "../pages/institute/create";
 import InstituteUpdate from "../pages/institute/update";
 import InstituteDetaiView from "../pages/institute/detail_view"

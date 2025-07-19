@@ -1,34 +1,24 @@
 import "./system_info.css"
-function system_info() {
+import { useParams } from "react-router-dom";
+function quick_actions({data}) {
     return (
         <>
-            <div className="system-info-container">
-                    <h2>Academic Overview</h2>
-                    <div className="system-info-meta-tags">Core Metrics</div>
+            <div className="quick-actions-container">
+                <h2>System Information</h2>
+                <div className="quick-actions-rows">
+                    <p>Object ID</p>
+                    <b className="value-box">{data.id}</b>
+                </div>
+                <div className="quick-actions-rows">
+                    <p>Transcation ID</p>
+                    <b className="value-box">xxxx-xxxx-xxxx-xxxx</b>
+                </div>
 
-                    <div className="system-info-stats-label system-info-container-row">
-                        <a href="">Total Courses ↗</a>
-                        <b>20</b>
-                    </div>
-
-                    <div className="system-info-stats-label system-info-container-row">
-                        <p>Total Branches</p>
-                        <b>20</b>
-                    </div>
-
-                    <div className="system-info-stats-label system-info-container-row">
-                        <p>Total Subjects</p>
-                        <b>20</b>
-                    </div>
-
-                    <div className="system-info-stats-label system-info-container-row">
-                        <p>*Net Units</p>
-                        <b>20</b>
-                    </div>
-                    
+                    <a href={`/institutes/update/${data.id}`}><button className="submit-button">Edit Info</button></a>
+        
             </div>
         </>
     )
 }
 
-export default system_info;
+export default quick_actions;

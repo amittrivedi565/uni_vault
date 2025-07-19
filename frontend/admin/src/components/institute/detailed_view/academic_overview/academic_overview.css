@@ -1,0 +1,49 @@
+.system-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: 30%;
+  background-color: white;
+  justify-content: space-between;
+  margin-top: 1em;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  color: #111827;
+  border-radius: 10px;
+}
+
+.system-info-meta-tags {
+  color: #4b5563;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 0.8em;
+  margin-top: 1em;
+  font-size: 1em;
+}
+
+
+.system-info-stats-label {
+  margin-top: 1.0em;
+  font-size: .9em;
+  color: #4b5563; 
+  font-weight: 400;
+}
+
+.system-info-container-row{
+  display: flex;
+  width: 100%;
+  height: 20px;
+  justify-content: space-between;
+}
+
+.system-info-container-row a {
+  text-decoration: none;
+  color: #4b5563;
+  /* color: #2563eb; optional: Tailwind's text-blue-600 */
+}
+
+.system-info-container-row a:hover {
+  text-decoration: underline;
+}

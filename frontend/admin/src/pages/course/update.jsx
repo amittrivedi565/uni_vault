@@ -3,17 +3,19 @@ import Sidebar from "../../components/sidebar/sidebar";
 import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
+import { useParams } from "react-router-dom";
+import { useUpdateCourse } from "../../hooks/course";
 
-import { useUpdateInstitute } from "../../hooks/institute"; // ⬅️ using new reusable hook
-
-function post() {
+function update() {
+  const { id } = useParams(); // courseId
   const {
     formData,
     handle_input_change,
     handle_submit,
     loading,
     error,
-  } = useUpdateInstitute();
+    fieldErrors,
+  } = useUpdateCourse(id); // pass courseId to the hook
 
   if (loading) return <p>Loading...</p>;
 
@@ -28,8 +30,8 @@ function post() {
             formData={formData}
             handle_input_change={handle_input_change}
             handle_submit={handle_submit}
-            loading={loading}
             error={error}
+            fieldErrors={fieldErrors}
           />
         </div>
       </Section>
@@ -37,4 +39,4 @@ function post() {
   );
 }
 
-export default post;
+export default update;

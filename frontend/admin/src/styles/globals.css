@@ -103,11 +103,24 @@
   background-color: #2a56c6;
 }
 
-
 .institute-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
+}
+
+.create-flow-container{
+  display: flex;
+  width: 90%;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create-flow-container a{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
 }

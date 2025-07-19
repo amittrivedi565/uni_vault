@@ -46,6 +46,39 @@ public class CourseService {
         }
     }
 
+    public CourseDTO getCourseById(UUID id) {
+        try {
+            Optional<Course> find = courseRepo.findById(id);
+            if (find.isPresent()) {
+                Course course = find.get();
+                return CourseMapper.toDTO(course);
+            } else {
+                throw new CourseServiceException("Course not found with ID: " + id);
+            }
+        } catch (CourseServiceException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw new CourseServiceException("An error occurred while fetching course by id. Please try again later.");
+        }
+    }
+
+
+
+    public List<CourseDTO> getAllCoursesByInstituteId(UUID id){
+        try{
+            List<Course> courses = courseRepo.findAllCoursesByInstituteId(id);
+            return courses.stream()
+                    .map(CourseMapper::toDTO)
+                    .collect(Collectors.toList());
+        } catch (CourseServiceException ex) {
+            throw ex;
+        }
+        catch (Exception e) {
+            throw new CourseServiceException("An error occurred while fetching courses by institute id. Please try again later.");
+        }
+    }
+
+
     public CourseDTO createCourse(CourseDTO courseDTO) {
         try {
             Optional<Course> existingCourse = courseRepo.findByNameAndInstituteId(courseDTO.getName(), courseDTO.getInstituteId());

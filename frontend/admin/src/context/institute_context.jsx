@@ -22,7 +22,6 @@ export const InstituteProvider = ({ children }) => {
   );
 };
 
-// ✅ Hook to use context
 export const context_institute = () => {
   const ctx = useContext(InstituteContext);
   if (!ctx) throw new Error("context_institute must be used within a provider");

@@ -45,7 +45,7 @@ public class SubjectMapper {
     }
 
     public static Subject toEntity(SubjectDTO dto) {
-        return toEntity(dto, false); // default: no units
+        return toEntity(dto, true); // default: no units
     }
 
     public static Subject toEntity(SubjectDTO dto, boolean includeAssociations) {

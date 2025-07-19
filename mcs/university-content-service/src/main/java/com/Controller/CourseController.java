@@ -13,6 +13,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/course")
+@CrossOrigin(origins = "*")
 public class CourseController {
 
     private final CourseService courseService;
@@ -26,6 +27,18 @@ public class CourseController {
     public ResponseEntity<List<CourseDTO>> getAllCoursesController() {
         List<CourseDTO> allCourses = courseService.getAllCourses();
         return new ResponseEntity<>(allCourses, HttpStatus.OK);
+    }
+
+    @GetMapping("/{instituteId}")
+    public ResponseEntity<List<CourseDTO>> getAllCoursesByInstituteIdController(@PathVariable UUID instituteId) {
+        List<CourseDTO> getAllCoursesByInstituteId = courseService.getAllCoursesByInstituteId(instituteId);
+        return new ResponseEntity<>(getAllCoursesByInstituteId, HttpStatus.OK);
+    }
+
+    @GetMapping("/fetchbyid/{courseId}")
+    public ResponseEntity<CourseDTO> getCourseByIdController(@PathVariable UUID courseId) {
+        CourseDTO getCourseById = courseService.getCourseById(courseId);
+        return new ResponseEntity<>(getCourseById, HttpStatus.OK);
     }
 
     @PostMapping

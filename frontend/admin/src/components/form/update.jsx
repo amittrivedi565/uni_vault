@@ -1,4 +1,4 @@
-import "../../../styles/globals.css";
+import "../../styles/globals.css";
 
 export default function update({formData, handle_input_change, handle_submit, loading, error}) {
 
