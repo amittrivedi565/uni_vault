@@ -4,28 +4,30 @@ import Section from "../../components/section/section"
 import HeaderBar from "../../components/header_bar/header_bar"
 import Form from "../../components/form/post"
 
-import {useCreateCourse} from "../../hooks/use_course"
+import { useCreateUnit } from "../../hooks//use_unit"
 
 function create() {
-    const { formData, handle_input_change, handle_submit, error, fieldErrors } = useCreateCourse();
-    const courseFields = [
+    const { formData, handle_input_change, handle_submit, error, fieldErrors } = useCreateUnit();
+    const subjectFields = [
         { name: "name", label: "Name", required: true },
-        { name: "shortname", label: "ShortName", required: true },
+        { name: "shortname", label: "Shortname", required: true },
         { name: "code", label: "Code", required: true },
-        { name: "description", label: "Description", type: "textarea" },
+        { name: "description", label: "Description", required: true },
+        { name: "pdfFile", label: "Upload Pdf (Unit File)", required: true },
     ];
     return (<>
         <div className="row">
             <Sidebar />
             <Section>
                 <HeaderBar />
+                {error && <p style={{ color: "red" }}>Error: {error}</p>}
                 <Form
                     formData={formData}
                     handle_input_change={handle_input_change}
                     handle_submit={handle_submit}
-                    fieldErrors={fieldErrors}
                     error={error}
-                    fields={courseFields}
+                    fieldErrors={fieldErrors}
+                    fields={subjectFields}
                 />
             </Section>
         </div>

@@ -4,6 +4,9 @@ import Default from "../layouts/default";
 import instituteRoutes from "./institute_routes";
 import courseRoutes from "./course_routes"
 import branchRoutes from "./branch_routes"
+import semesterRoutes from "./semester_routes"
+import SubjectRoutes from "./subject_routes";
+import UnitRoutes from "./unit_routes";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,9 @@ const router = createBrowserRouter([
       ...instituteRoutes,
       ...courseRoutes,
       ...branchRoutes,
+      ...semesterRoutes,
+      ...SubjectRoutes,
+      ...UnitRoutes,
       {
         path: "*",
         element: <h1>404 not found</h1>,

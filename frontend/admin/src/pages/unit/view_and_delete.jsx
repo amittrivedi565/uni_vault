@@ -6,13 +6,16 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllCoursesByInstituteId, useDeleteCourse } from "../../hooks/use_course";
+import { useFetchAllUnitsBySubjectId, useDeleteUnitById} from "../../hooks/use_unit";
 import { useParams } from "react-router-dom";
 
 function view() {
+
     const { id } = useParams();
-    const { data, loading, error } = useFetchAllCoursesByInstituteId(id)// pass id
-    const handle_delete = useDeleteCourse()
+
+    const { data, loading, error } = useFetchAllUnitsBySubjectId(id)
+    const handle_delete = useDeleteUnitById()
+
     const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
         {
@@ -24,13 +27,7 @@ function view() {
         },
         { key: "shortname", label: "Shortname" },
         { key: "code", label: "Code" },
-        {
-            key: "id",
-            label: "More",
-            type: "link",
-            href: (row) => `/branches/get/${row.id}`,
-            display: () => "Next",
-        },
+        { key: "resource", label: "Resource Link" },
     ];
 
     return (
@@ -39,14 +36,14 @@ function view() {
             <Section>
                 <div className="common-container">
                     <HeaderBar />
-                    <CreateFlow label="Create Course" link={`/courses/create/${id}`} />
+                    <CreateFlow label="Create Subjects" link={`/units/create/${id}`} />
                     <CommonTable
                         data={data}
                         loading={loading}
                         error={error}
                         columns={columns}
                         handle_delete={handle_delete}
-                        editBaseUrl={(row) => `/courses/update/${row.id}`} // dynamic URL
+                        editBaseUrl={(row) => `/units/update/${row.id}`}
                     />
                 </div>
             </Section>

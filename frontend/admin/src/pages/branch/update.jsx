@@ -19,11 +19,18 @@ function update() {
 
   if (loading) return <p>Loading...</p>;
 
+  const branchFields = [
+        { name: "name", label: "Name", required: true },
+        { name: "code", label: "Code", required: true },
+        { name: "shortname", label: "ShortName", required: true },
+        { name: "description", label: "Description", type: "textarea" },
+    ];
+
   return (
     <div className="row">
       <Sidebar />
       <Section>
-        <div className="institute-container">
+        <div className="common-container">
           <HeaderBar />
           {error && <p style={{ color: "red" }}>Error: {error}</p>}
           <Form
@@ -32,6 +39,7 @@ function update() {
             handle_submit={handle_submit}
             error={error}
             fieldErrors={fieldErrors}
+            fields={branchFields}
           />
         </div>
       </Section>

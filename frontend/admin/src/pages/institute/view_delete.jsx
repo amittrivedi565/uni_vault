@@ -36,7 +36,7 @@ function view() {
     <div className="row">
       <Sidebar />
       <Section>
-        <div className="institute-container">
+        <div className="common-container">
           <HeaderBar />
           <CreateFlow label="Create Institute" link="/institutes/create" />
           <CommonTable

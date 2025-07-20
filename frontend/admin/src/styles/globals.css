@@ -1,24 +1,32 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.footer-container{
-    width: 100%;
-    height: 50px;
-    border-top: 1px solid #dfe1e6;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.footer-container {
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #dfe1e6;
 }
 
 .required::after {
   content: " *";
   color: red;
 }
-.default{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.default {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .form-error {
   color: red;
@@ -26,12 +34,11 @@
   margin-top: 4px;
 }
 
-.row{
-    display: flex;
-    width: 100%;
-    height: 100vh;
+.row {
+  display: flex;
+  width: 100%;
+  height: 100vh;
 }
-
 
 .form-container {
   background: white;
@@ -109,7 +116,7 @@
   background-color: #2a56c6;
 }
 
-.institute-container{
+.common-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,7 +124,7 @@
   height: 100%;
 }
 
-.create-flow-container{
+.create-flow-container {
   display: flex;
   width: 90%;
   height: 80px;
@@ -125,7 +132,7 @@
   justify-content: space-between;
 }
 
-.create-flow-container a{
+.create-flow-container a {
   text-decoration: none;
   color: black;
   font-size: 25px;

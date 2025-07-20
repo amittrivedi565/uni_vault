@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/semester")
+@RequestMapping("/api/semesters")
+@CrossOrigin(origins = "*")
 public class SemesterController {
 
     private final SemesterService semesterService;
@@ -22,10 +23,17 @@ public class SemesterController {
         this.semesterService = semesterService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<SemesterDTO>> getAllSemesters() {
-        List<SemesterDTO> allSemesters = semesterService.getAllSemesters();
-        return new ResponseEntity<>(allSemesters, HttpStatus.OK);
+    @GetMapping("/{branchId}")
+    public ResponseEntity<List<SemesterDTO>> getSemestersByBranchId(@PathVariable UUID branchId) {
+        List<SemesterDTO> semesters = semesterService.getSemestersByBranchId(branchId);
+        return new ResponseEntity<>(semesters, HttpStatus.OK);
+    }
+
+    // GET a semester by semesterId
+    @GetMapping("/fetchbyid/{semesterId}")
+    public ResponseEntity<SemesterDTO> getSemesterByBranchId(@PathVariable UUID semesterId) {
+        SemesterDTO semester = semesterService.getSemesterById(semesterId);
+        return new ResponseEntity<>(semester, HttpStatus.OK);
     }
 
     @PostMapping

@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/unit")
+@RequestMapping("/api/units")
+@CrossOrigin(origins = "*")
 public class UnitController {
 
     private final UnitService unitService;
@@ -22,10 +23,17 @@ public class UnitController {
         this.unitService = unitService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<UnitDTO>> getAllUnitsController() {
-        List<UnitDTO> allUnits = unitService.getAllUnits();
-        return new ResponseEntity<>(allUnits, HttpStatus.OK);
+    @GetMapping("/{subjectId}")
+    public ResponseEntity<List<UnitDTO>> getAllUnitsBySubjectId(@PathVariable UUID subjectId) {
+        List<UnitDTO> units = unitService.getAllUnitsBySubjectId(subjectId);
+        return new ResponseEntity<>(units, HttpStatus.OK);
+    }
+
+    // Get unit by unitId
+    @GetMapping("/fetchbyid/{unitId}")
+    public ResponseEntity<UnitDTO> getUnitById(@PathVariable UUID unitId) {
+        UnitDTO unit = unitService.getUnitById(unitId);
+        return new ResponseEntity<>(unit, HttpStatus.OK);
     }
 
     @PostMapping

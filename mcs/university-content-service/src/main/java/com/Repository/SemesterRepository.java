@@ -9,5 +9,5 @@ import java.util.UUID;
 
 public interface SemesterRepository extends JpaRepository<Semester, UUID> {
     Optional<Semester> findByNameAndBranchId(String name, UUID id);
-    List<Semester> findByBranchId(UUID branchId);
+    List<Semester> findAllSemestersByBranchId(UUID id);
 }

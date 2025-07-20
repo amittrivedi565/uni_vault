@@ -32,20 +32,6 @@ public class BranchService {
         this.courseRepo = courseRepo;
     }
 
-    public List<BranchDTO> getAllBranches() {
-        try {
-            List<Branch> branches = branchRepo.findAll();
-            return branches.stream()
-                    .map(BranchMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (BranchServiceException ex) {
-            throw ex;
-        } catch (Exception e) {
-            logger.error("Error in getAllBranches: {}", e.getMessage());
-            throw new BranchServiceException("An error occurred while fetching all branches. Please try again later.");
-        }
-    }
-
     public BranchDTO getBranchById(UUID id) {
         try {
             Optional<Branch> find = branchRepo.findById(id);

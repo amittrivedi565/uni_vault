@@ -17,11 +17,18 @@ function post() {
 
   if (loading) return <p>Loading...</p>;
 
+  const instituteFields = [
+    { name: "name", label: "Name", required: true },
+    { name: "shortname", label: "Description", required: true },
+    { name: "code", label: "Code", required: true },
+    { name: "description", label: "Description", type: "textarea" },
+  ];
+
   return (
     <div className="row">
       <Sidebar />
       <Section>
-        <div className="institute-container">
+        <div className="common-container">
           <HeaderBar />
           {error && <p style={{ color: "red" }}>Error: {error}</p>}
           <Form
@@ -30,6 +37,7 @@ function post() {
             handle_submit={handle_submit}
             loading={loading}
             error={error}
+            fields={instituteFields} 
           />
         </div>
       </Section>

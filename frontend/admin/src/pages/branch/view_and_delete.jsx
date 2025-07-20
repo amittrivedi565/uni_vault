@@ -28,7 +28,7 @@ function view() {
             key: "id",
             label: "More",
             type: "link",
-            href: (row) => `/semesters/${row.id}`,
+            href: (row) => `/semesters/get/${row.id}`,
             display: () => "Next",
         },
     ];
@@ -37,7 +37,7 @@ function view() {
         <div className="row">
             <Sidebar />
             <Section>
-                <div className="institute-container">
+                <div className="common-container">
                     <HeaderBar />
                     <CreateFlow label="Create Branch" link={`/branches/create/${id}`} />
                     <CommonTable

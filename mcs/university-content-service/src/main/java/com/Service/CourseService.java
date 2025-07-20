@@ -32,20 +32,6 @@ public class CourseService {
         this.instituteRepo = instituteRepo;
     }
 
-    public List<CourseDTO> getAllCourses() {
-        try {
-            List<Course> courses = courseRepo.findAll();
-            return courses.stream()
-                    .map(CourseMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (CourseServiceException ex) {
-            throw ex;
-        } catch (Exception e) {
-            logger.error("Error in getAllCourses: {}", e.getMessage());
-            throw new CourseServiceException("An error occurred while fetching all courses. Please try again later.");
-        }
-    }
-
     public CourseDTO getCourseById(UUID id) {
         try {
             Optional<Course> find = courseRepo.findById(id);

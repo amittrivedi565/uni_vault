@@ -32,17 +32,31 @@ public class UnitService {
         this.subjectRepo = subjectRepo;
     }
 
-    public List<UnitDTO> getAllUnits() {
+    public UnitDTO getUnitById(UUID id) {
         try {
-            List<Unit> units = unitRepo.findAll();
+            Optional<Unit> find = unitRepo.findById(id);
+            if (find.isPresent()) {
+                return UnitMapper.toDTO(find.get());
+            } else {
+                throw new UnitServiceException("Unit not found with ID: " + id);
+            }
+        } catch (UnitServiceException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw new UnitServiceException("An error occurred while fetching unit by id. Please try again later.");
+        }
+    }
+
+    public List<UnitDTO> getAllUnitsBySubjectId(UUID subjectId) {
+        try {
+            List<Unit> units = unitRepo.findAllUnitsBySubjectId(subjectId);
             return units.stream()
                     .map(UnitMapper::toDTO)
                     .collect(Collectors.toList());
         } catch (UnitServiceException ex) {
             throw ex;
         } catch (Exception e) {
-            logger.error("Error in getAllUnits: {}", e.getMessage());
-            throw new UnitServiceException("An error occurred while fetching all units. Please try again later.");
+            throw new UnitServiceException("An error occurred while fetching units by subject id. Please try again later.");
         }
     }
 

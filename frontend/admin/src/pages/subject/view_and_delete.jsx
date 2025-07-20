@@ -6,13 +6,16 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllCoursesByInstituteId, useDeleteCourse } from "../../hooks/use_course";
+import { useFetchAllSubjectsBySemesterId, useDeleteSubjectById } from "../../hooks/use_subject";
 import { useParams } from "react-router-dom";
 
 function view() {
+
     const { id } = useParams();
-    const { data, loading, error } = useFetchAllCoursesByInstituteId(id)// pass id
-    const handle_delete = useDeleteCourse()
+
+    const { data, loading, error } = useFetchAllSubjectsBySemesterId(id)
+    const handle_delete = useDeleteSubjectById()
+
     const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
         {
@@ -28,7 +31,7 @@ function view() {
             key: "id",
             label: "More",
             type: "link",
-            href: (row) => `/branches/get/${row.id}`,
+            href: (row) => `/units/get/${row.id}`,
             display: () => "Next",
         },
     ];
@@ -39,14 +42,14 @@ function view() {
             <Section>
                 <div className="common-container">
                     <HeaderBar />
-                    <CreateFlow label="Create Course" link={`/courses/create/${id}`} />
+                    <CreateFlow label="Create Subjects" link={`/subjects/create/${id}`} />
                     <CommonTable
                         data={data}
                         loading={loading}
                         error={error}
                         columns={columns}
                         handle_delete={handle_delete}
-                        editBaseUrl={(row) => `/courses/update/${row.id}`} // dynamic URL
+                        editBaseUrl={(row) => `/subjects/update/${row.id}`}
                     />
                 </div>
             </Section>

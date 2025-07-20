@@ -31,17 +31,32 @@ public class SubjectService {
         this.semesterRepo = semesterRepo;
     }
 
-    public List<SubjectDTO> getAllSubjects() {
+
+    public SubjectDTO getSubjectById(UUID id) {
         try {
-            List<Subject> subjects = subjectRepo.findAll();
+            Optional<Subject> find = subjectRepo.findById(id);
+            if (find.isPresent()) {
+                return SubjectMapper.toDTO(find.get());
+            } else {
+                throw new SubjectServiceException("Subject not found with ID: " + id);
+            }
+        } catch (SubjectServiceException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw new SubjectServiceException("An error occurred while fetching subject by id. Please try again later.");
+        }
+    }
+
+    public List<SubjectDTO> getAllSubjectsBySemesterId(UUID semesterId) {
+        try {
+            List<Subject> subjects = subjectRepo.findAllSubjectsBySemesterId(semesterId);
             return subjects.stream()
                     .map(SubjectMapper::toDTO)
                     .collect(Collectors.toList());
         } catch (SubjectServiceException ex) {
             throw ex;
         } catch (Exception e) {
-            logger.error("Error in getAllSubjects: {}", e.getMessage());
-            throw new SubjectServiceException("An error occurred while fetching all subjects. Please try again later.");
+            throw new SubjectServiceException("An error occurred while fetching subjects by semester id. Please try again later.");
         }
     }
 

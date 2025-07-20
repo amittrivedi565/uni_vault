@@ -23,12 +23,6 @@ public class BranchController {
         this.branchService = branchService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<BranchDTO>> getAllBranchesController() {
-        List<BranchDTO> allBranches = branchService.getAllBranches();
-        return new ResponseEntity<>(allBranches, HttpStatus.OK);
-    }
-
     @GetMapping("/{courseId}")
     public ResponseEntity<List<BranchDTO>> getBranchesByCourseId(@PathVariable UUID courseId) {
         List<BranchDTO> allBranches = branchService.getBranchesByCourseId(courseId);

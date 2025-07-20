@@ -1,84 +1,47 @@
 import "../../styles/globals.css";
 
-export default function post({ formData, handle_input_change, handle_submit, error, fieldErrors }) {
+export default function DynamicForm({ formData, handle_input_change, handle_submit, error, fieldErrors, fields }) {
   return (
-    <>
+    <div className="form-container" style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <div style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
-        <div className="form-container">
-          <form onSubmit={handle_submit}>
-            {/* Name */}
-            <div className="form-group">
-              <label className="form-label required">Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handle_input_change}
-                className="form-input"
-                placeholder="Enter name"
-                required
-              />
-              {fieldErrors?.name && (
-                <p className="form-error">{fieldErrors.name}</p>
-              )}
-            </div>
 
-            {/* Shortname */}
-            <div className="form-group">
-              <label className="form-label required">Shortname</label>
-              <input
-                type="text"
-                name="shortname"
-                value={formData.shortname}
-                onChange={handle_input_change}
-                className="form-input"
-                placeholder="Enter shortname"
-                required
-              />
-              {fieldErrors?.shortname && (
-                <p className="form-error">{fieldErrors.shortname}</p>
-              )}
-            </div>
+      <form onSubmit={handle_submit} encType="multipart/form-data">
+        {fields.map(({ name, label, type = "text", required }) => (
+          <div className="form-group" key={name}>
+            <label className={`form-label${required ? " required" : ""}`}>{label}</label>
 
-            {/* Code */}
-            <div className="form-group">
-              <label className="form-label required">Code</label>
-              <input
-                type="text"
-                name="code"
-                value={formData.code}
-                onChange={handle_input_change}
-                className="form-input"
-                placeholder="Enter code"
-                required
-              />
-              {fieldErrors?.code && (
-                <p className="form-error">{fieldErrors.code}</p>
-              )}
-            </div>
-
-            {/* Description */}
-            <div className="form-group">
-              <label className="form-label">Description</label>
+            {type === "textarea" ? (
               <textarea
-                name="description"
-                value={formData.description}
+                name={name}
+                value={formData[name] || ""}
                 onChange={handle_input_change}
                 className="form-textarea"
-                placeholder="Brief description"
-              ></textarea>
-              {fieldErrors?.description && (
-                <p className="form-error">{fieldErrors.description}</p>
-              )}
-            </div>
+                required={required}
+              />
+            ) : type === "file" ? (
+              <input
+                type="file"
+                name={name}
+                onChange={(e) => handle_input_change({ target: { name, value: e.target.files[0] } })}
+                className="form-input"
+                required={required}
+              />
+            ) : (
+              <input
+                type={type}
+                name={name}
+                value={formData[name] || ""}
+                onChange={handle_input_change}
+                className="form-input"
+                required={required}
+              />
+            )}
+            {fieldErrors?.[name] && <p className="form-error">{fieldErrors[name]}</p>}
+          </div>
+        ))}
 
-            <button type="submit" className="submit-button">
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
-    </>
+        <button type="submit" className="submit-button">Submit</button>
+      </form>
+    </div>
   );
 }

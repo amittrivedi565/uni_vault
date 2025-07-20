@@ -1,7 +1,13 @@
 import "../../styles/globals.css";
 
-export default function update({formData, handle_input_change, handle_submit, loading, error}) {
-
+export default function UpdateForm({
+  formData,
+  handle_input_change,
+  handle_submit,
+  loading,
+  error,
+  fields, // array of { name, label, type, required }
+}) {
   if (loading) return <p>Loading...</p>;
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
@@ -9,48 +15,30 @@ export default function update({formData, handle_input_change, handle_submit, lo
     <div style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
       <div className="form-container">
         <form onSubmit={handle_submit}>
-          <div className="form-group">
-            <label className="form-label">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handle_input_change}
-              className="form-input"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label className="form-label">Shortname</label>
-            <input
-              type="text"
-              name="shortname"
-              value={formData.shortname}
-              onChange={handle_input_change}
-              className="form-input"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label className="form-label">Code</label>
-            <input
-              name="code"
-              value={formData.code}
-              onChange={handle_input_change}
-              type="text"
-              className="form-input"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label className="form-label">Description</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handle_input_change}
-              className="form-textarea"
-            />
-          </div>
+          {fields.map(({ name, label, type = "text", required }) => (
+            <div className="form-group" key={name}>
+              <label className="form-label">{label}</label>
+              {type === "textarea" ? (
+                <textarea
+                  name={name}
+                  value={formData[name] || ""}
+                  onChange={handle_input_change}
+                  className="form-textarea"
+                  required={required}
+                />
+              ) : (
+                <input
+                  type={type}
+                  name={name}
+                  value={formData[name] || ""}
+                  onChange={handle_input_change}
+                  className="form-input"
+                  required={required}
+                />
+              )}
+            </div>
+          ))}
+
           <button type="submit" className="submit-button">Update</button>
         </form>
       </div>

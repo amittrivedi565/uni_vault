@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/subject")
+@RequestMapping("/api/subjects")
+@CrossOrigin(origins = "*")
 public class SubjectController {
 
     private final SubjectService subjectService;
@@ -22,10 +23,17 @@ public class SubjectController {
         this.subjectService = subjectService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<SubjectDTO>> getAllSubjectsController() {
-        List<SubjectDTO> allSubjects = subjectService.getAllSubjects();
-        return new ResponseEntity<>(allSubjects, HttpStatus.OK);
+    @GetMapping("/{semesterId}")
+    public ResponseEntity<List<SubjectDTO>> getAllSubjectsBySemesterId(@PathVariable UUID semesterId) {
+        List<SubjectDTO> subjects = subjectService.getAllSubjectsBySemesterId(semesterId);
+        return new ResponseEntity<>(subjects, HttpStatus.OK);
+    }
+
+    // Get subject by subjectId
+    @GetMapping("/fetchbyid/{subjectId}")
+    public ResponseEntity<SubjectDTO> getSubjectById(@PathVariable UUID subjectId) {
+        SubjectDTO subject = subjectService.getSubjectById(subjectId);
+        return new ResponseEntity<>(subject, HttpStatus.OK);
     }
 
     @PostMapping

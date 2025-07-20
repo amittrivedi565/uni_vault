@@ -31,32 +31,33 @@ public class SemesterService {
         this.branchRepo = branchRepo;
     }
 
-    public List<SemesterDTO> getAllSemesters() {
+    public SemesterDTO getSemesterById(UUID id) {
         try {
-            List<Semester> semesters = semesterRepo.findAll();
+            Optional<Semester> find = semesterRepo.findById(id);
+            if (find.isPresent()) {
+                Semester semester = find.get();
+                return SemesterMapper.toDTO(semester);
+            } else {
+                throw new SemesterServiceException("Semester not found with ID: " + id);
+            }
+        } catch (SemesterServiceException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw new SemesterServiceException("An error occurred while fetching semester by id. Please try again later.");
+        }
+    }
+
+    public List<SemesterDTO> getSemestersByBranchId(UUID branchId) {
+        try {
+            List<Semester> semesters = semesterRepo.findAllSemestersByBranchId(branchId);
+            if (semesters.isEmpty()) {
+                throw new SemesterServiceException("No semesters found for the given branch id.");
+            }
             return semesters.stream()
                     .map(SemesterMapper::toDTO)
                     .collect(Collectors.toList());
         } catch (SemesterServiceException ex) {
             throw ex;
-        } catch (Exception e) {
-            logger.error("Error in getAllSemesters: {}", e.getMessage());
-            throw new SemesterServiceException("An error occurred while fetching all semesters. Please try again later.");
-        }
-    }
-
-    public List<SemesterDTO> getSemestersByBranch(UUID branchId) {
-        try {
-            List<Semester> semesters = semesterRepo.findByBranchId(branchId);
-            if (semesters.isEmpty()) {
-                throw new SemesterServiceException("No semesters found for the given branch.");
-            }
-            // Convert to DTOs and return
-            return semesters.stream()
-                    .map(SemesterMapper::toDTO)
-                    .collect(Collectors.toList());
-        } catch (SemesterServiceException ex) {
-            throw ex; // rethrow custom exception
         } catch (Exception e) {
             throw new SemesterServiceException("An error occurred while fetching the semesters.");
         }

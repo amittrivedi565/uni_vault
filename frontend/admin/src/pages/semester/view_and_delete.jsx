@@ -6,13 +6,16 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllCoursesByInstituteId, useDeleteCourse } from "../../hooks/use_course";
+import { useFetchAllSemestersByBranchId, useDeleteSemesterById } from "../../hooks/use_semester";
 import { useParams } from "react-router-dom";
 
 function view() {
+
     const { id } = useParams();
-    const { data, loading, error } = useFetchAllCoursesByInstituteId(id)// pass id
-    const handle_delete = useDeleteCourse()
+    
+    const { data, loading, error } = useFetchAllSemestersByBranchId(id)
+    const handle_delete = useDeleteSemesterById()
+
     const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
         {
@@ -22,13 +25,13 @@ function view() {
             href: (row) => `/`,
             display: (val) => `${val} ↗`,
         },
-        { key: "shortname", label: "Shortname" },
         { key: "code", label: "Code" },
+        { key: "syllabus", label: "Syllabus" },
         {
             key: "id",
             label: "More",
             type: "link",
-            href: (row) => `/branches/get/${row.id}`,
+            href: (row) => `/subjects/get/${row.id}`,
             display: () => "Next",
         },
     ];
@@ -39,14 +42,14 @@ function view() {
             <Section>
                 <div className="common-container">
                     <HeaderBar />
-                    <CreateFlow label="Create Course" link={`/courses/create/${id}`} />
+                    <CreateFlow label="Create Semesters" link={`/semesters/create/${id}`} />
                     <CommonTable
                         data={data}
                         loading={loading}
                         error={error}
                         columns={columns}
                         handle_delete={handle_delete}
-                        editBaseUrl={(row) => `/courses/update/${row.id}`} // dynamic URL
+                        editBaseUrl={(row) => `/semesters/update/${row.id}`}
                     />
                 </div>
             </Section>

@@ -16,6 +16,13 @@ function post() {
     fieldErrors,
   } = useCreateInstitute();
 
+  const instituteFields = [
+    { name: "name", label: "Name", required: true },
+    { name: "shortname", label: "Description", required: true },
+    { name: "code", label: "Code", required: true },
+    { name: "description", label: "Description", type: "textarea" },
+  ];
+
   return (
     <div className="row">
       <Sidebar />
@@ -29,6 +36,7 @@ function post() {
           handle_submit={handle_submit}
           error={error}
           fieldErrors={fieldErrors}
+          fields={instituteFields}
         />
       </Section>
     </div>

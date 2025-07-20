@@ -4,7 +4,7 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
 import { useParams } from "react-router-dom";
-import { useUpdateCourse } from "../../hooks/use_course";
+import { useUpdateSubject } from "../../hooks/use_subject";
 
 function update() {
   const { id } = useParams(); // courseId
@@ -15,15 +15,16 @@ function update() {
     loading,
     error,
     fieldErrors,
-  } = useUpdateCourse(id);
+  } = useUpdateSubject(id);
 
   if (loading) return <p>Loading...</p>;
-  const courseFields = [
-    { name: "name", label: "Name", required: true },
-    { name: "code", label: "Code", required: true },
-    { name: "description", label: "Description", type: "textarea" },
-    { name: "pdfFile", label: "Upload PDF for Syllabus", type: "file" },
-  ];
+
+   const subjectFields = [
+        { name: "name", label: "Name", required: true },
+        { name: "shortname", label: "Shortname", required: true },
+        { name: "code", label: "Code", required: true },
+        { name: "description", label: "Description", required: true },
+    ]
 
   return (
     <div className="row">
@@ -38,12 +39,11 @@ function update() {
             handle_submit={handle_submit}
             error={error}
             fieldErrors={fieldErrors}
-            fields={courseFields}
+            fields={subjectFields}
           />
         </div>
       </Section>
     </div>
   );
 }
-
 export default update;
