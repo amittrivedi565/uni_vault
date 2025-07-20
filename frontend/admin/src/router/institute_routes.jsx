@@ -5,19 +5,19 @@ import InstituteDetaiView from "../pages/institute/detail_view"
 
 const instituteRoutes = [
   {
-    path: "institutes",
+    path: "/institutes/get",
     element: <InstituteGet/>,
   },
   {
-    path: "institutes/create",
+    path: "/institutes/create",
     element: <InstitutePost />,
   },
   {
-    path: "institutes/update/:id",
+    path: "/institutes/update/:id",
     element: <InstituteUpdate />,
   },
   {
-    path: "institutes/details/:id",
+    path: "/institutes/details/:id",
     element: <InstituteDetaiView />,
   },
 ];

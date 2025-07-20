@@ -46,9 +46,26 @@ public class BranchService {
         }
     }
 
-    public List<BranchDTO> getSemestersByBranchId(UUID id) {
+    public BranchDTO getBranchById(UUID id) {
         try {
-            Optional<Branch> branches = branchRepo.findById(id);
+            Optional<Branch> find = branchRepo.findById(id);
+            if (find.isPresent()) {
+                Branch branch = find.get();
+                return BranchMapper.toDTO(branch);
+            } else {
+                throw new BranchServiceException("Branch not found with ID: " + id);
+            }
+        } catch (BranchServiceException ex) {
+            throw ex;
+        } catch (Exception e) {
+            throw new BranchServiceException("An error occurred while fetching branch by id. Please try again later.");
+        }
+    }
+
+
+    public List<BranchDTO> getBranchesByCourseId(UUID courseId) {
+        try {
+            List<Branch> branches = branchRepo.findAllBranchesByCourseId(courseId);
             if (branches.isEmpty()) {
                 throw new BranchServiceException("No Branches found for the given id.");
             }
@@ -62,7 +79,6 @@ public class BranchService {
             throw new SemesterServiceException("An error occurred while fetching the semesters.");
         }
     }
-
 
     public BranchDTO createBranch(BranchDTO branchDTO) {
         try {

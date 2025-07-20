@@ -1,15 +1,20 @@
 import { api } from "./api_client";
 
-export const getAllCourses = () => api.get("/course");
+// Get all courses by institute
+export const getAllCoursesByInstituteId = (instituteId) => api.get(`/courses/${instituteId}`);
 
-export const getCourseById = (id) => api.get(`/course/fetchbyid/${id}`);
+// Get course by course id
+export const getCourseById = (courseId) => api.get(`/courses/fetchbyid/${courseId}`);
 
+// Create course
 export const postCourse = (formData, instituteId) => {
-  return api.post("/course", { ...formData, instituteId });
+  return api.post(`/courses`, { ...formData, instituteId });
 };
 
-export const updateCourseById = (id, formData) => {
-  return api.put(`/course/${id}`, formData);
+// Update course by course id
+export const updateCourseById = (courseId, formData) => {
+  return api.put(`/courses/${courseId}`, formData);
 };
 
-export const deleteCourse = (id) => api.del(`/course/${id}`);
+// Delete course by course id
+export const deleteCourse = (courseId) => api.del(`/courses/${courseId}`);

@@ -3,6 +3,7 @@ import Home from "../pages/home";
 import Default from "../layouts/default";
 import instituteRoutes from "./institute_routes";
 import courseRoutes from "./course_routes"
+import branchRoutes from "./branch_routes"
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
       },
       ...instituteRoutes,
       ...courseRoutes,
+      ...branchRoutes,
       {
         path: "*",
         element: <h1>404 not found</h1>,

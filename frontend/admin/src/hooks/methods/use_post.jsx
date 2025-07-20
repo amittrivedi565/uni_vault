@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const use_post = (postFn, initialFormData, onSuccessNavigateTo = null) => {
+/*
+  Api passed as function 
+  Intial form data
+  On Success redirect
+*/
+
+const use_post = (api, initialFormData, onSuccessNavigateTo = null) => {
   const navigate = useNavigate();
-  const { id } = useParams(); // optional: useful for entity relations
+  const { id } = useParams(); 
+
   const [error, setError] = useState(null);
   const [fieldErrors, setFieldErrors] = useState({});
   const [formData, setFormData] = useState({
     ...initialFormData,
-    instituteId: id, // only if required
+    instituteId: id,
   });
 
   const handle_input_change = (e) => {
@@ -20,9 +27,9 @@ const use_post = (postFn, initialFormData, onSuccessNavigateTo = null) => {
   };
 
   const handle_submit = async (e) => {
-    e.preventDefault();
+     if (e?.preventDefault) e.preventDefault(); 
     try {
-      const created = await postFn(formData, id);
+      const created = await api(formData, id);
       if (created) {
         alert("Created successfully!");
         setFormData({ ...initialFormData, instituteId: id });

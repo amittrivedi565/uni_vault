@@ -1,16 +1,16 @@
 import { api } from "./api_client";
 
 // Get all institutes
-export const getAllInstitutes = () => api.get("/institute");
+export const getAllInstitutes = () => api.get("/institutes");
 
 // Get institute by ID
-export const getInstituteById = (id) => api.get(`/institute/${id}`);
+export const getInstituteById = (instituteId) => api.get(`/institutes/${instituteId}`);
 
 // Post a new institute
-export const postInstitute = (formData) => api.post("/institute", formData);
+export const postInstitute = (formData) => api.post("/institutes", formData);
 
 // Update institute by ID
-export const updateInstituteById = (id, formData) => api.put(`/institute/${id}`, formData);
+export const updateInstituteById = (instituteId, formData) => api.put(`/institutes/${instituteId}`, formData);
 
 // Delete institute by ID
-export const deleteInstitute = (id) => api.del(`/institute/${id}`);
+export const deleteInstitute = (instituteId) => api.del(`/institutes/${instituteId}`);

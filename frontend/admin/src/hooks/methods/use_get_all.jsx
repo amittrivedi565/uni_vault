@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 
-const use_fetch_all = (fetchFunction) => {
+/*
+  Pass api as function
+  Fetch records
+*/
+
+const use_fetch_all = (api) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,7 +13,7 @@ const use_fetch_all = (fetchFunction) => {
   useEffect(() => {
     const fetch_all = async () => {
       try {
-        const result = await fetchFunction();
+        const result = await api();
         setData(result);
       } catch (err) {
         setError(err.message || "Unknown error");
@@ -16,9 +21,8 @@ const use_fetch_all = (fetchFunction) => {
         setLoading(false);
       }
     };
-
     fetch_all();
-  }, [fetchFunction]);
+  }, [api]);
 
   return { data, loading, error };
 };

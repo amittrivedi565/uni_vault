@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/course")
+@RequestMapping("/api/courses")
 @CrossOrigin(origins = "*")
 public class CourseController {
 
@@ -21,12 +21,6 @@ public class CourseController {
     @Autowired
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<CourseDTO>> getAllCoursesController() {
-        List<CourseDTO> allCourses = courseService.getAllCourses();
-        return new ResponseEntity<>(allCourses, HttpStatus.OK);
     }
 
     @GetMapping("/{instituteId}")

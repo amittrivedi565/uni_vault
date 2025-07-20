@@ -58,7 +58,7 @@ export default function CommonTable({
                 <a className="td-a" href={getEditLink(row)}>
                   <FaEdit size={15} />
                 </a>
-                <button onClick={(e) => handle_delete?.(e, row.id)}>
+                <button onClick={(e) => handle_delete(e, row.id)}>
                   <FaTrash size={12} />
                 </button>
               </td>

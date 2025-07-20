@@ -3,7 +3,7 @@ import Section from "../../components/section/section";
 import Wrapper from "../../components/institute/wrapper/wrapper";
 import { useParams } from "react-router-dom";
 
-import { useFetchInstituteById } from "../../hooks/institute"; // from centralized hook
+import { useFetchInstituteById } from "../../hooks/use_institute"; // from centralized hook
 
 function detail_view() {
     const { id } = useParams();

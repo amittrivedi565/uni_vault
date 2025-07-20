@@ -4,7 +4,7 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/post";
 
-import { useCreateInstitute } from "../../hooks/institute"; // using new central hook file
+import { useCreateInstitute } from "../../hooks/use_institute"; // using new central hook file
 
 function post() {
   const {

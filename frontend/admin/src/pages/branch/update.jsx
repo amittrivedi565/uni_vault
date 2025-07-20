@@ -4,7 +4,7 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
 import { useParams } from "react-router-dom";
-import { useUpdateCourse } from "../../hooks/use_course";
+import { useUpdateBranch } from "../../hooks/use_branch";
 
 function update() {
   const { id } = useParams(); // courseId
@@ -15,10 +15,10 @@ function update() {
     loading,
     error,
     fieldErrors,
-  } = useUpdateCourse(id);
+  } = useUpdateBranch(id);
 
   if (loading) return <p>Loading...</p>;
-  
+
   return (
     <div className="row">
       <Sidebar />
@@ -38,5 +38,4 @@ function update() {
     </div>
   );
 }
-
 export default update;

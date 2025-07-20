@@ -6,7 +6,7 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllInstitutes, useDeleteInstitute } from "../../hooks/institute";
+import { useFetchAllInstitutes, useDeleteInstitute } from "../../hooks/use_institute";
 
 function view() {
   const { data, loading, error } = useFetchAllInstitutes();
@@ -18,7 +18,7 @@ function view() {
       key: "name",
       label: "Name",
       type: "link",
-      href: (row) => `/405`,
+      href: (row) => `/institutes/details/${row.id}`,
       display: (val) => `${val} ↗`,
     },
     { key: "shortname", label: "Shortname" },
@@ -27,7 +27,7 @@ function view() {
       key: "id",
       label: "More",
       type: "link",
-      href: (row) => `/courses/${row.id}`,
+      href: (row) => `/courses/get/${row.id}`,
       display: () => "Next",
     },
   ];
@@ -39,8 +39,6 @@ function view() {
         <div className="institute-container">
           <HeaderBar />
           <CreateFlow label="Create Institute" link="/institutes/create" />
-
-          {error && <p style={{ color: "red" }}>Error: {error}</p>}
           <CommonTable
             data={data}
             loading={loading}

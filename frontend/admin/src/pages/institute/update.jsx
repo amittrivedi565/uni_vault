@@ -4,7 +4,7 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
 
-import { useUpdateInstitute } from "../../hooks/institute"; // ⬅️ using new reusable hook
+import { useUpdateInstitute } from "../../hooks/use_institute"; // ⬅️ using new reusable hook
 
 function post() {
   const {

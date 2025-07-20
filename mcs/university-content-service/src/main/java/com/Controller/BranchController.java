@@ -12,7 +12,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/branch")
+@RequestMapping("/api/branches")
+@CrossOrigin(origins = "*")
 public class BranchController {
 
     private final BranchService branchService;
@@ -28,10 +29,16 @@ public class BranchController {
         return new ResponseEntity<>(allBranches, HttpStatus.OK);
     }
 
-    @GetMapping("/{branchId}")
-    public ResponseEntity<List<BranchDTO>> getSemestersByBranch(@PathVariable UUID branchId) {
-        List<BranchDTO> allBranches = branchService.getSemestersByBranchId(branchId);
+    @GetMapping("/{courseId}")
+    public ResponseEntity<List<BranchDTO>> getBranchesByCourseId(@PathVariable UUID courseId) {
+        List<BranchDTO> allBranches = branchService.getBranchesByCourseId(courseId);
         return new ResponseEntity<>(allBranches, HttpStatus.OK);
+    }
+
+    @GetMapping("/fetchbyid/{branchId}")
+    public ResponseEntity<BranchDTO> getBranchByIdController(@PathVariable UUID branchId) {
+        BranchDTO branchDTO = branchService.getBranchById(branchId);
+        return new ResponseEntity<>(branchDTO, HttpStatus.OK);
     }
 
     @PostMapping

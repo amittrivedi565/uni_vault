@@ -6,8 +6,8 @@ function Sidebar() {
       <a className='sidebar-heading'>
         <b>ACTIONS</b>
       </a>
-      <a className='sidebar-sub-heading ' href='/institutes'>
-        Manage Notes
+      <a className='sidebar-sub-heading ' href='/institutes/get'>
+        Manage Uni Content
       </a>
       <a className='sidebar-sub-heading ' href='/pyqp'>
         Manage PYQP

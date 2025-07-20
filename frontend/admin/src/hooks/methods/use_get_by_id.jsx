@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 
-const use_fetch_by_id = (id, fetchFunction) => {
+/*
+  Pass api as function, id for 1 : M relation such as institute : courses
+*/
+
+const use_fetch_by_id = (id, api) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!id) return;
-
     const fetch_by_id = async () => {
       setLoading(true);
       try {
-        const result = await fetchFunction(id);
+        const result = await api(id);
         setData(result);
       } catch (err) {
         console.error(err);
@@ -22,7 +25,7 @@ const use_fetch_by_id = (id, fetchFunction) => {
     };
 
     fetch_by_id();
-  }, [id, fetchFunction]);
+  }, [id, api]);
 
   return { data, loading, error };
 };

@@ -16,7 +16,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.name}
                 onChange={handle_input_change}
                 className="form-input"
-                placeholder="Enter course name"
+                placeholder="Enter name"
                 required
               />
               {fieldErrors?.name && (
@@ -33,7 +33,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.shortname}
                 onChange={handle_input_change}
                 className="form-input"
-                placeholder="Enter course shortname"
+                placeholder="Enter shortname"
                 required
               />
               {fieldErrors?.shortname && (
@@ -50,7 +50,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.code}
                 onChange={handle_input_change}
                 className="form-input"
-                placeholder="Enter course code"
+                placeholder="Enter code"
                 required
               />
               {fieldErrors?.code && (
@@ -66,7 +66,7 @@ export default function post({ formData, handle_input_change, handle_submit, err
                 value={formData.description}
                 onChange={handle_input_change}
                 className="form-textarea"
-                placeholder="Brief description about the course..."
+                placeholder="Brief description"
               ></textarea>
               {fieldErrors?.description && (
                 <p className="form-error">{fieldErrors.description}</p>

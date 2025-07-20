@@ -1,4 +1,13 @@
+/*
+  Base url of the UCS Service
+*/
 const BASE_URL = import.meta.env.VITE_BASE_ENDPOINT;
+
+/*
+  method : Get, Post, Update...
+  path : /route
+  data : passed to a function or sate
+*/
 
 const request = async (method, path = "", data = null) => {
   const config = {
@@ -11,7 +20,7 @@ const request = async (method, path = "", data = null) => {
   if (data) {
     config.body = JSON.stringify(data);
   }
-
+  
   const response = await fetch(`${BASE_URL}${path}`, config);
 
   if (!response.ok) {
@@ -23,7 +32,16 @@ const request = async (method, path = "", data = null) => {
   return await response.json();
 };
 
+/*
+  creating CRUD function, setting default values
+*/
+
 export const api = {
+  
+  /*
+    get is function that takes path, data as parameter
+    this will be passed to the internal request function
+  */
   get: (path = "") => request("GET", path),
   post: (path = "", data) => request("POST", path, data),
   put: (path = "", data) => request("PUT", path, data),

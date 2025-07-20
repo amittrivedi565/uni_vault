@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+/*
+  Generic hook to fetch by ID, update record, and optionally navigate after update.
+  - `fetchByIdFn`: API function to fetch a record by ID
+  - `updateFn`: API function to update a record
+  - `defaultFormData`: initial structure of form
+  - `navigateTo`: string or function(formData) => string
+*/
+
 const use_update = (fetchByIdFn, updateFn, defaultFormData, navigateTo) => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [formData, setFormData] = useState(defaultFormData);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetch = async () => {
@@ -39,7 +48,13 @@ const use_update = (fetchByIdFn, updateFn, defaultFormData, navigateTo) => {
       const result = await updateFn(id, formData);
       if (result) {
         alert("Updated successfully!");
-        navigate(navigateTo || 0); // navigate to path or reload
+        if (navigateTo) {
+          const path =
+            typeof navigateTo === "function"
+              ? navigateTo(formData)
+              : navigateTo;
+          navigate(path);
+        }
       } else {
         alert("Update failed.");
       }

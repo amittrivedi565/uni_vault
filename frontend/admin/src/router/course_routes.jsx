@@ -4,7 +4,7 @@ import CourseUpdate from "../pages/course/update"
 
 const courseRoutes = [
     {
-        path:"/courses/:id",
+        path:"/courses/get/:id",
         element: <CourseGet/>
     },
     {

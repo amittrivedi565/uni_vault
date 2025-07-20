@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/institute")
+@RequestMapping("/api/institutes")
 @CrossOrigin(origins = "*")
 public class InstituteController {
 
@@ -30,9 +30,9 @@ public class InstituteController {
         return new ResponseEntity<>(allInstitutes, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<InstituteDTO> getInstituteById(@PathVariable UUID id) {
-        InstituteDTO institute = instituteService.getInstituteById(id);
+    @GetMapping("/{instituteId}")
+    public ResponseEntity<InstituteDTO> getInstituteById(@PathVariable UUID instituteId) {
+        InstituteDTO institute = instituteService.getInstituteById(instituteId);
         return new ResponseEntity<>(institute, HttpStatus.OK);
     }
 
