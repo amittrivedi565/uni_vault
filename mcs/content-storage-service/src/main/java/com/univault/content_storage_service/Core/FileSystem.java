@@ -1,4 +1,4 @@
-package com.univault.content_storage_service.core;
+package com.univault.content_storage_service.Core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,45 +7,37 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import com.univault.content_storage_service.bucket.task_tracker;
+import com.univault.content_storage_service.Concurrency.ThreadManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.univault.content_storage_service.concurrency.thread_manager;
-
 @Component
-public class file_system {
+public class FileSystem {
 
-    private final queue_manager qm;
-    private final thread_manager tm;
-    private final task_tracker tt;
+    private final QueueManager qm;
+    private final ThreadManager tm;
 
     @Autowired
-    public file_system(queue_manager qm, thread_manager tm, task_tracker tt) {
+    public FileSystem(QueueManager qm, ThreadManager tm) {
         this.qm = qm;
         this.tm = tm;
-        this.tt = tt;
     }
 
-    public void upload_file_async(String dir_path, String file_name, String taskId) {
-        Path path = Path.of(dir_path);
-        tt.mark_started(taskId);
-
+    public void writeFileAsync(String dirPath, String fileName, String taskId) {
+        Path path = Path.of(dirPath);
         tm.submit_task(() -> {
             try {
-                upload_file(path, file_name);
-                tt.mark_success(taskId);
+                writeFile(path, fileName);
             } catch (Exception e) {
-                tt.mark_failed(taskId);
                 System.err.println("Upload failed: " + e.getMessage());
             }
         });
     }
 
-    public void upload_file(Path targetDir, String file_name) {
+    public void writeFile(Path targetDir, String file_name) {
         try {
-            MultipartFile file = qm.pickup_file_for_upload();
+            MultipartFile file = qm.pickFileForUpload();
 
             Files.createDirectories(targetDir);
 
@@ -57,12 +49,11 @@ public class file_system {
             }
 
         } catch (Exception e) {
-            e.getMessage();
             throw new RuntimeException("Failed to upload file", e);
         }
     }
 
-    public byte[] download_file(String path) {
+    public byte[] readFile(String path) {
         try {
             if (path == null || path.isEmpty()) {
                 throw new IllegalArgumentException("File path cannot be null or empty");
@@ -80,20 +71,4 @@ public class file_system {
         }
     }
 
-    public String delete_file(String path) {
-        try {
-            Path filePath = Paths.get(path);
-
-            if (!Files.exists(filePath)) {
-                throw new RuntimeException("File not found: " + path);
-            }
-
-            Files.delete(filePath);
-
-            return ("File deleted successfully: " + path);
-
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to delete file", e);
-        }
-    }
 }

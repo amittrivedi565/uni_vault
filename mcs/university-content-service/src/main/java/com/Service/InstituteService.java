@@ -48,7 +48,7 @@ public class InstituteService {
             Optional<Institute> find = instituteRepo.findById(id);
             if (find.isPresent()) {
                 Institute institute = find.get();
-                return InstituteMapper.toDTO(institute,true);
+                return InstituteMapper.toDTO(institute,false);
             } else {
                 throw new InstituteServiceException("Institute not found with ID: " + id);
             }

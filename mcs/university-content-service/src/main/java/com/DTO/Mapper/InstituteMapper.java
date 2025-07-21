@@ -28,7 +28,7 @@ public class InstituteMapper {
         if (includeAssociations && institute.getCourses() != null) {
             dto.setCourses(
                     institute.getCourses().stream()
-                            .map(course -> CourseMapper.toDTO(course, true)) // optionally pass includeAssociations
+                            .map(course -> CourseMapper.toDTO(course, false)) // optionally pass includeAssociations
                             .collect(Collectors.toList())
             );
         } else {
@@ -39,7 +39,7 @@ public class InstituteMapper {
     }
 
     public static Institute toEntity(InstituteDTO dto) {
-        return toEntity(dto, true);
+        return toEntity(dto, false);
     }
 
     public static Institute toEntity(InstituteDTO dto, boolean includeAssociations) {
@@ -57,7 +57,7 @@ public class InstituteMapper {
         if (includeAssociations && dto.getCourses() != null) {
             List<Course> courses = dto.getCourses().stream()
                     .map(course -> {
-                        Course entity = CourseMapper.toEntity(course, true); // optionally control depth
+                        Course entity = CourseMapper.toEntity(course, false); // optionally control depth
                         entity.setInstitute(institute);
                         return entity;
                     })

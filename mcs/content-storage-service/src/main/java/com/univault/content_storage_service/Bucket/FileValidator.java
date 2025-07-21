@@ -1,4 +1,4 @@
-package com.univault.content_storage_service.bucket;
+package com.univault.content_storage_service.Bucket;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -7,11 +7,11 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Component
-public class file_validator {
+public class FileValidator {
 
     public record ValidationResult(boolean valid, String message) {}
 
-    public  ValidationResult is_valid_pdf(MultipartFile file) {
+    public  ValidationResult isValidPdf(MultipartFile file) {
 
         if(file.isEmpty()) {
             return new ValidationResult(false,"No file provided");
