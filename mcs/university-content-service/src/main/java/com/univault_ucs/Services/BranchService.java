@@ -41,7 +41,7 @@ public class BranchService {
                 throw new BranchServiceException("Branch not found with ID: " + id);
             }
         } catch (Exception e) {
-            logger.error("Error in getBranchById: {}", e.getMessage());
+            logger.error("Error in getBranchById: {}", e.getCause());
             throw new BranchServiceException("An error occurred while fetching branch by id. Please try again later.");
         }
     }

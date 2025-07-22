@@ -27,7 +27,7 @@ function view() {
         { key: "code", label: "Code" },
         { key: "resource_id", label: "Syllabus" ,
             render: (row) => (
-               <h3>row</h3>
+                <h4>hi</h4>
             )       
         },
         {

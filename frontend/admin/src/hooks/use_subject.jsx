@@ -67,4 +67,6 @@ export const useUpdateSubject = (id) => {
 /*
   Hook to delete a subject
 */
-export const useDeleteSubjectById = () => use_delete_by_id(deleteSubject);
+export const useDeleteSubjectById = () => {
+  const ss = use_delete_by_id(deleteSubject)
+};

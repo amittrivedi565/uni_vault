@@ -17,4 +17,8 @@ export const updateSemesterById = (semId, formData) => {
 };
 
 // Delete semesters by sem id
-export const deleteSemester = (semId) => api.del(`/semesters/${semId}`);
+export const deleteSemester = (semId) => {
+  return api.del(`/semesters/${semId}`);
+}
+
+

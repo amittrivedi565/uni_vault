@@ -48,9 +48,16 @@ export const useFetchSemesterById = (semesterId) =>
 export const useCreateSemester = () => {
   const { id } = useParams();
   const initialData = { ...defaultSemesterData, branchId: id };
-  return use_post((data) => postSemester(data, id), initialData, `/semesters/get/${id}`);
+  // postSemester must return created object with .id
+  return use_post(
+    async (data) => {
+      const response = await postSemester(data, id);
+      return response; // Make sure response includes `id`
+    },
+    initialData,
+    `/semesters/get/${id}`
+  );
 };
-
 /*
   Hook to update a semester
 */

@@ -41,4 +41,6 @@ export const useCreateInstitute = () =>
 export const useUpdateInstitute = () =>
   use_update(getInstituteById, updateInstituteById, defaultInstituteData, "/institutes/get");
 
-export const useDeleteInstitute = () => use_delete(deleteInstitute);
+export const useDeleteInstitute = () => {
+   return use_delete(deleteInstitute);
+};
