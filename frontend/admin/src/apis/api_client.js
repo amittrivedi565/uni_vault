@@ -1,7 +1,7 @@
 /*
   Base url of the UCS Service
 */
-const BASE_URL = import.meta.env.VITE_BASE_ENDPOINT;
+const BASE_URL = import.meta.env.VITE_UCS_SERVICE;
 
 /*
   method : Get, Post, Update...

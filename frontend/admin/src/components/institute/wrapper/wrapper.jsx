@@ -1,4 +1,3 @@
-import "../../../styles/globals.css";
 import InstituteHeading from "../detailed_view/institute_info/institute_info";
 import AcademicOverview from "../detailed_view/academic_overview/academic_overview";
 import SystemInfo from "../detailed_view/system_info/system_info";

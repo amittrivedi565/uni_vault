@@ -1,5 +1,3 @@
-import "../../styles/globals.css";
-
 export default function DynamicForm({
   formData,
   handle_input_change,
