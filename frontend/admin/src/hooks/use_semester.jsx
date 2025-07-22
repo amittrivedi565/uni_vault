@@ -25,6 +25,7 @@ const defaultSemesterData = {
   shortname: "",
   code: "",
   description: "",
+  resource_id: "",
 };
 
 /*

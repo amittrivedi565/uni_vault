@@ -41,9 +41,9 @@ function view() {
                     <HeaderBar />
                     <CreateFlow label="Create Branch" link={`/branches/create/${id}`} />
                     <CommonTable
+                        error={error}
                         data={data}
                         loading={loading}
-                        error={error}
                         columns={columns}
                         handle_delete={handle_delete}
                         editBaseUrl={(row) => `/branches/update/${row.id}`}

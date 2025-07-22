@@ -6,15 +6,16 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllUnitsBySubjectId, useDeleteUnitById} from "../../hooks/use_unit";
+import { useFetchAllUnitsBySubjectId, useDeleteUnitById } from "../../hooks/use_unit";
+import { handleDownload } from "../../hooks/methods/use_download"; // Ensure this is a named export
 import { useParams } from "react-router-dom";
 
-function view() {
-
+function View() {
     const { id } = useParams();
+    const { data, loading, error } = useFetchAllUnitsBySubjectId(id);
 
-    const { data, loading, error } = useFetchAllUnitsBySubjectId(id)
-    const handle_delete = useDeleteUnitById()
+    console.log("Data fetched:", data);
+    const handle_delete = useDeleteUnitById();
 
     const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
@@ -27,7 +28,29 @@ function view() {
         },
         { key: "shortname", label: "Shortname" },
         { key: "code", label: "Code" },
-        { key: "resource", label: "Resource Link" },
+        {
+            key: "resource_id",
+            label: "Download Pdf",
+            render: (row) =>
+                row ? (
+                    <button
+                        onClick={() => handleDownload(row)}
+                        style={{
+                            background: "#4CAF50",
+                            color: "white",
+                            border: "none",
+                            padding: "6px 12px",
+                            borderRadius: "4px",
+                            cursor: "pointer",
+                        }}
+                    >
+                        Click
+                    </button>
+                ) : (
+                    <span style={{ color: "gray" }}>No file</span>
+                ),
+        },
+
     ];
 
     return (
@@ -36,7 +59,7 @@ function view() {
             <Section>
                 <div className="common-container">
                     <HeaderBar />
-                    <CreateFlow label="Create Subjects" link={`/units/create/${id}`} />
+                    <CreateFlow label="Create Units" link={`/units/create/${id}`} />
                     <CommonTable
                         data={data}
                         loading={loading}
@@ -51,4 +74,4 @@ function view() {
     );
 }
 
-export default view;
+export default View;

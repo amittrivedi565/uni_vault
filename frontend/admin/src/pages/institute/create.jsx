@@ -18,7 +18,7 @@ function post() {
 
   const instituteFields = [
     { name: "name", label: "Name", required: true },
-    { name: "shortname", label: "Description", required: true },
+    { name: "shortname", label: "ShortName", required: true },
     { name: "code", label: "Code", required: true },
     { name: "description", label: "Description", type: "textarea" },
   ];

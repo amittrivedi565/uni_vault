@@ -87,7 +87,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.UniversityContentServiceApplication</mainClass> <!-- Main class entry point -->
+					<mainClass>com.univault_ucs.UniversityContentServiceApplication</mainClass> <!-- Main class entry point -->
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

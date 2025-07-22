@@ -24,10 +24,10 @@ const request = async (method, path = "", data = null) => {
   const response = await fetch(`${BASE_URL}${path}`, config);
 
   if (!response.ok) {
-    let message = await response.text();
-    throw new Error(`API ${method} ${path} failed - ${response.status}: ${message}`);
+    let error = await response.json();
+    const errorMessage = error.message || "Unknown error";
+    throw new Error(errorMessage)
   }
-
   if (response.status === 204) return true;
   return await response.json();
 };

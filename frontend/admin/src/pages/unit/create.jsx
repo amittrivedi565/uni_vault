@@ -12,8 +12,8 @@ function create() {
         { name: "name", label: "Name", required: true },
         { name: "shortname", label: "Shortname", required: true },
         { name: "code", label: "Code", required: true },
-        { name: "description", label: "Description", required: true },
-        { name: "pdfFile", label: "Upload Pdf (Unit File)", required: true },
+        { name: "description", label: "Description"},
+        { name: "file", type: "file", label: "Upload Unit *Pdf", required: true },
     ];
     return (<>
         <div className="row">

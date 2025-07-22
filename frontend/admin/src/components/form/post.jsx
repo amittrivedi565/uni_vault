@@ -1,6 +1,13 @@
 import "../../styles/globals.css";
 
-export default function DynamicForm({ formData, handle_input_change, handle_submit, error, fieldErrors, fields }) {
+export default function DynamicForm({
+  formData,
+  handle_input_change,
+  handle_submit,
+  error,
+  fieldErrors,
+  fields,
+}) {
   return (
     <div className="form-container" style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
       {error && <p style={{ color: "red" }}>{error}</p>}
@@ -22,7 +29,7 @@ export default function DynamicForm({ formData, handle_input_change, handle_subm
               <input
                 type="file"
                 name={name}
-                onChange={(e) => handle_input_change({ target: { name, value: e.target.files[0] } })}
+                onChange={handle_input_change}
                 className="form-input"
                 required={required}
               />
@@ -36,6 +43,7 @@ export default function DynamicForm({ formData, handle_input_change, handle_subm
                 required={required}
               />
             )}
+
             {fieldErrors?.[name] && <p className="form-error">{fieldErrors[name]}</p>}
           </div>
         ))}

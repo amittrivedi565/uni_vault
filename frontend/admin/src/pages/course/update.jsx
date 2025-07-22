@@ -21,8 +21,8 @@ function update() {
   const courseFields = [
     { name: "name", label: "Name", required: true },
     { name: "code", label: "Code", required: true },
+    { name: "shortname", label: "ShortName", required: true },
     { name: "description", label: "Description", type: "textarea" },
-    { name: "pdfFile", label: "Upload PDF for Syllabus", type: "file" },
   ];
 
   return (

@@ -36,7 +36,7 @@ export const useFetchAllInstitutes = () => use_get_all(getAllInstitutes);
 export const useFetchInstituteById = (id) => use_fetch_by_id(id, getInstituteById);
 
 export const useCreateInstitute = () =>
-  use_post(postInstitute, defaultInstituteData, "/institute/get");
+  use_post(postInstitute, defaultInstituteData, "/institutes/get");
 
 export const useUpdateInstitute = () =>
   use_update(getInstituteById, updateInstituteById, defaultInstituteData, "/institutes/get");

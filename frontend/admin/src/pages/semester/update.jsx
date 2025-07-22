@@ -22,7 +22,7 @@ function update() {
    const semesterFields = [
         { name: "name", label: "Name", required: true },
         { name: "code", label: "Code", required: true },
-        { name: "syllabus", label: "Upload PDF for Syllbaus", required: true },
+        { name: "syllabus", label: "Update Uploaded File / Reupload", required: true },
     ];
 
   return (

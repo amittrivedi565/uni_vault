@@ -11,7 +11,7 @@ function create() {
     const semesterFields = [
         { name: "name", label: "Name", required: true },
         { name: "code", label: "Code", required: true },
-        { name: "syllabus", label: "Upload PDF for Syllbaus", required: true },
+        { name: "file", type : "file", label: "Upload Semester Syllabus", required: true },
     ];
     return (<>
         <div className="row">

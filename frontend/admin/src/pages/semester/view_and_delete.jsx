@@ -26,7 +26,11 @@ function view() {
             display: (val) => `${val} ↗`,
         },
         { key: "code", label: "Code" },
-        { key: "syllabus", label: "Syllabus" },
+        { key: "resource_id", label: "Syllabus" ,
+            render: (row) => (
+               <h3>row</h3>
+            )       
+        },
         {
             key: "id",
             label: "More",

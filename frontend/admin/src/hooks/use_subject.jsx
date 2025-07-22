@@ -26,6 +26,7 @@ const defaultSubjectData = {
   shortname: "",
   code: "",
   description: "",
+  file: null, // File to be uploaded
 };
 
 /*

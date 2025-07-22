@@ -23,7 +23,7 @@ function update() {
         { name: "name", label: "Name", required: true },
         { name: "shortname", label: "Shortname", required: true },
         { name: "code", label: "Code", required: true },
-        { name: "description", label: "Description", required: true },
+        { name: "description", label: "Description"},
     ]
 
   return (

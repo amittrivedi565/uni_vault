@@ -26,7 +26,7 @@ const defaultUnitData = {
   shortname: "",
   code: "",
   description: "",
-  resource_id:""
+  resource_id: "", // This will be set after file upload
 };
 
 /*
