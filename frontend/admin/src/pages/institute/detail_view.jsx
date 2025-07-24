@@ -3,7 +3,8 @@ import Section from "../../components/section/section";
 import Wrapper from "../../components/institute/wrapper/wrapper";
 import { useParams } from "react-router-dom";
 
-import { useFetchInstituteById } from "../../hooks/use_institute"; // from centralized hook
+import use_fetch_by_id from "../../hooks/use_get_by_id"
+import {apis} from "../../apis/crud_generic"
 
 function detail_view() {
     const { id } = useParams();
@@ -11,8 +12,9 @@ function detail_view() {
     const {
         data,
         loading,
-        error,
-    } = useFetchInstituteById(id); // using custom institute-specific hook
+        error
+    } = use_fetch_by_id(apis.institute.getById,id);
+
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;

@@ -3,6 +3,7 @@ package com.univault_ucs.Controllers;
 import com.univault_ucs.DTO.SubjectDTO;
 import com.univault_ucs.Entity.Subject;
 import com.univault_ucs.Services.SubjectService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class SubjectController {
     }
 
     @PostMapping
-    public ResponseEntity<SubjectDTO> createSubjectController(@RequestBody SubjectDTO dto) {
+    public ResponseEntity<SubjectDTO> createSubjectController(@RequestBody @Valid SubjectDTO dto) {
         SubjectDTO createdSubject = subjectService.createSubject(dto);
         return new ResponseEntity<>(createdSubject, HttpStatus.CREATED);
     }
@@ -49,7 +50,7 @@ public class SubjectController {
     }
 
     @PutMapping("/{subjectId}")
-    public ResponseEntity<SubjectDTO> updateSubjectController(@PathVariable UUID subjectId, @RequestBody Subject toBeUpdatedSubjectData) {
+    public ResponseEntity<SubjectDTO> updateSubjectController(@PathVariable UUID subjectId, @RequestBody @Valid SubjectDTO toBeUpdatedSubjectData) {
         SubjectDTO updatedSubject = subjectService.updateSubject(subjectId, toBeUpdatedSubjectData);
         return ResponseEntity.status(HttpStatus.OK).body(updatedSubject);
     }

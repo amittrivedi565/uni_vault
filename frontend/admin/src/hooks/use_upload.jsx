@@ -32,3 +32,4 @@ export const useUpload = () => {
   return { file, handleFileChange, upload, uploading, error };
 };
 
+export default useUpload;

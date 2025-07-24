@@ -4,25 +4,37 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
 
-import { useUpdateInstitute } from "../../hooks/use_institute"; // ⬅️ using new reusable hook
+import { useParams } from "react-router-dom";
 
-function post() {
+import useFetchById from "../../hooks/use_get_by_id";
+import useUpdate from "../../hooks/use_update";
+import { apis } from "../../apis/crud_generic";
+
+function UpdateInstitute() {
+  const { id } = useParams();
+
+  const {
+    data: fetchedData,
+    loading: fetchLoading,
+    error: fetchError
+  } = useFetchById(apis.institute.getById, id);
+
   const {
     formData,
+    error: updateError,
+    fieldErrors,
+    loading: updateLoading,
     handle_input_change,
     handle_submit,
-    loading,
-    error,
-  } = useUpdateInstitute();
-
-  if (loading) return <p>Loading...</p>;
+  } = useUpdate(fetchedData, apis.institute.updateById, id);
 
   const instituteFields = [
     { name: "name", label: "Name", required: true },
-    { name: "shortname", label: "Description", required: true },
+    { name: "shortname", label: "Short Name", required: true },
     { name: "code", label: "Code", required: true },
     { name: "description", label: "Description", type: "textarea" },
   ];
+
 
   return (
     <div className="row">
@@ -30,19 +42,22 @@ function post() {
       <Section>
         <div className="common-container">
           <HeaderBar />
-          {error && <p style={{ color: "red" }}>Error: {error}</p>}
-          <Form
-            formData={formData}
-            handle_input_change={handle_input_change}
-            handle_submit={handle_submit}
-            loading={loading}
-            error={error}
-            fields={instituteFields} 
-          />
+          {fetchError && <p style={{ color: "red" }}>{fetchError}</p>}
+          {!fetchLoading && formData && (
+            <Form
+              formData={formData}
+              handle_input_change={handle_input_change}
+              handle_submit={handle_submit}
+              loading={updateLoading}
+              error={updateError}
+              fieldErrors={fieldErrors}
+              fields={instituteFields}
+            />
+          )}
         </div>
       </Section>
     </div>
   );
 }
 
-export default post;
+export default UpdateInstitute;

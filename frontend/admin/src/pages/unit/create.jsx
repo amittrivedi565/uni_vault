@@ -1,21 +1,26 @@
 import "../../styles.css";
 import Sidebar from "../../components/sidebar/sidebar";
-import Section from "../../components/section/section"
-import HeaderBar from "../../components/header_bar/header_bar"
-import Form from "../../components/form/post"
+import Section from "../../components/section/section";
+import HeaderBar from "../../components/header_bar/header_bar";
+import Form from "../../components/form/post";
 
-import { useCreateUnit } from "../../hooks//use_unit"
+import { useParams } from "react-router-dom";
+import { apis } from "../../apis/crud_generic";
+import useCreate from "../../hooks/use_post";
 
-function create() {
-    const { formData, handle_input_change, handle_submit, error, fieldErrors } = useCreateUnit();
-    const subjectFields = [
+function UnitCreate() {
+    const { id } = useParams(); // subjectId
+    const { formData, error, handle_input_change, handle_submit, fieldErrors } = useCreate(apis.unit.create, id, "subjectId");
+
+    const unitFields = [
         { name: "name", label: "Name", required: true },
-        { name: "shortname", label: "Shortname", required: true },
         { name: "code", label: "Code", required: true },
-        { name: "description", label: "Description"},
-        { name: "file", type: "file", label: "Upload Unit *Pdf", required: true },
+        { name: "shortname", label: "ShortName", required: true },
+        { name: "description", label: "Description", type: "textarea" },
+        { name: "file", label: "Upload File" },,
     ];
-    return (<>
+
+    return (
         <div className="row">
             <Sidebar />
             <Section>
@@ -27,11 +32,11 @@ function create() {
                     handle_submit={handle_submit}
                     error={error}
                     fieldErrors={fieldErrors}
-                    fields={subjectFields}
+                    fields={unitFields}
                 />
             </Section>
         </div>
-    </>)
+    );
 }
 
-export default create;
+export default UnitCreate;

@@ -4,28 +4,28 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
 import { useParams } from "react-router-dom";
-import { useUpdateUnit } from "../../hooks/use_unit";
 
-function update() {
-  const { id } = useParams(); // courseId
-  const {
-    formData,
-    handle_input_change,
-    handle_submit,
-    loading,
-    error,
-    fieldErrors,
-  } = useUpdateUnit(id);
+import useFetchById from "../../hooks/use_get_by_id";
+import useUpdate from "../../hooks/use_update";
+import { apis } from "../../apis/crud_generic";
 
-  if (loading) return <p>Loading...</p>;
+function UnitUpdate() {
+  const { id } = useParams();
+  console.log(id);
+  const { data, loading, error } = useFetchById(apis.unit.getById, id);
+  const { formData, handle_input_change, handle_submit, fieldErrors } = useUpdate(data, apis.unit.updateById, id);
 
-   const subjectFields = [
-        { name: "name", label: "Name", required: true },
-        { name: "shortname", label: "Shortname", required: true },
-        { name: "code", label: "Code", required: true },
-        { name: "description", label: "Description" },
-        { name: "file", type: "file", label: "Upload Unit *Pdf", required: true },
-    ]
+  const unitFields = [
+    { name: "name", label: "Name", required: true },
+    { name: "code", label: "Code", required: true },
+    { name: "shortname", label: "ShortName", required: true },
+    { name: "description", label: "Description", type: "textarea" },
+    { name: "resource_id", label: "File"},
+
+  ];
+
+  if (loading || !formData) return <p>Loading...</p>;
+  if (loading || !data) return <p>Loading...</p>;
 
   return (
     <div className="row">
@@ -33,18 +33,20 @@ function update() {
       <Section>
         <div className="common-container">
           <HeaderBar />
+          {loading && <p>Loading...</p>}
           {error && <p style={{ color: "red" }}>Error: {error}</p>}
           <Form
             formData={formData}
             handle_input_change={handle_input_change}
             handle_submit={handle_submit}
-            error={error}
             fieldErrors={fieldErrors}
-            fields={subjectFields}
+            error={error}
+            fields={unitFields}
           />
         </div>
       </Section>
     </div>
   );
 }
-export default update;
+
+export default UnitUpdate;

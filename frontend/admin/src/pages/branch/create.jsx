@@ -4,10 +4,13 @@ import Section from "../../components/section/section"
 import HeaderBar from "../../components/header_bar/header_bar"
 import Form from "../../components/form/post"
 
-import {useCreateBranch} from "../../hooks/use_branch"
+import { useParams } from "react-router-dom";
+import {apis} from "../../apis/crud_generic";
+import useCreate from "../../hooks/use_post"
 
-function create() {
-    const { formData, handle_input_change, handle_submit, error, fieldErrors } = useCreateBranch();
+function BranchCreate() {
+    const {id} = useParams();
+    const {formData, error, handle_input_change, handle_submit, fieldErrors} = useCreate(apis.branch.create,id,"courseId");
     const branchFields = [
         { name: "name", label: "Name", required: true },
         { name: "code", label: "Code", required: true },
@@ -33,4 +36,4 @@ function create() {
     </>)
 }
 
-export default create;
+export default BranchCreate;

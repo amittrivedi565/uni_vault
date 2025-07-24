@@ -3,6 +3,7 @@ package com.univault_ucs.Controllers;
 import com.univault_ucs.DTO.SemesterDTO;
 import com.univault_ucs.Entity.Semester;
 import com.univault_ucs.Services.SemesterService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class SemesterController {
     }
 
     @PostMapping
-    public ResponseEntity<SemesterDTO> createSemester(@RequestBody SemesterDTO dto) {
+    public ResponseEntity<SemesterDTO> createSemester(@RequestBody @Valid SemesterDTO dto) {
         SemesterDTO createdSemester = semesterService.createSemester(dto);
         return new ResponseEntity<>(createdSemester, HttpStatus.CREATED);
     }
@@ -49,7 +50,7 @@ public class SemesterController {
     }
 
     @PutMapping("/{semesterId}")
-    public ResponseEntity<SemesterDTO> updateSemester(@PathVariable UUID semesterId, @RequestBody Semester toBeUpdatedSemesterData) {
+    public ResponseEntity<SemesterDTO> updateSemester(@PathVariable UUID semesterId, @RequestBody @Valid SemesterDTO toBeUpdatedSemesterData) {
         SemesterDTO updatedSemester = semesterService.updateSemester(semesterId, toBeUpdatedSemesterData);
         return ResponseEntity.status(HttpStatus.OK).body(updatedSemester);
     }

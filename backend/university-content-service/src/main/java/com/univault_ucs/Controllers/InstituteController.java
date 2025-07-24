@@ -30,7 +30,7 @@ public class InstituteController {
         return new ResponseEntity<>(allInstitutes, HttpStatus.OK);
     }
 
-    @GetMapping("/{instituteId}")
+    @GetMapping("/fetchbyid/{instituteId}")
     public ResponseEntity<InstituteDTO> getInstituteById(@PathVariable UUID instituteId) {
         InstituteDTO institute = instituteService.getInstituteById(instituteId);
         return new ResponseEntity<>(institute, HttpStatus.OK);
@@ -50,8 +50,9 @@ public class InstituteController {
     }
 
     @PutMapping("/{instituteId}")
-    public ResponseEntity<InstituteDTO> updateInstituteController(@PathVariable UUID instituteId, @RequestBody Institute updatedInstituteData) {
-        InstituteDTO updatedInstitute = instituteService.updateInstitute(instituteId, updatedInstituteData);
+    public ResponseEntity<InstituteDTO> updateInstituteController(@PathVariable UUID instituteId, @RequestBody @Valid InstituteDTO dto) {
+        System.out.println("Received update data: " + dto);
+        InstituteDTO updatedInstitute = instituteService.updateInstitute(instituteId, dto);
         return ResponseEntity.ok(updatedInstitute);
     }
 }

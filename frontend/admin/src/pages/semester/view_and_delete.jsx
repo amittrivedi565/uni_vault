@@ -1,3 +1,6 @@
+
+
+
 import "../../styles.css";
 import Sidebar from "../../components/sidebar/sidebar";
 import Section from "../../components/section/section";
@@ -5,15 +8,17 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllSemestersByBranchId, useDeleteSemesterById } from "../../hooks/use_semester";
 import { useParams } from "react-router-dom";
 
-function view() {
+import { apis } from "../../apis/crud_generic";
+import useFetchById from "../../hooks/use_get_all_by_id";
+import useDeleteById from "../../hooks/use_delete";
 
-    const { id } = useParams();
-    
-    const { data, loading, error } = useFetchAllSemestersByBranchId(id)
-    const handle_delete = useDeleteSemesterById()
+function ViewSemesters() {
+    const { id } = useParams(); // branchId
+    const { data, loading, error } = useFetchById(apis.semester.getAllByParentId, id);
+    const { deleteById } = useDeleteById(apis.semester.deleteById);
+
 
     const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
@@ -25,10 +30,11 @@ function view() {
             display: (val) => `${val} ↗`,
         },
         { key: "code", label: "Code" },
-        { key: "resource_id", label: "Syllabus" ,
+        {
+            key: "resource_id", label: "Syllabus",
             render: (row) => (
                 <h4>hi</h4>
-            )       
+            )
         },
         {
             key: "id",
@@ -39,19 +45,20 @@ function view() {
         },
     ];
 
+
     return (
         <div className="row">
             <Sidebar />
             <Section>
                 <div className="common-container">
                     <HeaderBar />
-                    <CreateFlow label="Create Semesters" link={`/semesters/create/${id}`} />
+                    <CreateFlow label="Create Semester" link={`/semesters/create/${id}`} />
                     <CommonTable
                         data={data}
                         loading={loading}
                         error={error}
                         columns={columns}
-                        handle_delete={handle_delete}
+                        handle_delete={deleteById}
                         editBaseUrl={(row) => `/semesters/update/${row.id}`}
                     />
                 </div>
@@ -60,4 +67,4 @@ function view() {
     );
 }
 
-export default view;
+export default ViewSemesters;

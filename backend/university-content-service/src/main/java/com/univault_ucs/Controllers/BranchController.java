@@ -3,6 +3,7 @@ package com.univault_ucs.Controllers;
 import com.univault_ucs.DTO.BranchDTO;
 import com.univault_ucs.Entity.Branch;
 import com.univault_ucs.Services.BranchService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ public class BranchController {
     }
 
     @PostMapping
-    public ResponseEntity<BranchDTO> createBranchController(@RequestBody BranchDTO dto) {
+    public ResponseEntity<BranchDTO> createBranchController(@RequestBody @Valid BranchDTO dto) {
         BranchDTO createdBranch = branchService.createBranch(dto);
         return new ResponseEntity<>(createdBranch, HttpStatus.CREATED);
     }
@@ -48,8 +49,8 @@ public class BranchController {
     }
 
     @PutMapping("/{branchId}")
-    public ResponseEntity<BranchDTO> updateBranchController(@PathVariable UUID branchId, @RequestBody Branch updatedBranchData) {
-        BranchDTO updatedBranch = branchService.updateBranch(branchId, updatedBranchData);
+    public ResponseEntity<BranchDTO> updateBranchController(@PathVariable UUID branchId, @RequestBody @Valid BranchDTO dto) {
+        BranchDTO updatedBranch = branchService.updateBwranch(branchId, dto);
         return ResponseEntity.ok(updatedBranch);
     }
 }

@@ -18,11 +18,11 @@ public class CourseDTO {
     private String name;
 
     @NotBlank(message = "Course shortname is required")
-    @Size(min = 2, max = 10, message = "Branch name must be between 2 and 10 characters")
+    @Size(min = 2, max = 10, message = "Course name must be between 2 and 10 characters")
     private String shortname;
 
     @NotBlank(message = "Course code is required")
-    @Size(min = 2, max = 20, message = "Course code must be between 2 and 20 characters")
+    @Size(min = 3, max = 20, message = "Course code must be between 3 and 20 characters")
     private String code;
 
     @Size(min = 0, max = 100, message = "Course description must be between 0 and 100 characters")

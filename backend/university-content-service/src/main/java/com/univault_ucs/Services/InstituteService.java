@@ -91,7 +91,7 @@ public class InstituteService {
     }
 
     @Transactional
-    public InstituteDTO updateInstitute(UUID instituteId, Institute updatedInstituteData) {
+    public InstituteDTO updateInstitute(UUID instituteId, InstituteDTO updatedInstituteData) {
         try {
             Institute existingInstitute = instituteRepo.findById(instituteId)
                     .orElseThrow(() -> new InstituteServiceException("Institute with ID " + instituteId + " not found."));

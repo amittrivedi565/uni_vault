@@ -4,17 +4,18 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/post";
 
-import { useCreateInstitute } from "../../hooks/use_institute"; // using new central hook file
+import { apis } from "../../apis/crud_generic"
+import useCreate from "../../hooks/use_post"
 
 function post() {
+
   const {
     formData,
     handle_input_change,
     handle_submit,
-    loading,
     error,
     fieldErrors,
-  } = useCreateInstitute();
+  } = useCreate(apis.institute.create,"/institutes/get");
 
   const instituteFields = [
     { name: "name", label: "Name", required: true },
@@ -28,7 +29,6 @@ function post() {
       <Sidebar />
       <Section>
         <HeaderBar />
-        {loading && <p>Submitting...</p>}
         {error && <p style={{ color: "red" }}>Error: {error}</p>}
         <Form
           formData={formData}

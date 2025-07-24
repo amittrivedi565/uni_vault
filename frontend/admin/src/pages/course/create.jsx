@@ -1,13 +1,19 @@
 import "../../styles.css";
+import { useEffect } from "react";
 import Sidebar from "../../components/sidebar/sidebar";
 import Section from "../../components/section/section"
 import HeaderBar from "../../components/header_bar/header_bar"
 import Form from "../../components/form/post"
 
-import {useCreateCourse} from "../../hooks/use_course"
+import useCreate from "../../hooks/use_post"
+import { apis } from "../../apis/crud_generic";
+import { useParams } from "react-router-dom";
 
-function create() {
-    const { formData, handle_input_change, handle_submit, error, fieldErrors } = useCreateCourse();
+function CourseCreate() {
+    
+    const { id } = useParams();
+    const { handle_input_change, handle_submit, formData, error, fieldErrors } = useCreate(apis.course.create, id,"instituteId")
+
     const courseFields = [
         { name: "name", label: "Name", required: true },
         { name: "shortname", label: "ShortName", required: true },
@@ -32,4 +38,4 @@ function create() {
     </>)
 }
 
-export default create;
+export default CourseCreate;

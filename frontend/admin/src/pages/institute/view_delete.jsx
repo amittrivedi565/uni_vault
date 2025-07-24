@@ -6,11 +6,14 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllInstitutes, useDeleteInstitute } from "../../hooks/use_institute";
+
+import useGetAll from "../../hooks/use_get_all";
+import useDeleteById from "../../hooks/use_delete";
+import {apis} from "../../apis/crud_generic"
 
 function view() {
-  const { data, loading, error } = useFetchAllInstitutes();
-  const handle_delete = useDeleteInstitute();
+  const { data, loading, error } = useGetAll(apis.institute.getAll);
+  const { deleteById } = useDeleteById(apis.institute.deleteById);
 
   const columns = [
     { key: "author", label: "Author", render: () => "YOU" },
@@ -44,7 +47,7 @@ function view() {
             loading={loading}
             error={error}
             columns={columns}
-            handle_delete={handle_delete}
+            handle_delete={deleteById}
             editBaseUrl="/institutes/update/"
           />
         </div>

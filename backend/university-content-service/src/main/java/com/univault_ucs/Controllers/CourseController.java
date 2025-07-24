@@ -3,6 +3,7 @@ package com.univault_ucs.Controllers;
 import com.univault_ucs.DTO.CourseDTO;
 import com.univault_ucs.Entity.Course;
 import com.univault_ucs.Services.CourseService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,7 @@ public class CourseController {
     }
 
     @PostMapping
-    public ResponseEntity<CourseDTO> createCourseController(@RequestBody CourseDTO dto) {
+    public ResponseEntity<CourseDTO> createCourseController(@RequestBody @Valid CourseDTO dto) {
         CourseDTO createdCourse = courseService.createCourse(dto);
         return new ResponseEntity<>(createdCourse, HttpStatus.CREATED);
     }

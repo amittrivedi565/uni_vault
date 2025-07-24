@@ -3,6 +3,7 @@ package com.univault_ucs.Controllers;
 import com.univault_ucs.DTO.UnitDTO;
 import com.univault_ucs.Entity.Unit;
 import com.univault_ucs.Services.UnitService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class UnitController {
     }
 
     @PostMapping
-    public ResponseEntity<UnitDTO> createUnitController(@RequestBody UnitDTO dto) {
+    public ResponseEntity<UnitDTO> createUnitController(@RequestBody @Valid UnitDTO dto) {
         UnitDTO createdUnit = unitService.createUnit(dto);
         return new ResponseEntity<>(createdUnit, HttpStatus.CREATED);
     }
@@ -49,7 +50,7 @@ public class UnitController {
     }
 
     @PutMapping("/{unitId}")
-    public ResponseEntity<UnitDTO> updateUnitController(@PathVariable UUID unitId, @RequestBody Unit toBeUpdatedUnitData) {
+    public ResponseEntity<UnitDTO> updateUnitController(@PathVariable UUID unitId, @RequestBody @Valid UnitDTO toBeUpdatedUnitData) {
         UnitDTO updatedUnit = unitService.updateUnit(unitId, toBeUpdatedUnitData);
         return ResponseEntity.status(HttpStatus.OK).body(updatedUnit);
     }

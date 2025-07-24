@@ -31,11 +31,21 @@ export default function CommonTable({
   editBaseUrl,
 }) {
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!Array.isArray(data)) return <p>No data found.</p>;
+
+  if (error) {
+    return (
+      <p style={{ color: "red" }}>
+        {error instanceof Error ? error.message : String(error)}
+      </p>
+    );
+  }
+
+  const safeData = Array.isArray(data) ? data : [];
 
   const getEditLink = (row) =>
-    typeof editBaseUrl === "function" ? editBaseUrl(row) : `${editBaseUrl}${row.id}`;
+    typeof editBaseUrl === "function"
+      ? editBaseUrl(row)
+      : `${editBaseUrl}${row.id}`;
 
   return (
     <table className="audit-table" style={{ width: "90%" }}>
@@ -48,23 +58,35 @@ export default function CommonTable({
         </tr>
       </thead>
       <tbody>
-        {data.map((row) => (
-          <tr key={row.id}>
-            {columns.map((col) => (
-              <td key={col.key}>{renderCell(col, row)}</td>
-            ))}
-            {showActions && (
-              <td style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <a className="td-a" href={getEditLink(row)}>
-                  <FaEdit size={15} />
-                </a>
-                <button onClick={(e) => handle_delete(e, row.id)}>
-                  <FaTrash size={12} />
-                </button>
-              </td>
-            )}
+        {safeData.length === 0 ? (
+          <tr>
+            <td
+              className="td-empty"
+              colSpan={columns.length + (showActions ? 1 : 0)}
+              style={{ textAlign: "center", padding: "1rem" }}
+            >
+              No data found.
+            </td>
           </tr>
-        ))}
+        ) : (
+          safeData.map((row) => (
+            <tr key={row.id}>
+              {columns.map((col) => (
+                <td key={col.key}>{renderCell(col, row)}</td>
+              ))}
+              {showActions && (
+                <td style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <a className="td-a" href={getEditLink(row)}>
+                    <FaEdit size={15} />
+                  </a>
+                  <button onClick={() => handle_delete(row.id)}>
+                    <FaTrash size={12} />
+                  </button>
+                </td>
+              )}
+            </tr>
+          ))
+        )}
       </tbody>
     </table>
   );

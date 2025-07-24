@@ -4,11 +4,10 @@ export default function UpdateForm({
   handle_submit,
   loading,
   error,
-  fields, // array of { name, label, type, required }
+  fieldErrors,
+  fields
 }) {
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p style={{ color: "red" }}>{error}</p>;
-
+  
   return (
     <div style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
       <div className="form-container">
@@ -34,6 +33,7 @@ export default function UpdateForm({
                   required={required}
                 />
               )}
+              {fieldErrors?.[name] && <p className="form-error">{fieldErrors[name]}</p>}
             </div>
           ))}
 

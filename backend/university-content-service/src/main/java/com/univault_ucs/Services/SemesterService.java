@@ -98,7 +98,7 @@ public class SemesterService {
     }
 
     @Transactional
-    public SemesterDTO updateSemester(UUID semesterId, Semester updatedSemesterData) {
+    public SemesterDTO updateSemester(UUID semesterId, SemesterDTO updatedSemesterData) {
         try {
             Semester existingSemester = semesterRepo.findById(semesterId)
                     .orElseThrow(() -> new SemesterServiceException("Semester with Id " + semesterId + " not found."));

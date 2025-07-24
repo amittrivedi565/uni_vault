@@ -8,8 +8,7 @@ export default function DynamicForm({
 }) {
   return (
     <div className="form-container" style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-
+      
       <form onSubmit={handle_submit} encType="multipart/form-data">
         {fields.map(({ name, label, type = "text", required }) => (
           <div className="form-group" key={name}>

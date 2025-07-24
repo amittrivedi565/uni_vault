@@ -95,7 +95,7 @@ public class UnitService {
     }
 
     @Transactional
-    public UnitDTO updateUnit(UUID unitId, Unit updatedUnitData) {
+    public UnitDTO updateUnit(UUID unitId, UnitDTO updatedUnitData) {
         try {
             Unit existingUnit = unitRepo.findById(unitId)
                     .orElseThrow(() -> new UnitServiceException("Unit with ID " + unitId + " not found."));

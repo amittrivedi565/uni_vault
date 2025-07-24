@@ -5,13 +5,20 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllCoursesByInstituteId, useDeleteCourse } from "../../hooks/use_course";
+
 import { useParams } from "react-router-dom";
 
-function view() {
+import { apis } from "../../apis/crud_generic";
+import useFetchById from "../../hooks/use_get_all_by_id"
+import useDeleteById from "../../hooks/use_delete"
+
+function ViewCourses() {
+    
     const { id } = useParams();
-    const { data, loading, error } = useFetchAllCoursesByInstituteId(id)// pass id
-    const handle_delete = useDeleteCourse()
+    const { data, loading, error } = useFetchById(apis.course.getAllByParentId,id);
+    const {deleteById} = useDeleteById(apis.course.deleteById)
+
+
     const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
         {
@@ -44,7 +51,7 @@ function view() {
                         loading={loading}
                         error={error}
                         columns={columns}
-                        handle_delete={handle_delete}
+                        handle_delete={deleteById}
                         editBaseUrl={(row) => `/courses/update/${row.id}`} // dynamic URL
                     />
                 </div>
@@ -53,4 +60,4 @@ function view() {
     );
 }
 
-export default view;
+export default ViewCourses;

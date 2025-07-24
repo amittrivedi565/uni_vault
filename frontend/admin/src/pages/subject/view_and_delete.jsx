@@ -1,22 +1,22 @@
 import "../../styles.css";
-
 import Sidebar from "../../components/sidebar/sidebar";
 import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-import { useFetchAllSubjectsBySemesterId, useDeleteSubjectById } from "../../hooks/use_subject";
 import { useParams } from "react-router-dom";
+import { apis } from "../../apis/crud_generic";
+import useFetchById from "../../hooks/use_get_all_by_id";
+import useDeleteById from "../../hooks/use_delete";
 
-function view() {
+function ViewSubjects() {
+  const { id } = useParams(); // branchId
+  const { data, loading, error } = useFetchById(apis.subject.getAllByParentId, id);
+  const { deleteById } = useDeleteById(apis.subject.deleteById);
 
-    const { id } = useParams();
 
-    const { data, loading, error } = useFetchAllSubjectsBySemesterId(id)
-    const handle_delete = useDeleteSubjectById()
-
-    const columns = [
+      const columns = [
         { key: "author", label: "Author", render: () => "YOU" },
         {
             key: "name",
@@ -36,25 +36,26 @@ function view() {
         },
     ];
 
-    return (
-        <div className="row">
-            <Sidebar />
-            <Section>
-                <div className="common-container">
-                    <HeaderBar />
-                    <CreateFlow label="Create Subjects" link={`/subjects/create/${id}`} />
-                    <CommonTable
-                        data={data}
-                        loading={loading}
-                        error={error}
-                        columns={columns}
-                        handle_delete={handle_delete}
-                        editBaseUrl={(row) => `/subjects/update/${row.id}`}
-                    />
-                </div>
-            </Section>
+
+  return (
+    <div className="row">
+      <Sidebar />
+      <Section>
+        <div className="common-container">
+          <HeaderBar />
+          <CreateFlow label="Create Subject" link={`/subjects/create/${id}`} />
+          <CommonTable
+            data={data}
+            loading={loading}
+            error={error}
+            columns={columns}
+            handle_delete={deleteById}
+            editBaseUrl={(row) => `/subjects/update/${row.id}`}
+          />
         </div>
-    );
+      </Section>
+    </div>
+  );
 }
 
-export default view;
+export default ViewSubjects;

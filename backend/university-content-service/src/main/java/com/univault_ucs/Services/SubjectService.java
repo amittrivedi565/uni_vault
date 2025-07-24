@@ -92,7 +92,7 @@ public class SubjectService {
     }
 
     @Transactional
-    public SubjectDTO updateSubject(UUID subjectId, Subject updatedSubjectData) {
+    public SubjectDTO updateSubject(UUID subjectId, SubjectDTO updatedSubjectData) {
         try {
             Subject existingSubject = subjectRepo.findById(subjectId)
                     .orElseThrow(() -> new SubjectServiceException("Subject with ID " + subjectId + " not found."));

@@ -101,7 +101,7 @@ public class BranchService {
     }
 
     @Transactional
-    public BranchDTO updateBranch(UUID branchId, Branch updatedBranchData) {
+    public BranchDTO updateBranch(UUID branchId, BranchDTO updatedBranchData) {
         try {
             Branch existingBranch = branchRepo.findById(branchId)
                     .orElseThrow(() -> new BranchServiceException("Branch with Id " + branchId + " not found."));

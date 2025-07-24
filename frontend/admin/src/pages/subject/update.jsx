@@ -4,27 +4,28 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/update";
 import { useParams } from "react-router-dom";
-import { useUpdateSubject } from "../../hooks/use_subject";
 
-function update() {
-  const { id } = useParams(); // courseId
-  const {
-    formData,
-    handle_input_change,
-    handle_submit,
-    loading,
-    error,
-    fieldErrors,
-  } = useUpdateSubject(id);
+import useFetchById from "../../hooks/use_get_by_id";
+import useUpdate from "../../hooks/use_update";
+import { apis } from "../../apis/crud_generic";
 
-  if (loading) return <p>Loading...</p>;
+function SubjectUpdate() {
+  const { id } = useParams(); // subjectId
+  const { data, loading, error } = useFetchById(apis.subject.getById, id);
+  const { formData, handle_input_change, handle_submit, fieldErrors } = useUpdate(
+    data,
+    apis.subject.updateById,
+    id
+  );
 
-   const subjectFields = [
-        { name: "name", label: "Name", required: true },
-        { name: "shortname", label: "Shortname", required: true },
-        { name: "code", label: "Code", required: true },
-        { name: "description", label: "Description"},
-    ]
+  const subjectFields = [
+    { name: "name", label: "Name", required: true },
+    { name: "code", label: "Code", required: true },
+    { name: "shortname", label: "ShortName", required: true },
+    { name: "description", label: "Description", type: "textarea" },
+  ];
+
+  if (loading || !formData || !data) return <p>Loading...</p>;
 
   return (
     <div className="row">
@@ -37,8 +38,8 @@ function update() {
             formData={formData}
             handle_input_change={handle_input_change}
             handle_submit={handle_submit}
-            error={error}
             fieldErrors={fieldErrors}
+            error={error}
             fields={subjectFields}
           />
         </div>
@@ -46,4 +47,5 @@ function update() {
     </div>
   );
 }
-export default update;
+
+export default SubjectUpdate;
