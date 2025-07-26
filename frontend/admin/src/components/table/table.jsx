@@ -1,68 +1,69 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 import "./table.css";
 
-function renderCell(col, row) {
-  const value = row[col.key];
-
-  if (col.render) {
-    return col.render(value, row);
-  }
-
-  if (col.type === "link" && typeof col.href === "function") {
-    const url = col.href(row);
-    const displayText = col.display ? col.display(value, row) : value;
-    return (
-      <a className="td-a" href={url}>
-        {displayText}
-      </a>
-    );
-  }
-
-  return value;
-}
+const CSS_BASE_URL = import.meta.env.VITE_CSS_SERVICE;
 
 export default function CommonTable({
   data = [],
-  loading,
-  error,
   columns = [],
   handle_delete,
-  showActions = true,
-  editBaseUrl,
+  preFixUrl,
+  postFixUrl,
 }) {
-  if (loading) return <p>Loading...</p>;
+  function renderCell(col, row) {
+    const value = row[col.key];
 
-  if (error) {
-    return (
-      <p style={{ color: "red" }}>
-        {error instanceof Error ? error.message : String(error)}
-      </p>
-    );
+    if (col.type === "link" && col.display && col.uniqueLink) {
+      return (
+        <a
+          className="td-a"
+          href={`${CSS_BASE_URL}/download/${row.resource_id}`}
+        >
+          Click
+        </a>
+      );
+    }
+
+    if (col.type === "link" && col.display) {
+      return (
+        <a className="td-a" href={`/${preFixUrl}/details/${row.id}`}>
+          {value}
+        </a>
+      );
+    }
+
+    if (col.type === "link") {
+      return (
+        <a className="td-a" href={`/${postFixUrl}/get/${row.id}`}>
+          Next
+        </a>
+      );
+    }
+    return row[col.key];
   }
 
   const safeData = Array.isArray(data) ? data : [];
 
-  const getEditLink = (row) =>
-    typeof editBaseUrl === "function"
-      ? editBaseUrl(row)
-      : `${editBaseUrl}${row.id}`;
+  const editLink = (row) => {
+    return `/${preFixUrl}/update/${row.id}`;
+  };
 
   return (
     <table className="audit-table" style={{ width: "90%" }}>
       <thead>
         <tr>
-          {columns.map((col) => (
-            <th key={col.key}>{col.label}</th>
+          {columns.map((col, index) => (
+            <th key={index}>{col.label}</th>
           ))}
-          {showActions && <th>Actions</th>}
+          <th>ACTIONS</th>
         </tr>
       </thead>
+
       <tbody>
         {safeData.length === 0 ? (
           <tr>
             <td
-              className="td-empty"
-              colSpan={columns.length + (showActions ? 1 : 0)}
+              colSpan={columns.length + 1}
               style={{ textAlign: "center", padding: "1rem" }}
             >
               No data found.
@@ -72,18 +73,18 @@ export default function CommonTable({
           safeData.map((row) => (
             <tr key={row.id}>
               {columns.map((col) => (
-                <td key={col.key}>{renderCell(col, row)}</td>
+                <td key={col.id}>{renderCell(col, row)}</td>
               ))}
-              {showActions && (
-                <td style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <a className="td-a" href={getEditLink(row)}>
-                    <FaEdit size={15} />
-                  </a>
-                  <button onClick={() => handle_delete(row.id)}>
-                    <FaTrash size={12} />
-                  </button>
-                </td>
-              )}
+              <td
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <a className="td-a" href={editLink(row)}>
+                  <FaEdit size={15} />
+                </a>
+                <button onClick={() => handle_delete(row.id)}>
+                  <FaTrash size={12} />
+                </button>
+              </td>
             </tr>
           ))
         )}

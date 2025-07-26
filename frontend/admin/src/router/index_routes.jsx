@@ -2,11 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/home";
 import Default from "../layouts/default";
 import instituteRoutes from "./institute_routes";
-import courseRoutes from "./course_routes"
-import branchRoutes from "./branch_routes"
-import semesterRoutes from "./semester_routes"
+import courseRoutes from "./course_routes";
+import branchRoutes from "./branch_routes";
+import semesterRoutes from "./semester_routes";
 import SubjectRoutes from "./subject_routes";
 import UnitRoutes from "./unit_routes";
+import { BreadCrumbProvider } from "../context/breadcrumb_context";
 
 const router = createBrowserRouter([
   {

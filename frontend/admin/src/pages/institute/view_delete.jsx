@@ -6,33 +6,21 @@ import HeaderBar from "../../components/header_bar/header_bar";
 import CreateFlow from "../../components/create_flow/create_flow";
 import CommonTable from "../../components/table/table";
 
-
+import { apis } from "../../apis/ucs_service";
 import useGetAll from "../../hooks/use_get_all";
 import useDeleteById from "../../hooks/use_delete";
-import {apis} from "../../apis/ucs_service"
 
-function view() {
-  const { data, loading, error } = useGetAll(apis.institute.getAll);
-  const { deleteById } = useDeleteById(apis.institute.deleteById);
+function InstituteView() {
+  const { data, loading, error: fetchError } = useGetAll(apis.institute.getAll);
+  const { deleteById, error: deleteError } = useDeleteById(
+    apis.institute.deleteById,
+  );
 
   const columns = [
-    { key: "author", label: "Author", render: () => "YOU" },
-    {
-      key: "name",
-      label: "Name",
-      type: "link",
-      href: (row) => `/institutes/details/${row.id}`,
-      display: (val) => `${val} ↗`,
-    },
-    { key: "shortname", label: "Shortname" },
-    { key: "code", label: "Code" },
-    {
-      key: "id",
-      label: "More",
-      type: "link",
-      href: (row) => `/courses/get/${row.id}`,
-      display: () => "Next",
-    },
+    { key: "name", label: "Name", type: "link", display: true },
+    { key: "shortname", label: "Shortname", type: "text" },
+    { key: "code", label: "Code", type: "text" },
+    { key: "instituteId", label: "More", type: "link" },
   ];
 
   return (
@@ -42,18 +30,29 @@ function view() {
         <div className="common-container">
           <HeaderBar />
           <CreateFlow label="Create Institute" link="/institutes/create" />
-          <CommonTable
-            data={data}
-            loading={loading}
-            error={error}
-            columns={columns}
-            handle_delete={deleteById}
-            editBaseUrl="/institutes/update/"
-          />
+          {loading ? (
+            <p>Loading...</p>
+          ) : fetchError ? (
+            <p style={{ color: "red" }}>{fetchError}</p>
+          ) : (
+            <>
+              {deleteError && (
+                <p style={{ color: "red", marginBottom: "10px" }}>
+                  {deleteError}
+                </p>
+              )}
+              <CommonTable
+                data={data}
+                columns={columns}
+                preFixUrl={"institutes"}
+                postFixUrl={"courses"}
+                handle_delete={deleteById}
+              />
+            </>
+          )}
         </div>
       </Section>
     </div>
   );
 }
-
-export default view;
+export default InstituteView;
