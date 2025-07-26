@@ -6,7 +6,7 @@ import HeaderBar from "../../components/header_bar/header_bar"
 import Form from "../../components/form/post"
 
 import useCreate from "../../hooks/use_post"
-import { apis } from "../../apis/crud_generic";
+import { apis } from "../../apis/ucs_service";
 import { useParams } from "react-router-dom";
 
 function CourseCreate() {

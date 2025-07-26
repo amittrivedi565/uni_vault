@@ -4,7 +4,7 @@ import Wrapper from "../../components/institute/wrapper/wrapper";
 import { useParams } from "react-router-dom";
 
 import use_fetch_by_id from "../../hooks/use_get_by_id"
-import {apis} from "../../apis/crud_generic"
+import {apis} from "../../apis/ucs_service"
 
 function detail_view() {
     const { id } = useParams();

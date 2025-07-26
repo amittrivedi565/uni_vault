@@ -14,7 +14,7 @@ public class BranchDTO {
     private UUID id;
 
     @NotBlank(message = "Branch name is required")
-    @Size(min = 3, max = 20, message = "Branch name must be between 3 and 20 characters")
+    @Size(min = 3, max = 50, message = "Branch name must be between 3 and 20 characters")
     private String name;
 
     @NotBlank(message = "Branch shortname is required")

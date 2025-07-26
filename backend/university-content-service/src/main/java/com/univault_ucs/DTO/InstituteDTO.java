@@ -14,7 +14,7 @@ public class InstituteDTO {
     private UUID id;
 
     @NotBlank(message = "Institute name is required")
-    @Size(min = 3, max = 30, message = "Institute name must be between 3 and 30 characters")
+    @Size(min = 3, max = 100, message = "Institute name must be between 3 and 30 characters")
     private String name;
 
     @NotBlank(message = "Institute shortname is required")

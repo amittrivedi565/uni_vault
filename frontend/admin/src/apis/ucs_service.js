@@ -25,6 +25,10 @@ export const crud_generic = (basePath) => ({
 
   deleteById: (id) => 
     api.del(`/${basePath}/${id}`),
+
+  uploadFile: () =>{
+    
+  }
 });
 
 /*

@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 import useFetchById from "../../hooks/use_get_by_id";
 import useUpdate from "../../hooks/use_update";
-import { apis } from "../../apis/crud_generic";
+import { apis } from "../../apis/ucs_service";
 
 function SubjectUpdate() {
   const { id } = useParams(); // subjectId

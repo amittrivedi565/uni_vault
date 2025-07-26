@@ -3,21 +3,17 @@ import Sidebar from "../../components/sidebar/sidebar";
 import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/post";
+import FileUploadForm from "../../components/upload_form/upload_form";
 
 import useCreate from "../../hooks/use_post";
-import { apis } from "../../apis/crud_generic";
+import { apis } from "../../apis/ucs_service";
 import { useParams } from "react-router-dom";
 
 function SubjectCreate() {
   const { id } = useParams(); // id = branchId
 
-  const {
-    handle_input_change,
-    handle_submit,
-    formData,
-    error,
-    fieldErrors,
-  } = useCreate(apis.subject.create, id, "semesterId");
+  const { handle_input_change, handle_submit, formData, error, fieldErrors } =
+    useCreate(apis.subject.create, id, "semesterId");
 
   const subjectFields = [
     { name: "name", label: "Name", required: true },

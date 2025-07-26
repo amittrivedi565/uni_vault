@@ -4,7 +4,7 @@ import Section from "../../components/section/section";
 import HeaderBar from "../../components/header_bar/header_bar";
 import Form from "../../components/form/post";
 
-import { apis } from "../../apis/crud_generic"
+import { apis } from "../../apis/ucs_service"
 import useCreate from "../../hooks/use_post"
 
 function post() {

@@ -19,7 +19,7 @@ public class SemesterDTO {
     private String name;
 
     @NotBlank(message = "Semester code is required")
-    @Size(min = 2, max = 10, message = "Semester code must be between 2 and 20 characters")
+    @Size(min = 1, max = 2, message = "Semester code must be between 2 and 20 characters")
     private String code;
 
     private UUID resource_id;

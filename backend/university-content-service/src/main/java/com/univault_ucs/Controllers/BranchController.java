@@ -50,7 +50,7 @@ public class BranchController {
 
     @PutMapping("/{branchId}")
     public ResponseEntity<BranchDTO> updateBranchController(@PathVariable UUID branchId, @RequestBody @Valid BranchDTO dto) {
-        BranchDTO updatedBranch = branchService.updateBwranch(branchId, dto);
+        BranchDTO updatedBranch = branchService.updateBranch(branchId, dto);
         return ResponseEntity.ok(updatedBranch);
     }
 }

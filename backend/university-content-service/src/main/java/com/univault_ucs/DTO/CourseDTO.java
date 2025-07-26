@@ -14,7 +14,7 @@ public class CourseDTO {
     private UUID id;
 
     @NotBlank(message = "Course name is required")
-    @Size(min = 3, max = 20, message = "Course name must be between 3 and 20 characters")
+    @Size(min = 3, max = 100, message = "Course name must be between 3 and 20 characters")
     private String name;
 
     @NotBlank(message = "Course shortname is required")

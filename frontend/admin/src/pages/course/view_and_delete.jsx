@@ -8,7 +8,7 @@ import CommonTable from "../../components/table/table";
 
 import { useParams } from "react-router-dom";
 
-import { apis } from "../../apis/crud_generic";
+import { apis } from "../../apis/ucs_service";
 import useFetchById from "../../hooks/use_get_all_by_id"
 import useDeleteById from "../../hooks/use_delete"
 

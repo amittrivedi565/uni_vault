@@ -2,17 +2,20 @@ export default function DynamicForm({
   formData,
   handle_input_change,
   handle_submit,
-  error,
   fieldErrors,
   fields,
 }) {
   return (
-    <div className="form-container" style={{ width: "90%", margin: "20px auto", padding: "20px" }}>
-      
+    <div
+      className="form-container"
+      style={{ width: "90%", margin: "20px auto", padding: "20px" }}
+    >
       <form onSubmit={handle_submit} encType="multipart/form-data">
-        {fields.map(({ name, label, type = "text", required }) => (
+        {fields.map(({ name, label, type = "text", required, placeHolder }) => (
           <div className="form-group" key={name}>
-            <label className={`form-label${required ? " required" : ""}`}>{label}</label>
+            <label className={`form-label${required ? " required" : ""}`}>
+              {label}
+            </label>
 
             {type === "textarea" ? (
               <textarea
@@ -38,14 +41,19 @@ export default function DynamicForm({
                 onChange={handle_input_change}
                 className="form-input"
                 required={required}
+                placeholder={placeHolder}
               />
             )}
 
-            {fieldErrors?.[name] && <p className="form-error">{fieldErrors[name]}</p>}
+            {fieldErrors?.[name] && (
+              <p className="form-error">{fieldErrors[name]}</p>
+            )}
           </div>
         ))}
 
-        <button type="submit" className="submit-button">Submit</button>
+        <button type="submit" className="submit-button">
+          Submit
+        </button>
       </form>
     </div>
   );

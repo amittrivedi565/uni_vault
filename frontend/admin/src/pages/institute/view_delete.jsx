@@ -9,7 +9,7 @@ import CommonTable from "../../components/table/table";
 
 import useGetAll from "../../hooks/use_get_all";
 import useDeleteById from "../../hooks/use_delete";
-import {apis} from "../../apis/crud_generic"
+import {apis} from "../../apis/ucs_service"
 
 function view() {
   const { data, loading, error } = useGetAll(apis.institute.getAll);
