@@ -6,7 +6,6 @@ function App() {
   return (
     <BreadCrumbProvider>
       <RouterProvider router={router} />
-      );
     </BreadCrumbProvider>
   );
 }

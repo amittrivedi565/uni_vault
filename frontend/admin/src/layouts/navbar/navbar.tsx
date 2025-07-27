@@ -8,8 +8,6 @@ function navbar() {
           <p className=''>uni_vault</p>
         </div>
         <div className='navbar-middle'>
-          <a href=''>Analytics</a>
-          <a href=''>Monitor</a>
         </div>
         <div className='navbar-right'>
         </div>

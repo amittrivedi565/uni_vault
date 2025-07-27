@@ -9,9 +9,9 @@ function Default() {
     <div className="default">
       <Navbar />
       <Outlet />
-      <Footer />
+      <Footer/>
     </div>
-  );
+  )
 }
 
 export default Default;

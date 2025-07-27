@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const express_layouts = require('express-ejs-layouts');
-const { getInstitutes, getSemestersByBranch } = require('./apis/microservices_endpoints');
+
+const { getInstitutes, getSemestersByBranch } = require('./apis/endpoints');
 const {log_error} = require("./log_errors");
 
 
@@ -39,7 +40,8 @@ app.get('/resources/:branchId', async (req, res) => {
     res.render('pages/courses', {
       title: 'NoteX',
       data,
-      branchId
+      branchId,
+      css_service: process.env.CSS_SERVICE
     });
   } catch (error) {
     log_error(error);

@@ -7,9 +7,13 @@ import branchRoutes from "./branch_routes";
 import semesterRoutes from "./semester_routes";
 import SubjectRoutes from "./subject_routes";
 import UnitRoutes from "./unit_routes";
-import { BreadCrumbProvider } from "../context/breadcrumb_context";
+import LoginPage from "../pages/login/login"
 
 const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <LoginPage />
+  },
   {
     path: "/",
     element: <Default />,
