@@ -3,31 +3,27 @@ import axios from "axios";
 /*
   Base URLs from environment
 */
-const UCS_BASE_URL = import.meta.env.VITE_UCS_SERVICE;
+const IMS_BASE_URL = import.meta.env.VITE_IMS_SERVICE;
 
 /*
   Axios instance with default config for UCS service
 */
 const axiosInstance = axios.create({
-  baseURL: UCS_BASE_URL,
+  baseURL: IMS_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-/*
-  Generic request function using Axios
-*/
 const request = async (method, path = "", data = null) => {
   try {
     const config = {
       method,
       url: path,
-      data
+      data,
     };
     const response = await axiosInstance(config);
     return response.data;
-
   } catch (error) {
     const responseData = error.response?.data;
     const message =
@@ -43,9 +39,9 @@ const request = async (method, path = "", data = null) => {
       data: null,
       error: {
         message,
-        fieldErrors
-      }
-    }
+        fieldErrors,
+      },
+    };
   }
 };
 
@@ -56,5 +52,5 @@ export const api = {
   get: (path = "") => request("GET", path),
   post: (path = "", data) => request("POST", path, data),
   put: (path = "", data) => request("PUT", path, data),
-  del: (path = "") => request("DELETE", path)
+  del: (path = "") => request("DELETE", path),
 };
