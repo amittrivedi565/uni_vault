@@ -28,6 +28,7 @@ public class InstituteServiceImpl implements InstituteService {
         this.instituteRepo = instituteRepo;
     }
 
+    @Transactional
     @Override
     public List<InstituteDTO> getAllInstitutes() {
         try {
@@ -38,7 +39,7 @@ public class InstituteServiceImpl implements InstituteService {
                 throw new InstituteServiceException(message);
             }
             return institutes.stream()
-                    .map(i -> InstituteMapper.toDTO(i, true))
+                    .map(i -> InstituteMapper.toDTO(i, false))
                     .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("Error in getAllInstitutes", e);

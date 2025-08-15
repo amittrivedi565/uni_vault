@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class CourseMapper {
 
     public static CourseDTO toDTO(Course course) {
-        return toDTO(course, true);
+        return toDTO(course, false);
     }
 
     public static CourseDTO toDTO(Course course, boolean includeAssociations) {
@@ -28,7 +28,7 @@ public class CourseMapper {
     }
 
     public static Course toEntity(CourseDTO dto) {
-        return toEntity(dto, true);
+        return toEntity(dto, false);
     }
 
     public static Course toEntity(CourseDTO dto, boolean includeAssociations) {
@@ -85,7 +85,7 @@ public class CourseMapper {
         if (branches == null) return null;
 
         return branches.stream()
-                .map(branch -> BranchMapper.toDTO(branch, true))
+                .map(branch -> BranchMapper.toDTO(branch, false))
                 .collect(Collectors.toList());
     }
 
@@ -93,7 +93,7 @@ public class CourseMapper {
         if (branchDTOs == null) return null;
 
         return branchDTOs.stream()
-                .map(branchDTO -> BranchMapper.toEntity(branchDTO, course, true))
+                .map(branchDTO -> BranchMapper.toEntity(branchDTO, course, false))
                 .collect(Collectors.toList());
     }
 }

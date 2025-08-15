@@ -44,12 +44,12 @@ public class QuestionPaperServiceImpl implements QuestionPaperService {
 
     @Override
     public QuestionPaper createQuestionPaper(QuestionPaper request) {
+
         if (request.getSubject() == null || request.getSubject().getId() == null) {
             String message = "Subject ID is required to create a Question Paper.";
             logger.warn(message);
             throw new QuestionPaperServiceException(message);
         }
-
         Subject subject = subjectRepository.findById(request.getSubject().getId())
                 .orElseThrow(() -> {
                     String message = "Subject not found with ID: " + request.getSubject().getId();

@@ -72,7 +72,7 @@ public class InstituteMapper {
         if (courses == null) return null;
 
         return courses.stream()
-                .map(course -> CourseMapper.toDTO(course, true)) // control depth if needed
+                .map(course -> CourseMapper.toDTO(course, false)) // control depth if needed
                 .collect(Collectors.toList());
     }
 
@@ -81,7 +81,7 @@ public class InstituteMapper {
 
         return courseDTOs.stream()
                 .map(courseDTO -> {
-                    Course course = CourseMapper.toEntity(courseDTO, true);
+                    Course course = CourseMapper.toEntity(courseDTO, false);
                     course.setInstitute(institute);
                     return course;
                 })

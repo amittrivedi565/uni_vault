@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class SubjectMapper {
 
     public static SubjectDTO toDTO(Subject subject) {
-        return toDTO(subject, true);
+        return toDTO(subject, false);
     }
 
     public static SubjectDTO toDTO(
@@ -30,7 +30,7 @@ public class SubjectMapper {
     }
 
     public static Subject toEntity(SubjectDTO dto) {
-        return toEntity(dto, true);
+        return toEntity(dto, false);
     }
 
     public static Subject toEntity(

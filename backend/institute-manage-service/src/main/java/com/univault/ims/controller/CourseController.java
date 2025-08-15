@@ -3,7 +3,6 @@ package com.univault.ims.controller;
 import com.univault.ims.dto.CourseDTO;
 import com.univault.ims.entity.Course;
 import com.univault.ims.service.CourseService;
-import com.univault.ims.serviceImpl.CourseServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

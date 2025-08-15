@@ -31,6 +31,7 @@ public class Course {
     @JoinColumn(name = "institute_id", nullable = false)
     private Institute institute;
 
+
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Branch> branches;
 

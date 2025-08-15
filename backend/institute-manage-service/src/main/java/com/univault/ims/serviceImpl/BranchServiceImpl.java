@@ -89,10 +89,9 @@ public class BranchServiceImpl implements BranchService {
         Branch branch = branchRepo.findById(branchId)
                 .orElseThrow(() -> {
                     String message = "Branch not found with ID: " + branchId;
-                    logger.warn(message);
+                    logger.info(message);
                     return new BranchServiceException(message);
                 });
-
         try {
             branchRepo.delete(branch);
             logger.info("Branch deleted successfully with ID: {}", branchId);

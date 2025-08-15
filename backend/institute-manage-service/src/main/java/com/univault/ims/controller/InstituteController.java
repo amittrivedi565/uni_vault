@@ -2,7 +2,6 @@ package com.univault.ims.controller;
 
 import com.univault.ims.dto.InstituteDTO;
 import com.univault.ims.service.InstituteService;
-import com.univault.ims.serviceImpl.InstituteServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -69,7 +69,7 @@ export default function CommonTable({
               No data found.
             </td>
           </tr>
-        ) : (
+        ) : ( 
           safeData.map((row) => (
             <tr key={row.id}>
               {columns.map((col) => (

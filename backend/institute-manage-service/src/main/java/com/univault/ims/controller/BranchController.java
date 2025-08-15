@@ -2,7 +2,6 @@ package com.univault.ims.controller;
 
 import com.univault.ims.dto.BranchDTO;
 import com.univault.ims.service.BranchService;
-import com.univault.ims.serviceImpl.BranchServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
