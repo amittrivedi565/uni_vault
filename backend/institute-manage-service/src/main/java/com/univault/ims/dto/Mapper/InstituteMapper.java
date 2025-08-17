@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class InstituteMapper {
 
     public static InstituteDTO toDTO(Institute institute) {
-        return toDTO(institute, true);
+        return toDTO(institute, false); // default shallow
     }
 
     public static InstituteDTO toDTO(Institute institute, boolean includeAssociations) {
@@ -20,14 +20,14 @@ public class InstituteMapper {
         InstituteDTO dto = basicDTO(institute);
 
         if (includeAssociations) {
-            dto.setCourses(mapCoursesToDTO(institute.getCourses()));
+            dto.setCourses(mapCoursesToDTO(institute.getCourses(), true));
         }
 
         return dto;
     }
 
     public static Institute toEntity(InstituteDTO dto) {
-        return toEntity(dto, true);
+        return toEntity(dto, false); // default shallow
     }
 
     public static Institute toEntity(InstituteDTO dto, boolean includeAssociations) {
@@ -36,7 +36,7 @@ public class InstituteMapper {
         Institute institute = basicEntity(dto);
 
         if (includeAssociations) {
-            institute.setCourses(mapCoursesToEntity(dto.getCourses(), institute));
+            institute.setCourses(mapCoursesToEntity(dto.getCourses(), institute, true));
         }
 
         return institute;
@@ -68,20 +68,20 @@ public class InstituteMapper {
         return institute;
     }
 
-    private static List<CourseDTO> mapCoursesToDTO(List<Course> courses) {
-        if (courses == null) return null;
+    private static List<CourseDTO> mapCoursesToDTO(List<Course> courses, boolean includeAssociations) {
+        if (courses == null) return List.of(); // never return null
 
         return courses.stream()
-                .map(course -> CourseMapper.toDTO(course, false)) // control depth if needed
+                .map(course -> CourseMapper.toDTO(course, includeAssociations))
                 .collect(Collectors.toList());
     }
 
-    private static List<Course> mapCoursesToEntity(List<CourseDTO> courseDTOs, Institute institute) {
-        if (courseDTOs == null) return null;
+    private static List<Course> mapCoursesToEntity(List<CourseDTO> courseDTOs, Institute institute, boolean includeAssociations) {
+        if (courseDTOs == null) return List.of(); // never return null
 
         return courseDTOs.stream()
                 .map(courseDTO -> {
-                    Course course = CourseMapper.toEntity(courseDTO, false);
+                    Course course = CourseMapper.toEntity(courseDTO, includeAssociations);
                     course.setInstitute(institute);
                     return course;
                 })

@@ -4,7 +4,7 @@ import com.univault.ims.dto.UnitDTO;
 import com.univault.ims.entity.Subject;
 import com.univault.ims.entity.Unit;
 
-public class  UnitMapper {
+public class UnitMapper {
 
     public static UnitDTO toDTO(Unit unit) {
         if (unit == null) return null;

@@ -45,16 +45,22 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public List<BranchDTO> getBranchesByCourseId(UUID courseId) {
-        List<Branch> branches = branchRepo.findAllBranchesByCourseId(courseId);
-        if (branches.isEmpty()) {
-            String message = "No Branches found for Course ID: " + courseId;
-            logger.warn(message);
-            throw new BranchServiceException(message);
+        try {
+            List<Branch> branches = branchRepo.findAllBranchesByCourseId(courseId);
+            if (branches.isEmpty()) {
+                String message = "No Branches found for Course ID: " + courseId;
+                logger.warn(message);
+                throw new BranchServiceException(message);
+            }
+            return branches.stream()
+                    .map(branch -> BranchMapper.toDTO(branch, false))
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            logger.error("Error in getBranchesByCourseId", e);
+            throw new BranchServiceException("An error occurred while fetching branches by course id.", e);
         }
-        return branches.stream()
-                .map(BranchMapper::toDTO)
-                .collect(Collectors.toList());
     }
+
 
     @Override
     public BranchDTO createBranch(BranchDTO branchDTO) {

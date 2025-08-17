@@ -39,7 +39,7 @@ public class InstituteServiceImpl implements InstituteService {
                 throw new InstituteServiceException(message);
             }
             return institutes.stream()
-                    .map(i -> InstituteMapper.toDTO(i, false))
+                    .map(i -> InstituteMapper.toDTO(i, true))
                     .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("Error in getAllInstitutes", e);

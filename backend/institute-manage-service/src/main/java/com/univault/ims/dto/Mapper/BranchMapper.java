@@ -27,30 +27,40 @@ public class BranchMapper {
         return dto;
     }
 
-    public static Branch toEntity(BranchDTO dto, Course course) {
-        return toEntity(dto, course, false);
+    public static Branch toEntity(BranchDTO dto) {
+        return toEntity(dto, null, false);
     }
 
-    public static Branch toEntity(BranchDTO dto, Course course, boolean includeAssociations) {
+    public static Branch toEntity(BranchDTO dto, Course parentCourse) {
+        return toEntity(dto, parentCourse, false);
+    }
+
+    public static Branch toEntity(BranchDTO dto, Course parentCourse, boolean includeAssociations) {
         if (dto == null) return null;
 
-        Branch branch = basicEntity(dto, course);
+        Branch branch = basicEntity(dto);
+
+        if (parentCourse != null) {
+            branch.setCourse(parentCourse);
+        } else if (dto.getCourseId() != null) {
+            Course course = new Course();
+            course.setId(dto.getCourseId());
+            branch.setCourse(course);
+        }
 
         if (includeAssociations) {
-            List<Semester> semesters = mapSemestersToEntity(dto.getSemesters(), branch);
-            branch.setSemesters(semesters);
+            branch.setSemesters(mapSemestersToEntity(dto.getSemesters(), branch));
         }
 
         return branch;
     }
 
-    // ----- Helper Methods -----
+    // ----- Private Helper Methods -----
 
     private static BranchDTO basicDTO(Branch branch) {
         BranchDTO dto = new BranchDTO();
         dto.setId(branch.getId());
         dto.setName(branch.getName());
-        dto.setShortname(branch.getShortname());
         dto.setCode(branch.getCode());
         dto.setDescription(branch.getDescription());
         dto.setCreatedAt(branch.getCreatedAt());
@@ -63,36 +73,30 @@ public class BranchMapper {
         return dto;
     }
 
-    private static Branch basicEntity(BranchDTO dto, Course course) {
+    private static Branch basicEntity(BranchDTO dto) {
         Branch branch = new Branch();
         branch.setId(dto.getId());
         branch.setName(dto.getName());
-        branch.setShortname(dto.getShortname());
         branch.setCode(dto.getCode());
         branch.setDescription(dto.getDescription());
         branch.setCreatedAt(dto.getCreatedAt());
         branch.setUpdatedAt(dto.getUpdatedAt());
-        branch.setCourse(course);
         return branch;
     }
 
-    private static List<Semester> mapSemestersToEntity(List<SemesterDTO> semesterDTOs, Branch branch) {
-        if (semesterDTOs == null) return null;
+    private static List<SemesterDTO> mapSemestersToDTO(List<Semester> semesters) {
+        if (semesters == null) return List.of();
 
-        return semesterDTOs.stream()
-                .map(dto -> {
-                    Semester semester = SemesterMapper.toEntity(dto, false);
-                    semester.setBranch(branch);
-                    return semester;
-                })
+        return semesters.stream()
+                .map(SemesterMapper::toDTO)
                 .collect(Collectors.toList());
     }
 
-    private static List<SemesterDTO> mapSemestersToDTO(List<Semester> semesters) {
-        if (semesters == null) return null;
+    private static List<Semester> mapSemestersToEntity(List<SemesterDTO> semesterDTOs, Branch branch) {
+        if (semesterDTOs == null) return List.of();
 
-        return semesters.stream()
-                .map(semester -> SemesterMapper.toDTO(semester, false))
+        return semesterDTOs.stream()
+                .map(dto -> SemesterMapper.toEntity(dto, branch))
                 .collect(Collectors.toList());
     }
 }

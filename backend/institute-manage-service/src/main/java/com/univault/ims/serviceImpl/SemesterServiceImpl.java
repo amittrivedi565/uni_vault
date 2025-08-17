@@ -50,7 +50,7 @@ public class SemesterServiceImpl implements SemesterService {
                 throw new SemesterServiceException(message);
             }
             return semesters.stream()
-                    .map(SemesterMapper::toDTO)
+                    .map(semester -> SemesterMapper.toDTO(semester,true))
                     .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("Error in getSemestersByBranchId", e);

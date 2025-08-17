@@ -11,8 +11,10 @@ import java.util.stream.Collectors;
 
 public class SemesterMapper {
 
+    // -------- Public Mapping Methods --------
+
     public static SemesterDTO toDTO(Semester semester) {
-        return toDTO(semester, true);
+        return toDTO(semester, false); // shallow by default
     }
 
     public static SemesterDTO toDTO(Semester semester, boolean includeAssociations) {
@@ -21,35 +23,46 @@ public class SemesterMapper {
         SemesterDTO dto = mapBasicDTO(semester);
 
         if (includeAssociations) {
-            dto.setSubjects(mapSubjectsToDTO(semester.getSubjects()));
+            dto.setSubjects(mapSubjectsToDTO(semester.getSubjects(), true));
         }
 
         return dto;
     }
 
     public static Semester toEntity(SemesterDTO dto) {
-        return toEntity(dto, true);
+        return toEntity(dto, null, false);
     }
 
     public static Semester toEntity(SemesterDTO dto, boolean includeAssociations) {
+        return toEntity(dto, null, includeAssociations);
+    }
+
+    public static Semester toEntity(SemesterDTO dto, Branch parentBranch) {
+        return toEntity(dto, parentBranch, false);
+    }
+
+    public static Semester toEntity(SemesterDTO dto, Branch parentBranch, boolean includeAssociations) {
         if (dto == null) return null;
 
         Semester semester = mapBasicEntity(dto);
 
-        if (dto.getBranchId() != null) {
+        // Always assign parent branch
+        if (parentBranch != null) {
+            semester.setBranch(parentBranch);
+        } else if (dto.getBranchId() != null) {
             Branch branch = new Branch();
             branch.setId(dto.getBranchId());
             semester.setBranch(branch);
         }
 
         if (includeAssociations) {
-            semester.setSubjects(mapSubjectsToEntity(dto.getSubjects(), semester));
+            semester.setSubjects(mapSubjectsToEntity(dto.getSubjects(), semester, true));
         }
 
         return semester;
     }
 
-    // ---------- Private Helpers ----------
+    // -------- Private Helpers --------
 
     private static SemesterDTO mapBasicDTO(Semester semester) {
         SemesterDTO dto = new SemesterDTO();
@@ -78,20 +91,20 @@ public class SemesterMapper {
         return semester;
     }
 
-    private static List<SubjectDTO> mapSubjectsToDTO(List<Subject> subjects) {
-        if (subjects == null) return null;
+    private static List<SubjectDTO> mapSubjectsToDTO(List<Subject> subjects, boolean includeAssociations) {
+        if (subjects == null) return List.of(); // never null
 
         return subjects.stream()
-                .map(subject -> SubjectMapper.toDTO(subject, true)) // optional deep nesting
+                .map(subject -> SubjectMapper.toDTO(subject, includeAssociations))
                 .collect(Collectors.toList());
     }
 
-    private static List<Subject> mapSubjectsToEntity(List<SubjectDTO> subjectDTOs, Semester semester) {
-        if (subjectDTOs == null) return null;
+    private static List<Subject> mapSubjectsToEntity(List<SubjectDTO> subjectDTOs, Semester semester, boolean includeAssociations) {
+        if (subjectDTOs == null) return List.of(); // never null
 
         return subjectDTOs.stream()
                 .map(subjectDTO -> {
-                    Subject subject = SubjectMapper.toEntity(subjectDTO, true);
+                    Subject subject = SubjectMapper.toEntity(subjectDTO, includeAssociations);
                     subject.setSemester(semester);
                     return subject;
                 })

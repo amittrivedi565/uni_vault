@@ -32,7 +32,7 @@ public class Course {
     private Institute institute;
 
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Branch> branches;
 
     @Column(name = "created_at", updatable = false)

@@ -5,19 +5,19 @@ import com.univault.ims.dto.UnitDTO;
 import com.univault.ims.entity.Semester;
 import com.univault.ims.entity.Subject;
 import com.univault.ims.entity.Unit;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class SubjectMapper {
 
+    // -------- Public Mapping Methods --------
+
     public static SubjectDTO toDTO(Subject subject) {
-        return toDTO(subject, false);
+        return toDTO(subject, false); // shallow by default
     }
 
-    public static SubjectDTO toDTO(
-        Subject subject,
-        boolean includeAssociations
-    ) {
+    public static SubjectDTO toDTO(Subject subject, boolean includeAssociations) {
         if (subject == null) return null;
 
         SubjectDTO dto = mapBasicDTO(subject);
@@ -30,18 +30,26 @@ public class SubjectMapper {
     }
 
     public static Subject toEntity(SubjectDTO dto) {
-        return toEntity(dto, false);
+        return toEntity(dto, null, false);
     }
 
-    public static Subject toEntity(
-        SubjectDTO dto,
-        boolean includeAssociations
-    ) {
+    public static Subject toEntity(SubjectDTO dto, boolean includeAssociations) {
+        return toEntity(dto, null, includeAssociations);
+    }
+
+    public static Subject toEntity(SubjectDTO dto, Semester parentSemester) {
+        return toEntity(dto, parentSemester, false);
+    }
+
+    public static Subject toEntity(SubjectDTO dto, Semester parentSemester, boolean includeAssociations) {
         if (dto == null) return null;
 
         Subject subject = mapBasicEntity(dto);
 
-        if (dto.getSemesterId() != null) {
+        // Always assign parent semester
+        if (parentSemester != null) {
+            subject.setSemester(parentSemester);
+        } else if (dto.getSemesterId() != null) {
             Semester semester = new Semester();
             semester.setId(dto.getSemesterId());
             subject.setSemester(semester);
@@ -54,7 +62,7 @@ public class SubjectMapper {
         return subject;
     }
 
-    // ---------- Private Helpers ----------
+    // -------- Private Helpers --------
 
     private static SubjectDTO mapBasicDTO(Subject subject) {
         SubjectDTO dto = new SubjectDTO();
@@ -86,27 +94,22 @@ public class SubjectMapper {
     }
 
     private static List<UnitDTO> mapUnitsToDTO(List<Unit> units) {
-        if (units == null) return null;
+        if (units == null) return List.of();
 
-        return units
-            .stream()
-            .map(UnitMapper::toDTO) // optionally pass `true` if needed
-            .collect(Collectors.toList());
+        return units.stream()
+                .map(UnitMapper::toDTO) // use UnitMapper
+                .collect(Collectors.toList());
     }
 
-    private static List<Unit> mapUnitsToEntity(
-        List<UnitDTO> unitDTOs,
-        Subject subject
-    ) {
-        if (unitDTOs == null) return null;
+    private static List<Unit> mapUnitsToEntity(List<UnitDTO> unitDTOs, Subject subject) {
+        if (unitDTOs == null) return List.of();
 
-        return unitDTOs
-            .stream()
-            .map(unitDTO -> {
-                Unit unit = UnitMapper.toEntity(unitDTO);
-                unit.setSubject(subject);
-                return unit;
-            })
-            .collect(Collectors.toList());
+        return unitDTOs.stream()
+                .map(unitDTO -> {
+                    Unit unit = UnitMapper.toEntity(unitDTO);
+                    unit.setSubject(subject); // set parent link
+                    return unit;
+                })
+                .collect(Collectors.toList());
     }
 }
