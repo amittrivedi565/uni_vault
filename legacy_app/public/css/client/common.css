@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-text-color {
+    color: #3e38f5;
+}
+.main-bg-color {
+    background-color: #3e38f5;
+}
+
+body{
+    font-family: "Telegraph Light";
+}
+
+@font-face {
+    font-family: "Telegraph Light";
+    src: url(../../fonts/telegraph.light.otf);
+    font-weight: light;
+}
+@font-face {
+    font-family: "Telegraph Regular";
+    src: url(../../fonts/telegraph.regular.otf);
+    font-weight: regular;
+}
+
+footer p:nth-child(2) {
+    font-size: 0.7rem;
+}

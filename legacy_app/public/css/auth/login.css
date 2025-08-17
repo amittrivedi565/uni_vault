@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Telegraph Light";
+    src: url(../../fonts/telegraph.light.otf);
+    font-weight: light;
+}
+@font-face {
+    font-family: "Telegraph Regular";
+    src: url(../../fonts/telegraph.regular.otf);
+    font-weight: regular;
+}
+
+body{
+    font-family: "Telegraph Light";
+}
