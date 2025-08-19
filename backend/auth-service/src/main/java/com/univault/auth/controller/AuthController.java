@@ -53,7 +53,7 @@ public class AuthController {
         boolean isValid = authValidation.validateToken(token);
 
         if (isValid) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok().body("token valid");
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid or expired token");
         }

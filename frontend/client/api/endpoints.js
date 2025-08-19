@@ -3,7 +3,7 @@ const client = require('./api_client');
 const {log_error}  = require('../log_errors');
 
 
-async function getInstitutes() {
+async function get_institutes() {
   try {
     const response = await client.get(`${process.env.UCS_SERVICE}/institutes`);
     return response.data;
@@ -13,7 +13,7 @@ async function getInstitutes() {
   }
 }
 
-async function getSemestersByBranch(id) {
+async function get_semesters_by_branch_id(id) {
   try {
     const response = await client.get(`${process.env.UCS_SERVICE}/semesters/${id}`);
     return response.data;
@@ -24,4 +24,4 @@ async function getSemestersByBranch(id) {
 }
 
 
-module.exports = { getInstitutes, getSemestersByBranch };
+module.exports = { get_institutes, get_semesters_by_branch_id };

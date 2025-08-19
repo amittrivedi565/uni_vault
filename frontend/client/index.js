@@ -4,9 +4,8 @@ const app = express();
 const path = require('path');
 const express_layouts = require('express-ejs-layouts');
 
-const { getInstitutes, getSemestersByBranch } = require('./apis/endpoints');
+const {get_institutes, get_semesters_by_branch_id} = require('./api/endpoints');
 const {log_error} = require("./log_errors");
-
 
 const PORT = process.env.PORT || 4010;
 
@@ -22,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
   try {
-    const data = await getInstitutes();
+    const data = await get_institutes();
     res.render('pages/index', { institutes: data, title: 'Home' });
   } catch (error) {
     log_error(error);
@@ -30,12 +29,11 @@ app.get('/', async (req, res) => {
   }
 });
 
-
-app.get('/resources/:branchId', async (req, res) => {
+app.get('/content/:branchId', async (req, res) => {
   try {
     const branchId = req.params.branchId;
 
-    const data = await getSemestersByBranch(branchId);
+    const data = await get_semesters_by_branch_id(branchId);
 
     res.render('pages/courses', {
       title: 'NoteX',
