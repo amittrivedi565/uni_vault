@@ -7,8 +7,10 @@ import com.univault.ims.entity.Institute;
 import com.univault.ims.exception.service.InstituteServiceException;
 import com.univault.ims.service.InstituteService;
 import jakarta.transaction.Transactional;
+import org.hibernate.annotations.Cache;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
@@ -30,6 +32,7 @@ public class InstituteServiceImpl implements InstituteService {
 
     @Transactional
     @Override
+    @Cacheable(value = "institutesCache")
     public List<InstituteDTO> getAllInstitutes() {
         try {
             List<Institute> institutes = instituteDao.findAll();

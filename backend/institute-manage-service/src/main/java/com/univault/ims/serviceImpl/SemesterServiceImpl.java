@@ -10,6 +10,7 @@ import com.univault.ims.service.SemesterService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -41,6 +42,8 @@ public class SemesterServiceImpl implements SemesterService {
     }
 
     @Override
+    @Transactional
+    @Cacheable("branchCache")
     public List<SemesterDTO> getSemestersByBranchId(UUID branchId) {
         try {
             List<Semester> semesters = semesterDao.findAllSemestersByBranchId(branchId);
