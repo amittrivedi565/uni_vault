@@ -1,11 +1,11 @@
 package com.univault.ims.serviceImpl;
 
+import com.univault.ims.dao.SemesterDao;
+import com.univault.ims.dao.SubjectDao;
 import com.univault.ims.dto.Mapper.SubjectMapper;
 import com.univault.ims.dto.SubjectDTO;
 import com.univault.ims.entity.Subject;
 import com.univault.ims.exception.service.SubjectServiceException;
-import com.univault.ims.repository.SemesterRepository;
-import com.univault.ims.repository.SubjectRepository;
 import com.univault.ims.service.SubjectService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -21,17 +21,17 @@ public class SubjectServiceImpl implements SubjectService {
 
     private static final Logger logger = LoggerFactory.getLogger(SubjectServiceImpl.class);
 
-    private final SubjectRepository subjectRepo;
-    private final SemesterRepository semesterRepo;
+    private final SubjectDao subjectDao;
+    private final SemesterDao semesterDao;
 
-    public SubjectServiceImpl(SubjectRepository subjectRepo, SemesterRepository semesterRepo) {
-        this.subjectRepo = subjectRepo;
-        this.semesterRepo = semesterRepo;
+    public SubjectServiceImpl(SubjectDao subjectDao, SemesterDao semesterDao) {
+        this.subjectDao = subjectDao;
+        this.semesterDao = semesterDao;
     }
 
     @Override
     public SubjectDTO getSubjectById(UUID id) {
-        return subjectRepo.findById(id)
+        return subjectDao.findById(id)
                 .map(SubjectMapper::toDTO)
                 .orElseThrow(() -> {
                     String message = "Subject not found with ID: " + id;
@@ -43,7 +43,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public List<SubjectDTO> getAllSubjectsBySemesterId(UUID semesterId) {
         try {
-            List<Subject> subjects = subjectRepo.findAllSubjectsBySemesterId(semesterId);
+            List<Subject> subjects = subjectDao.findAllSubjectsBySemesterId(semesterId);
             if (subjects.isEmpty()) {
                 String message = "No subjects found for Semester ID: " + semesterId;
                 logger.warn(message);
@@ -60,14 +60,14 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public SubjectDTO createSubject(SubjectDTO subjectDTO) {
-        subjectRepo.findByNameAndSemesterId(subjectDTO.getName(), subjectDTO.getSemesterId())
+        subjectDao.findByNameAndSemesterId(subjectDTO.getName(), subjectDTO.getSemesterId())
                 .ifPresent(existing -> {
                     String message = "Subject already exists with name: " + subjectDTO.getName();
                     logger.warn(message);
                     throw new SubjectServiceException(message);
                 });
 
-        semesterRepo.findById(subjectDTO.getSemesterId())
+        semesterDao.findById(subjectDTO.getSemesterId())
                 .orElseThrow(() -> {
                     String message = "Semester not found with ID: " + subjectDTO.getSemesterId();
                     logger.warn(message);
@@ -76,7 +76,7 @@ public class SubjectServiceImpl implements SubjectService {
 
         try {
             Subject subjectEntity = SubjectMapper.toEntity(subjectDTO);
-            Subject savedSubject = subjectRepo.save(subjectEntity);
+            Subject savedSubject = subjectDao.save(subjectEntity);
             logger.info("Subject created successfully with ID: {}", savedSubject.getId());
             return SubjectMapper.toDTO(savedSubject);
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     @Transactional
     public void deleteSubject(UUID subjectId) {
-        Subject subject = subjectRepo.findById(subjectId)
+        Subject subject = subjectDao.findById(subjectId)
                 .orElseThrow(() -> {
                     String message = "Subject not found with ID: " + subjectId;
                     logger.warn(message);
@@ -96,7 +96,7 @@ public class SubjectServiceImpl implements SubjectService {
                 });
 
         try {
-            subjectRepo.delete(subject);
+            subjectDao.delete(subject);
             logger.info("Subject deleted successfully with ID: {}", subjectId);
         } catch (Exception e) {
             logger.error("Error in deleteSubject", e);
@@ -107,7 +107,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     @Transactional
     public SubjectDTO updateSubject(UUID subjectId, SubjectDTO updatedSubjectData) {
-        Subject existingSubject = subjectRepo.findById(subjectId)
+        Subject existingSubject = subjectDao.findById(subjectId)
                 .orElseThrow(() -> {
                     String message = "Subject not found with ID: " + subjectId;
                     logger.warn(message);
@@ -120,7 +120,7 @@ public class SubjectServiceImpl implements SubjectService {
         existingSubject.setDescription(updatedSubjectData.getDescription());
 
         try {
-            Subject updatedSubject = subjectRepo.save(existingSubject);
+            Subject updatedSubject = subjectDao.save(existingSubject);
             logger.info("Subject updated successfully with ID: {}", subjectId);
             return SubjectMapper.toDTO(updatedSubject);
         } catch (Exception e) {
@@ -132,7 +132,7 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public List<SubjectDTO> getSubjects() {
         try {
-            List<Subject> subjects = subjectRepo.findAll();
+            List<Subject> subjects = subjectDao.findAll();
             return subjects.stream()
                     .map(SubjectMapper::toDTO)
                     .collect(Collectors.toList());

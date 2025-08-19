@@ -1,12 +1,12 @@
 package com.univault.ims.serviceImpl;
 
+import com.univault.ims.dao.CourseDao;
+import com.univault.ims.dao.InstituteDao;
 import com.univault.ims.dto.CourseDTO;
 import com.univault.ims.dto.Mapper.CourseMapper;
 import com.univault.ims.entity.Course;
 import com.univault.ims.entity.Institute;
 import com.univault.ims.exception.service.CourseServiceException;
-import com.univault.ims.repository.CourseRepository;
-import com.univault.ims.repository.InstituteRepository;
 import com.univault.ims.service.CourseService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -23,18 +23,18 @@ public class CourseServiceImpl implements CourseService {
 
     private static final Logger logger = LoggerFactory.getLogger(CourseServiceImpl.class);
 
-    private final CourseRepository courseRepo;
-    private final InstituteRepository instituteRepo;
+    private final CourseDao courseDao;
+    private final InstituteDao instituteDao;
 
     @Autowired
-    public CourseServiceImpl(CourseRepository courseRepo, InstituteRepository instituteRepo) {
-        this.courseRepo = courseRepo;
-        this.instituteRepo = instituteRepo;
+    public CourseServiceImpl(CourseDao courseDao, InstituteDao instituteDao) {
+        this.courseDao = courseDao;
+        this.instituteDao = instituteDao;
     }
 
     @Override
     public CourseDTO getCourseById(UUID id) {
-        return courseRepo.findById(id)
+        return courseDao.findById(id)
                 .map(CourseMapper::toDTO)
                 .orElseThrow(() -> {
                     String message = "Course not found with ID: " + id;
@@ -46,7 +46,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<CourseDTO> getAllCoursesByInstituteId(UUID instituteId) {
         try {
-            List<Course> courses = courseRepo.findAllCoursesByInstituteId(instituteId);
+            List<Course> courses = courseDao.findAllByInstituteId(instituteId);
             if (courses.isEmpty()) {
                 String message = "No Courses found for Institute ID: " + instituteId;
                 logger.warn(message);
@@ -63,14 +63,14 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseDTO createCourse(CourseDTO courseDTO) {
-        courseRepo.findByNameAndInstituteId(courseDTO.getName(), courseDTO.getInstituteId())
+        courseDao.findByNameAndInstituteId(courseDTO.getName(), courseDTO.getInstituteId())
                 .ifPresent(existing -> {
                     String message = "Course already exists with name: " + courseDTO.getName();
                     logger.warn(message);
                     throw new CourseServiceException(message);
                 });
 
-        Institute institute = instituteRepo.findById(courseDTO.getInstituteId())
+        Institute institute = instituteDao.findById(courseDTO.getInstituteId())
                 .orElseThrow(() -> {
                     String message = "Institute not found with ID: " + courseDTO.getInstituteId();
                     logger.warn(message);
@@ -81,7 +81,7 @@ public class CourseServiceImpl implements CourseService {
             Course courseEntity = CourseMapper.toEntity(courseDTO);
             courseEntity.setInstitute(institute);
 
-            Course savedCourse = courseRepo.save(courseEntity);
+            Course savedCourse = courseDao.save(courseEntity);
             logger.info("Course created successfully with ID: {}", savedCourse.getId());
             return CourseMapper.toDTO(savedCourse);
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional
     public void deleteCourse(UUID courseId) {
-        Course course = courseRepo.findById(courseId)
+        Course course = courseDao.findById(courseId)
                 .orElseThrow(() -> {
                     String message = "Course not found with ID: " + courseId;
                     logger.warn(message);
@@ -101,7 +101,7 @@ public class CourseServiceImpl implements CourseService {
                 });
 
         try {
-            courseRepo.delete(course);
+            courseDao.delete(course);
             logger.info("Course deleted successfully with ID: {}", courseId);
         } catch (Exception e) {
             logger.error("Error in deleteCourse", e);
@@ -112,7 +112,7 @@ public class CourseServiceImpl implements CourseService {
     @Override
     @Transactional
     public CourseDTO updateCourse(UUID courseId, Course updatedCourseData) {
-        Course existingCourse = courseRepo.findById(courseId)
+        Course existingCourse = courseDao.findById(courseId)
                 .orElseThrow(() -> {
                     String message = "Course not found with ID: " + courseId;
                     logger.warn(message);
@@ -125,7 +125,7 @@ public class CourseServiceImpl implements CourseService {
         existingCourse.setDescription(updatedCourseData.getDescription());
 
         try {
-            Course updatedCourse = courseRepo.save(existingCourse);
+            Course updatedCourse = courseDao.save(existingCourse);
             logger.info("Course updated successfully with ID: {}", courseId);
             return CourseMapper.toDTO(updatedCourse);
         } catch (Exception e) {

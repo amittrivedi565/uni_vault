@@ -1,12 +1,12 @@
 package com.univault.ims.serviceImpl;
 
+import com.univault.ims.dao.BranchDao;
+import com.univault.ims.dao.CourseDao;
 import com.univault.ims.dto.BranchDTO;
 import com.univault.ims.dto.Mapper.BranchMapper;
 import com.univault.ims.entity.Branch;
 import com.univault.ims.entity.Course;
 import com.univault.ims.exception.service.BranchServiceException;
-import com.univault.ims.repository.BranchRepository;
-import com.univault.ims.repository.CourseRepository;
 import com.univault.ims.service.BranchService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -23,18 +23,18 @@ public class BranchServiceImpl implements BranchService {
 
     private static final Logger logger = LoggerFactory.getLogger(BranchServiceImpl.class);
 
-    private final BranchRepository branchRepo;
-    private final CourseRepository courseRepo;
+    private final BranchDao branchDao;
+    private final CourseDao courseDao;
 
     @Autowired
-    public BranchServiceImpl(BranchRepository branchRepo, CourseRepository courseRepo) {
-        this.branchRepo = branchRepo;
-        this.courseRepo = courseRepo;
+    public BranchServiceImpl(BranchDao branchDao, CourseDao courseDao) {
+        this.branchDao = branchDao;
+        this.courseDao = courseDao;
     }
 
     @Override
     public BranchDTO getBranchById(UUID id) {
-        return branchRepo.findById(id)
+        return branchDao.findById(id)
                 .map(BranchMapper::toDTO)
                 .orElseThrow(() -> {
                     String message = "Branch not found with ID: " + id;
@@ -46,7 +46,7 @@ public class BranchServiceImpl implements BranchService {
     @Override
     public List<BranchDTO> getBranchesByCourseId(UUID courseId) {
         try {
-            List<Branch> branches = branchRepo.findAllBranchesByCourseId(courseId);
+            List<Branch> branches = branchDao.findAllBranchesByCourseId(courseId);
             if (branches.isEmpty()) {
                 String message = "No Branches found for Course ID: " + courseId;
                 logger.warn(message);
@@ -64,14 +64,14 @@ public class BranchServiceImpl implements BranchService {
 
     @Override
     public BranchDTO createBranch(BranchDTO branchDTO) {
-        branchRepo.findByNameAndCourseId(branchDTO.getName(), branchDTO.getCourseId())
+        branchDao.findByNameAndCourseId(branchDTO.getName(), branchDTO.getCourseId())
                 .ifPresent(existing -> {
                     String message = "Branch already exists with name: " + branchDTO.getName();
                     logger.warn(message);
                     throw new BranchServiceException(message);
                 });
 
-        Course course = courseRepo.findById(branchDTO.getCourseId())
+        Course course = courseDao.findById(branchDTO.getCourseId())
                 .orElseThrow(() -> {
                     String message = "Course not found with ID: " + branchDTO.getCourseId();
                     logger.warn(message);
@@ -80,7 +80,7 @@ public class BranchServiceImpl implements BranchService {
 
         try {
             Branch branchEntity = BranchMapper.toEntity(branchDTO, course);
-            Branch savedBranch = branchRepo.save(branchEntity);
+            Branch savedBranch = branchDao.save(branchEntity);
             logger.info("Branch created successfully with ID: {}", savedBranch.getId());
             return BranchMapper.toDTO(savedBranch);
         } catch (Exception e) {
@@ -92,14 +92,14 @@ public class BranchServiceImpl implements BranchService {
     @Override
     @Transactional
     public void deleteBranch(UUID branchId) {
-        Branch branch = branchRepo.findById(branchId)
+        Branch branch = branchDao.findById(branchId)
                 .orElseThrow(() -> {
                     String message = "Branch not found with ID: " + branchId;
                     logger.info(message);
                     return new BranchServiceException(message);
                 });
         try {
-            branchRepo.delete(branch);
+            branchDao.delete(branch);
             logger.info("Branch deleted successfully with ID: {}", branchId);
         } catch (Exception e) {
             logger.error("Error in deleteBranch", e);
@@ -110,7 +110,7 @@ public class BranchServiceImpl implements BranchService {
     @Override
     @Transactional
     public BranchDTO updateBranch(UUID branchId, BranchDTO updatedBranchData) {
-        Branch existingBranch = branchRepo.findById(branchId)
+        Branch existingBranch = branchDao.findById(branchId)
                 .orElseThrow(() -> {
                     String message = "Branch with ID " + branchId + " not found.";
                     logger.warn(message);
@@ -123,7 +123,7 @@ public class BranchServiceImpl implements BranchService {
         existingBranch.setDescription(updatedBranchData.getDescription());
 
         try {
-            Branch updatedBranch = branchRepo.save(existingBranch);
+            Branch updatedBranch = branchDao.save(existingBranch);
             logger.info("Branch updated successfully with ID: {}", branchId);
             return BranchMapper.toDTO(updatedBranch);
         } catch (Exception e) {
