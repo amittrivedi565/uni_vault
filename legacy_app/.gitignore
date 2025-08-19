@@ -1,0 +1,14 @@
+# Ignore node_modules #
+node_modules
+
+# Ignore env file #
+.env
+
+# OS generated files #
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
+
+# IDE Files #
+.vscode

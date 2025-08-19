@@ -1,11 +1,11 @@
 package com.univault.ims.serviceImpl;
 
+import com.univault.ims.dao.BranchDao;
+import com.univault.ims.dao.SemesterDao;
 import com.univault.ims.dto.SemesterDTO;
 import com.univault.ims.dto.Mapper.SemesterMapper;
 import com.univault.ims.entity.Semester;
 import com.univault.ims.exception.service.SemesterServiceException;
-import com.univault.ims.repository.BranchRepository;
-import com.univault.ims.repository.SemesterRepository;
 import com.univault.ims.service.SemesterService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -21,17 +21,17 @@ public class SemesterServiceImpl implements SemesterService {
 
     private static final Logger logger = LoggerFactory.getLogger(SemesterServiceImpl.class);
 
-    private final SemesterRepository semesterRepo;
-    private final BranchRepository branchRepo;
+    private final SemesterDao semesterDao;
+    private final BranchDao branchDao;
 
-    public SemesterServiceImpl(SemesterRepository semesterRepo, BranchRepository branchRepo) {
-        this.semesterRepo = semesterRepo;
-        this.branchRepo = branchRepo;
+    public SemesterServiceImpl(SemesterDao semesterDao, BranchDao branchDao) {
+        this.semesterDao = semesterDao;
+        this.branchDao = branchDao;
     }
 
     @Override
     public SemesterDTO getSemesterById(UUID id) {
-        return semesterRepo.findById(id)
+        return semesterDao.findById(id)
                 .map(SemesterMapper::toDTO)
                 .orElseThrow(() -> {
                     String message = "Semester not found with ID: " + id;
@@ -43,14 +43,14 @@ public class SemesterServiceImpl implements SemesterService {
     @Override
     public List<SemesterDTO> getSemestersByBranchId(UUID branchId) {
         try {
-            List<Semester> semesters = semesterRepo.findAllSemestersByBranchId(branchId);
+            List<Semester> semesters = semesterDao.findAllSemestersByBranchId(branchId);
             if (semesters.isEmpty()) {
                 String message = "No semesters found for Branch ID: " + branchId;
                 logger.warn(message);
                 throw new SemesterServiceException(message);
             }
             return semesters.stream()
-                    .map(SemesterMapper::toDTO)
+                    .map(semester -> SemesterMapper.toDTO(semester,true))
                     .collect(Collectors.toList());
         } catch (Exception e) {
             logger.error("Error in getSemestersByBranchId", e);
@@ -60,14 +60,14 @@ public class SemesterServiceImpl implements SemesterService {
 
     @Override
     public SemesterDTO createSemester(SemesterDTO semesterDTO) {
-        semesterRepo.findByNameAndBranchId(semesterDTO.getName(), semesterDTO.getBranchId())
+        semesterDao.findByNameAndBranchId(semesterDTO.getName(), semesterDTO.getBranchId())
                 .ifPresent(existing -> {
                     String message = "Semester already exists with name: " + semesterDTO.getName();
                     logger.warn(message);
                     throw new SemesterServiceException(message);
                 });
 
-        branchRepo.findById(semesterDTO.getBranchId())
+        branchDao.findById(semesterDTO.getBranchId())
                 .orElseThrow(() -> {
                     String message = "Branch not found with ID: " + semesterDTO.getBranchId();
                     logger.warn(message);
@@ -76,7 +76,7 @@ public class SemesterServiceImpl implements SemesterService {
 
         try {
             Semester semesterEntity = SemesterMapper.toEntity(semesterDTO);
-            Semester savedSemester = semesterRepo.save(semesterEntity);
+            Semester savedSemester = semesterDao.save(semesterEntity);
             logger.info("Semester created successfully with ID: {}", savedSemester.getId());
             return SemesterMapper.toDTO(savedSemester);
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class SemesterServiceImpl implements SemesterService {
     @Override
     @Transactional
     public void deleteSemester(UUID semesterId) {
-        Semester semester = semesterRepo.findById(semesterId)
+        Semester semester = semesterDao.findById(semesterId)
                 .orElseThrow(() -> {
                     String message = "Semester not found with ID: " + semesterId;
                     logger.warn(message);
@@ -96,7 +96,7 @@ public class SemesterServiceImpl implements SemesterService {
                 });
 
         try {
-            semesterRepo.delete(semester);
+            semesterDao.delete(semester);
             logger.info("Semester deleted successfully with ID: {}", semesterId);
         } catch (Exception e) {
             logger.error("Error in deleteSemester", e);
@@ -107,7 +107,7 @@ public class SemesterServiceImpl implements SemesterService {
     @Override
     @Transactional
     public SemesterDTO updateSemester(UUID semesterId, SemesterDTO updatedSemesterData) {
-        Semester existingSemester = semesterRepo.findById(semesterId)
+        Semester existingSemester = semesterDao.findById(semesterId)
                 .orElseThrow(() -> {
                     String message = "Semester not found with ID: " + semesterId;
                     logger.warn(message);
@@ -119,7 +119,7 @@ public class SemesterServiceImpl implements SemesterService {
         existingSemester.setResourceId(updatedSemesterData.getResource_id());
 
         try {
-            Semester updatedSemester = semesterRepo.save(existingSemester);
+            Semester updatedSemester = semesterDao.save(existingSemester);
             logger.info("Semester updated successfully with ID: {}", semesterId);
             return SemesterMapper.toDTO(updatedSemester);
         } catch (Exception e) {

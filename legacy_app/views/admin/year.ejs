@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head.ejs') %>
+
+   <body>
+      <%- include('includes/nav') %>
+         <%- include('partials/breadcrumb') %>
+
+            <!-- Add University Modal -->
+            <form method="post">
+               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="exampleModalLabel">
+                              Add Year
+                           </h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="form-group">
+                              <select name="name" class="form-select" aria-label="Default select example">
+                                 <option selected>Select Year</option>
+                                 <option value="1">First</option>
+                                 <option value="2">Second</option>
+                                 <option value="3">Third</option>
+                                 <option value="4">Fourth</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="submit" class="btn btn-primary">
+                              Save
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+
+            <!-- Information About Universities -->
+            <% var index=0; %>
+               <% Query.forEach(University=> { %>
+                  <% University.Course.forEach(Course=> { %>
+                     <% Course.Branch.forEach(Branch=> { %>
+                        <% Branch.Year.forEach(Year=> { %>
+                           <% index++ %>
+                              <div class="container" style="margin-bottom: 0.5rem">
+                                 <div class="accordion accordion-flush shadow-sm bg-white rounded"
+                                    id="accordionFlushExample" style="margin-bottom: 0.5rem">
+                                    <div class="accordion-item">
+                                       <h2 class="accordion-header">
+                                          <button class="accordion-button collapsed" type="button"
+                                             data-bs-toggle="collapse" data-bs-target="#flush-<%=index%>"
+                                             aria-expanded="false" aria-controls="flush-collapseOne">
+                                             # <%= Year.name %>
+                                          </button>
+                                       </h2>
+
+                                       <div id="flush-<%=index%>" class="accordion-collapse collapse"
+                                          data-bs-parent="#accordionFlushExample">
+                                          <div class="accordion-body">
+                                             <div class="table-responsive-sm">
+                                                <table class="table">
+                                                   <tr>
+                                                      <thead>
+                                                         <th class="col">University</th>
+                                                         <th class="col">Course</th>
+                                                         <th class="col">Branch</th>
+                                                         <th class="col">Year</th>
+                                                      </thead>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>
+                                                         <%= University.name %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Course.shortname %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Branch.shortname %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Year.name %>
+                                                      </td>
+                                                   </tr>
+                                                </table>
+                                             </div>
+                                             <div class="d-flex col justify-content-end">
+                                                <div class="d-flex col justify-content-end">
+                                                   <a
+                                                      href="/close/<%= University.shortname %>/<%= Course.shortname %>/<%= Branch.shortname %>/<%= Year.name %>/<%= Year.id %>"><button
+                                                         class="btn btn-sm btn-outline-primary me-2 ">Next</button></a>
+                                                   <form
+                                                      action="/close/<%= University.shortname %>/<%= Course.shortname %>/<%= Branch.shortname %>/<%=Year.id%>?_method=DELETE"
+                                                      method="post">
+                                                      <button type="submit"
+                                                         class="btn btn-sm btn-outline-danger ">Delete</button>
+                                                   </form>
+                                                </div>
+
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <% }) %>
+                                 <% }) %>
+                                    <% }) %>
+                                       <% }) %>
+                                          <%- include('partials/script.ejs') %>
+   </body>
+
+</html>

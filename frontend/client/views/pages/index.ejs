@@ -1,5 +1,32 @@
+
+<h1 class="notex-heading">NoteX</h1>
+<p>
+  Download Notes, our AI-powered content assistant, to get personalized help
+  with your studies.
+</p>
+
+
 <section>
-  <h2>What is UniVault?</h2>
+  <h2 class="gradient-line"></h2>
+
+  <% if (Array.isArray(institutes)) { %> <% institutes.forEach(institute=> { %>
+  <details>
+    <summary class="summary"><%= institute.name %></summary>
+    <% institute.courses.forEach(course=> { %> <%
+    course.branches.forEach(branch=> { %>
+    <p>
+      <a href="/resources/<%= branch.id %>"> <%= course.shortname %> <%= branch.name %> </a>
+    </p>
+    <% }) %> <% }) %>
+  </details>
+  <% }) %> <% } else { %>
+  <p>No institutes found or server error</p>
+  <% } %>
+</section>
+
+
+<section>
+  <h2>What is uni_vault?</h2>
   <p>
     Powered by AI for students who forgot there was a test, lost the professor's
     slides, and made Wikipedia file a restraining order. Get notes, projects,
@@ -24,7 +51,7 @@
 </section>
 
 <section>
-  <h2>Why Choose UniVault?</h2>
+  <h2>Why Choose uni_vault?</h2>
   <p>
     Let’s face it — most <span>other study sites</span> are either
     <span>abandoned group projects from 2012</span> or look like they were built
@@ -35,30 +62,6 @@
     <strong>high-quality academic content</strong> easy to find, fun to use, and
     <em>impossible to forget</em>.
   </p>
-</section>
-
-<h1 class="notex-heading">NoteX</h1>
-<p>
-  Download Notes, our AI-powered content assistant, to get personalized help
-  with your studies.
-</p>
-
-<section>
-  <h2 class="gradient-line"></h2>
-
-  <% if (Array.isArray(institutes)) { %> <% institutes.forEach(institute=> { %>
-  <details>
-    <summary class="summary"><%= institute.name %></summary>
-    <% institute.courses.forEach(course=> { %> <%
-    course.branches.forEach(branch=> { %>
-    <p>
-      <a href="/resources/<%= branch.id %>"> <%= course.shortname %> <%= branch.name %> </a>
-    </p>
-    <% }) %> <% }) %>
-  </details>
-  <% }) %> <% } else { %>
-  <p>No institutes found or server error</p>
-  <% } %>
 </section>
 
 <section>

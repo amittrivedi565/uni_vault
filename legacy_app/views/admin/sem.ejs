@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head.ejs') %>
+
+   <body>
+      <%- include('includes/nav') %>
+         <%- include('partials/breadcrumb') %>
+
+            <!-- Add University Modal -->
+            <form method="post">
+               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="exampleModalLabel">
+                              Add Semester 
+                           </h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Semester</label>
+                              <select  name="name" class="form-select" aria-label="Default select example">
+                                 <option selected>Select</option>
+                                 <option value="First Semester">First Semester</option>
+                                 <option value="Second Semester">Second Semester</option>
+                                 <option value="Third Semester">Third Semester</option>
+                                 <option value="Fourth Semester">Fourth Semester</option>
+                                 <option value="Fifth Semester">Fifth Semester</option>
+                                 <option value="Sixth Semester">Sixth Semester</option>
+                                 <option value="Seventh Semester">Seventh Semester</option>
+                                 <option value="Eight Semester">Eight Semester</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="submit" class="btn btn-primary">
+                              Save changes
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+
+            <!-- Information About Universities -->
+            <% var index=0; %>
+               <% Query.forEach(University=> { %>
+                  <% University.Course.forEach(Course=> { %>
+                     <% Course.Branch.forEach(Branch=> { %>
+                        <% Branch.Year.forEach(Year=> { %>
+                           <% Year.Semester.forEach(Sem => { %>
+                              <% index++ %>
+                              <div class="container mt-2">
+                                 <div class="accordion accordion-flush shadow-sm bg-white rounded"
+                                    id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                       <h2 class="accordion-header">
+                                          <button class="accordion-button collapsed" type="button"
+                                             data-bs-toggle="collapse" data-bs-target="#flush-<%=index%>"
+                                             aria-expanded="false" aria-controls="flush-collapseOne">
+                                            # <%= Sem.name %>
+                                          </button>
+                                       </h2>
+
+                                       <div id="flush-<%=index%>" class="accordion-collapse collapse"
+                                          data-bs-parent="#accordionFlushExample">
+                                          <div class="accordion-body">
+                                             <div class="table-responsive-sm">
+                                                <table class="table">
+                                                   <tr>
+                                                      <thead>
+                                                         <th class="col">University</th>
+                                                         <th class="col">Course</th>
+                                                         <th class="col">Branch</th>
+                                                         <th class="col">Year</th>
+                                                         <th class="col">Semester</th>
+                                                      </thead>
+                                                   </tr>
+                                                   <tr>
+                                                      <td>
+                                                         <%= University.name %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Course.name %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Branch.name %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Year.name %>
+                                                      </td>
+                                                      <td>
+                                                         <%= Sem.name %>
+                                                      </td>
+                                                   </tr>
+                                                </table>
+                                             </div>
+                                                <div class="row py-3">
+                                                   <div class="d-flex col justify-content-end">
+                                                      <a
+                                                         href="/close/<%= University.shortname %>/<%= Course.shortname %>/<%= Branch.shortname %>/<%= Year.name %>/<%= Sem.name %>/<%= Sem.id %>"><button
+                                                            class="btn btn-sm btn-outline-primary me-2 ">Next</button></a>
+                                                   </div>
+                                                </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                           <% }) %>
+                              </div>
+                              <% }) %>
+                                 <% }) %>
+                                    <% }) %>
+                                       <% }) %>
+                                          <%- include('partials/script.ejs') %>
+   </body>
+
+</html>

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/question-papers")
+@RequestMapping("/api/pyqp")
 public class QuestionPaperController {
 
     private final QuestionPaperService questionPaperService;
@@ -22,7 +22,7 @@ public class QuestionPaperController {
         this.questionPaperService = questionPaperService;
     }
 
-    @GetMapping("/subject/{subjectId}")
+    @GetMapping("/{subjectId}")
     public ResponseEntity<List<QuestionPaper>> getAllQuestionPapersBySubject(@PathVariable UUID subjectId) {
         try {
             List<QuestionPaper> response = questionPaperService.getAllQuestionPaper(subjectId);

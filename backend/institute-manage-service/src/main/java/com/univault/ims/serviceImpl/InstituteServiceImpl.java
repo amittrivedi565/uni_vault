@@ -1,10 +1,10 @@
 package com.univault.ims.serviceImpl;
 
+import com.univault.ims.dao.InstituteDao;
 import com.univault.ims.dto.InstituteDTO;
 import com.univault.ims.dto.Mapper.InstituteMapper;
 import com.univault.ims.entity.Institute;
 import com.univault.ims.exception.service.InstituteServiceException;
-import com.univault.ims.repository.InstituteRepository;
 import com.univault.ims.service.InstituteService;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
@@ -22,16 +22,17 @@ public class InstituteServiceImpl implements InstituteService {
 
     private static final Logger logger = LoggerFactory.getLogger(InstituteServiceImpl.class);
 
-    private final InstituteRepository instituteRepo;
+    private final InstituteDao instituteDao;
 
-    public InstituteServiceImpl(InstituteRepository instituteRepo) {
-        this.instituteRepo = instituteRepo;
+    public InstituteServiceImpl(InstituteDao instituteDao) {
+        this.instituteDao = instituteDao;
     }
 
+    @Transactional
     @Override
     public List<InstituteDTO> getAllInstitutes() {
         try {
-            List<Institute> institutes = instituteRepo.findAll();
+            List<Institute> institutes = instituteDao.findAll();
             if (institutes.isEmpty()) {
                 String message = "No institutes found.";
                 logger.warn(message);
@@ -48,7 +49,7 @@ public class InstituteServiceImpl implements InstituteService {
 
     @Override
     public InstituteDTO getInstituteById(UUID id) {
-        return instituteRepo.findById(id)
+        return instituteDao.findById(id)
                 .map(institute -> InstituteMapper.toDTO(institute, false))
                 .orElseThrow(() -> {
                     String message = "Institute not found with ID: " + id;
@@ -59,7 +60,7 @@ public class InstituteServiceImpl implements InstituteService {
 
     @Override
     public InstituteDTO createInstitute(InstituteDTO dto) {
-        instituteRepo.findByName(dto.getName())
+        instituteDao.findByName(dto.getName())
                 .ifPresent(existing -> {
                     String message = "Institute already exists with name: " + dto.getName();
                     logger.warn(message);
@@ -68,7 +69,7 @@ public class InstituteServiceImpl implements InstituteService {
 
         try {
             Institute entity = InstituteMapper.toEntity(dto);
-            Institute saved = instituteRepo.save(entity);
+            Institute saved = instituteDao.save(entity);
             logger.info("Institute created successfully with ID: {}", saved.getId());
             return InstituteMapper.toDTO(saved);
         } catch (Exception e) {
@@ -80,7 +81,7 @@ public class InstituteServiceImpl implements InstituteService {
     @Override
     @Transactional
     public void deleteInstitute(UUID instituteId) {
-        Institute institute = instituteRepo.findById(instituteId)
+        Institute institute = instituteDao.findById(instituteId)
                 .orElseThrow(() -> {
                     String message = "Institute not found with ID: " + instituteId;
                     logger.warn(message);
@@ -88,7 +89,7 @@ public class InstituteServiceImpl implements InstituteService {
                 });
 
         try {
-            instituteRepo.delete(institute);
+            instituteDao.delete(institute);
             logger.info("Institute deleted successfully with ID: {}", instituteId);
         } catch (Exception e) {
             logger.error("Error in deleteInstitute", e);
@@ -99,7 +100,7 @@ public class InstituteServiceImpl implements InstituteService {
     @Override
     @Transactional
     public InstituteDTO updateInstitute(UUID instituteId, InstituteDTO updatedInstituteData) {
-        Institute existingInstitute = instituteRepo.findById(instituteId)
+        Institute existingInstitute = instituteDao.findById(instituteId)
                 .orElseThrow(() -> {
                     String message = "Institute not found with ID: " + instituteId;
                     logger.warn(message);
@@ -112,7 +113,7 @@ public class InstituteServiceImpl implements InstituteService {
         existingInstitute.setDescription(updatedInstituteData.getDescription());
 
         try {
-            Institute updatedInstitute = instituteRepo.save(existingInstitute);
+            Institute updatedInstitute = instituteDao.save(existingInstitute);
             logger.info("Institute updated successfully with ID: {}", instituteId);
             return InstituteMapper.toDTO(updatedInstitute);
         } catch (Exception e) {

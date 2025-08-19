@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class CourseMapper {
 
     public static CourseDTO toDTO(Course course) {
-        return toDTO(course, true);
+        return toDTO(course, false);
     }
 
     public static CourseDTO toDTO(Course course, boolean includeAssociations) {
@@ -21,14 +21,14 @@ public class CourseMapper {
         CourseDTO dto = basicDTO(course);
 
         if (includeAssociations) {
-            dto.setBranches(mapBranchesToDTO(course.getBranches()));
+            dto.setBranches(mapBranchesToDTO(course.getBranches(), true));
         }
 
         return dto;
     }
 
     public static Course toEntity(CourseDTO dto) {
-        return toEntity(dto, true);
+        return toEntity(dto, false);
     }
 
     public static Course toEntity(CourseDTO dto, boolean includeAssociations) {
@@ -37,7 +37,7 @@ public class CourseMapper {
         Course course = basicEntity(dto);
 
         if (includeAssociations) {
-            course.setBranches(mapBranchesToEntity(dto.getBranches(), course));
+            course.setBranches(mapBranchesToEntity(dto.getBranches(), course, true));
         }
 
         return course;
@@ -81,19 +81,19 @@ public class CourseMapper {
         return course;
     }
 
-    private static List<BranchDTO> mapBranchesToDTO(List<Branch> branches) {
+    private static List<BranchDTO> mapBranchesToDTO(List<Branch> branches, boolean includeAssociations) {
         if (branches == null) return null;
 
         return branches.stream()
-                .map(branch -> BranchMapper.toDTO(branch, true))
+                .map(branch -> BranchMapper.toDTO(branch, includeAssociations))
                 .collect(Collectors.toList());
     }
 
-    private static List<Branch> mapBranchesToEntity(List<BranchDTO> branchDTOs, Course course) {
+    private static List<Branch> mapBranchesToEntity(List<BranchDTO> branchDTOs, Course course, boolean includeAssociations) {
         if (branchDTOs == null) return null;
 
         return branchDTOs.stream()
-                .map(branchDTO -> BranchMapper.toEntity(branchDTO, course, true))
+                .map(branchDTO -> BranchMapper.toEntity(branchDTO, course, includeAssociations))
                 .collect(Collectors.toList());
     }
 }

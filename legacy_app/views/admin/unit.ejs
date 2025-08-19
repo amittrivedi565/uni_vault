@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head.ejs') %>
+
+   <body>
+      <%- include('includes/nav') %>
+         <%- include('partials/breadcrumb') %>
+
+            <!-- Add University Modal -->
+            <form method="post" enctype="multipart/form-data">
+               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="exampleModalLabel">
+                              Add Semester 
+                           </h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Unit
+                              Name:</label>
+                              <input name="name" type="text" class="form-control" id="recipient-name">
+                           </div>
+                           <div class="form-group">
+                              <label for="message-text" class="col-form-label">Unit
+                              Description:</label>
+                              <textarea name="desc" class="form-control" id="message-text"></textarea>
+                           </div>
+                           <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Unit
+                              Tags:</label>
+                              <input name="tags" type="text" class="form-control" id="recipient-name">
+                           </div>
+                           <div class="form-group">
+                              <label for="recipient-name" class="col-form-label">Upload Pdf
+                              :</label>
+                              <input name="pdf" type="file" class="form-control" id="recipient-name">
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
+
+            <!-- Information About Universities -->
+            <% var index=0; %>
+               <% Query.forEach(University=> { %>
+                  <% University.Course.forEach(Course=> { %>
+                     <% Course.Branch.forEach(Branch=> { %>
+                        <% Branch.Year.forEach(Year=> { %>
+                           <% Year.Semester.forEach(Sem=> { %>
+                              <% Sem.Subject.forEach(Subject => { %>
+                                 <% Subject.Unit.forEach(Unit => { %>
+                                    <% index++ %>
+                                    <div class="container" style="margin-bottom: 0.5rem">
+                                       <div class="accordion accordion-flush shadow-sm bg-white rounded"
+                                          id="accordionFlushExample" style="margin-bottom: 0.5rem">
+                                          <div class="accordion-item">
+                                             <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button"
+                                                   data-bs-toggle="collapse" data-bs-target="#flush-<%=index%>"
+                                                   aria-expanded="false" aria-controls="flush-collapseOne">
+                                                   #&nbsp;<%= Unit.name %>
+                                                </button>
+                                             </h2>
+   
+                                             <div id="flush-<%=index%>" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body">
+                                                   <table class="table">
+                                                      <tr>
+                                                         <thead>
+                                                            <th class="col">Unit Name</th>
+                                                            <th class="col">Unit Desc</th>
+                                                            <th class="col">Unit Tags</th>
+   
+                                                         </thead>
+                                                      </tr>
+                                                      <tr>
+                                                         <td><%= Unit.name %></td>
+                                                         <td>
+                                                            <!-- Button trigger modal -->
+                                                            <a href="" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal2">View</a>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                                               aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                               <div class="modal-dialog">
+                                                                  <div class="modal-content">
+                                                                     <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Tags
+                                                                           </h5>
+                                                                        <button type="button" class="btn-close"
+                                                                           data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                     </div>
+                                                                     <div class="modal-body">
+                                                                        <%= Unit.desc %>
+                                                                     </div>
+                                                                     <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                           data-bs-dismiss="modal">Close</button>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                         </td>
+
+                                                         <td>
+                                                            <!-- Button trigger modal -->
+                                                            <a href="" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModal2">View</a>
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                                               aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                               <div class="modal-dialog">
+                                                                  <div class="modal-content">
+                                                                     <div class="modal-header">
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Tags
+                                                                           </h5>
+                                                                        <button type="button" class="btn-close"
+                                                                           data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                     </div>
+                                                                     <div class="modal-body">
+                                                                        <%= Unit.tags %>
+                                                                     </div>
+                                                                     <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                           data-bs-dismiss="modal">Close</button>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                         </td>
+                                                      </tr>
+                                                   </table>
+                                                   <div class="table-responsive">
+                                                      <table class="table">
+                                                         <tr>
+                                                            <thead>
+                                                               <th class="col">University</th>
+                                                               <th class="col">Course</th>
+                                                               <th class="col">Branch</th>
+                                                               <th class="col">Year</th>
+                                                               <th class="col">Semester</th>
+                                                            </thead>
+                                                         </tr>
+                                                         <tr>
+                                                            <td>
+                                                               <%= University.name %>
+                                                            </td>
+                                                            <td>
+                                                               <%= Course.name %>
+                                                            </td>
+                                                            <td>
+                                                               <%= Branch.name %>
+                                                            </td>
+                                                            <td>
+                                                               <%= Year.name %>
+                                                            </td>
+                                                            <td>
+                                                               <%= Sem.name %>
+                                                            </td>
+                                                         </tr>
+                                                      </table>
+                                                   </div>
+                                                      <div class="row py-3">
+                                                         <div class="d-flex col justify-content-end">
+                                                            <form
+                                                               action="/close/<%= University.shortname %>/<%= Course.shortname %>/<%= Branch.shortname %>/<%=Year.name%>/<%= Sem.name %>/<%= Subject.code %>/<%= Unit.id%>/<%= Unit.pdfName %>/?_method=DELETE"
+                                                               method="post">
+                                                               <button type="submit"
+                                                                  class="btn btn-sm btn-outline-danger ">Delete</button>
+                                                            </form>
+                                                         </div>
+   
+                                                      </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 <% }) %>
+                              <% }) %>
+                                 <% }) %>
+                                 <% }) %>
+                                    <% }) %>
+                                       <% }) %>
+                                          <% }) %>
+                                             <%- include('partials/script.ejs') %>
+   </body>
+
+</html>

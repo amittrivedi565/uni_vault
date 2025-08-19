@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head', { cssfilename: 'branchpage', title }) %>
+<body>
+    <%- include('includes/nav') %>
+    <div class="p-3">
+        <%- include('includes/breadcrumb', { items: breadcrumbs }) %>
+    </div>
+    <section class="container branches-section">
+        <div>
+            <% uniQuery.forEach(Uni => { %>
+                <% Uni.Course.forEach(Course => { %>
+                    <% Course.Branch.forEach(Branch => { %>
+                        <!-- lowerCase Logic for Branch Shortname -->
+                        <%  
+                            var u = Uni.shortname
+                            var c = Course.shortname
+                            var b = Branch.shortname 
+                            var lowerU = u.toLowerCase();
+                            var lowerC = c.toLowerCase();
+                            var lowerB = b.toLowerCase();
+                        %>
+                        <div class="container rounded branch p-3 mb-3">
+                            <a href="/<%=lowerU%>/<%=lowerC%>/<%=lowerB%>">#&nbsp;<%=Branch.name%></a>
+                            &nbsp;<span class="badge text-bg-primary"><%=Uni.name%></span>
+                        </div>
+                       <% }) %>
+                <% }) %>
+            <% }) %>
+        </div>
+    </section>
+    <%- include('includes/script') %>
+    <%- include('../footer') %>
+</body>
+</html>
+

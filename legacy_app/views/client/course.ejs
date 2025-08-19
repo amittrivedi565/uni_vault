@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head', { cssfilename: 'coursepage', title }) %>
+<body>
+    <%- include('includes/nav') %>
+    <div class="p-3">
+        <%- include('includes/breadcrumb', { items: breadcrumbs }) %>
+    </div>
+    <section class="container courses-section">
+        <div>
+            <% uniQuery.forEach(Uni => { %>
+                    <% Uni.Course.forEach(Course => { %>
+                        <!-- LowerCase Logic for Branch , Course Shortname -->
+                        <%  
+                            var c = Course.shortname
+                            var lowerC = c.toLowerCase();
+                        %>
+                        <div class="container rounded course p-3 mb-3">
+                            <a href="/<%=Uni.shortname%>/<%=lowerC%>/">#&nbsp;<%= Course.name %></a>
+                            &nbsp;<span class="badge text-bg-primary"><%= Course.shortname %></span>
+                        </div>
+                    <% }) %>
+            <% }) %>
+        </div>
+    </section>
+    <%- include('../footer') %>
+    <%- include('includes/script') %>
+</body>
+</html>

@@ -5,7 +5,6 @@ const {log_error}  = require('../log_errors');
 
 async function getInstitutes() {
   try {
-    console.log(process.env.UCS_SERVICE)
     const response = await client.get(`${process.env.UCS_SERVICE}/institutes`);
     return response.data;
   } catch (error) {

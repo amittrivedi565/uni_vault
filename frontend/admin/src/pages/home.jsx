@@ -1,6 +1,12 @@
+import Navbar from "../components/Navbar/Navbar";
+import MainLayout from "../layouts/MainLayout";
+
 function Home(){
     return(<>
-        <h4>Home</h4>
+        <Navbar/>
+        <MainLayout>
+            Home Page
+        </MainLayout>
     </>)
 }
 export default Home;

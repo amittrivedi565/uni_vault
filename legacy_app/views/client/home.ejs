@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('includes/head', { cssfilename: 'homepage' }) %>
+<body class="home-body">
+    <%- include('includes/nav') %>
+    <!-- Header -->
+    <section class="home-header container d-flex flex-column align-items-center justify-content-center">
+        <div class="h1 display-4 fw-bold text-center">
+            <b>Getting <strong class="main-text-color">Quality</strong> Notes Is Now <strong class="main-text-color">Easier!</strong></b>
+        </div>
+        <div class="h1 text-center fw-light">
+            <p class="lead text-secondary mt-3">We provide you with the latest online resources to help you grow your knowledge and stay ahead in your studies.</p>
+        </div>
+        <div class="home-university-section d-flex justify-content-center container">
+            <% uniQuery.forEach(Uni => { %>
+                <%  var u = Uni.shortname 
+                    var lowerU = u.toLowerCase();
+                %>
+                <% if (uniQuery.length > 0 ) { %>
+                    <a class="badge rounded-pill main-bg-color text-decoration-none px-3 py-2 fs-5 m-2" href="/<%=lowerU%>"><%= Uni.shortname %></a>
+                <% } else {%>
+                    Sorry Content Not Available For Now 😞
+                <% } %>
+            <% }) %>
+        </div>
+    </section>
+    
+    <%- include('../footer') %>
+    <%- include('includes/script') %>
+</body>
+</html>
+
