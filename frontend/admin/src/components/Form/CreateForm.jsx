@@ -1,8 +1,8 @@
 /*
   Dynamic form inputs, using arrays with fields such as label, name, type, value etc...
-  Required fields shows a red asteric for
+  Required fields shows a red * for
   values are passed for managing re-rendering conditions
-  showResourceIdComponent shows RID for confirmation that file has been uploaed
+  showResourceIdComponent shows RID for confirmation that file has been upload
   validationErrors are received from the API endpoints @POST, then given the specific field
 */
 
@@ -21,7 +21,7 @@ function CreateForm({
 
         {showResourceIdComponent && <div className="mb-3">
           <label htmlFor="resource_id" className="form-label">
-            ResourceID
+            File id 
           </label>
           <input
             name="resource_id"

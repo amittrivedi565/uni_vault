@@ -33,7 +33,7 @@ public class BucketController {
      * @return ResponseEntity with upload result message
      */
     @PostMapping("/uploads")
-    public CompletableFuture<ResponseEntity<Map<String, UUID>>> uploadFile(@RequestParam("file") MultipartFile file) {
+    public CompletableFuture<ResponseEntity<Map<String, UUID>>> uploadFile(@RequestParam("file") MultipartFile file, @RequestParam String name) {
         try {
             FileValidator.ValidationResult validation = fileValidator.isValidPdf(file);
 
@@ -45,7 +45,7 @@ public class BucketController {
             }
 
             // Handle the async upload
-            return bucketService.uploadFileService(file)
+            return bucketService.uploadFileService(file,name)
                     .thenApply(uuid -> ResponseEntity.ok(Map.of("id", uuid)))
                     .exceptionally(ex -> {
                         System.err.println("Upload failed: " + ex.getMessage());

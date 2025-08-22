@@ -43,20 +43,17 @@ public class BucketService {
      * @param file Multipart file to upload
      * @return UUID of the uploaded file (task ID)
      */
-    public CompletableFuture<UUID> uploadFileService(MultipartFile file) {
+    public CompletableFuture<UUID> uploadFileService(MultipartFile file, String name) {
         try {
             queueManager.queueFile(file);
             String fullPath = pathGenerator.generatePath();
-            String fileName = pathGenerator.generateFileName("uni_vault", "pdf");
-
-            return fileSystem.writeFileAsync(fullPath, fileName, file)
+            return fileSystem.writeFileAsync(fullPath,name, file)
                     .thenApply(path -> {
                         BucketEntity meta = new BucketEntity();
-                        meta.setFileName(fileName);
+                        meta.setFileName("media_file");
                         meta.setFilePath(fullPath);
                         BucketEntity saved = bucketRepo.save(meta);
-                        System.out.println("✅ Metadata saved for: " + fileName);
-                        System.out.println(saved.getId());
+                        System.out.println("File saved with Id: "+saved.getId());
                         return saved.getId();
                     });
 
