@@ -6,7 +6,7 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Table from "../../components/Table/Table";
 import Spinner from "../../components/Spinner/Spinner";
 
-import { apis } from "../../services/imsApi";
+import { apis } from "../../services/academicServiceApi";
 import useGetAll from "../../hooks/useGetAll";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import useDeleteById from "../../hooks/useDeleteById";

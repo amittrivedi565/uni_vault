@@ -3,13 +3,13 @@ import axios from "axios";
 /*
   Base URLs from environment
 */
-const IMS_BASE_URL = import.meta.env.VITE_IMS_SERVICE;
+const ACADEMIC_BASE_URL = import.meta.env.VITE_ACADEMIC_SERVICE;
 
 /*
   Axios instance with default config for UCS service
 */
 const axiosInstance = axios.create({
-  baseURL: IMS_BASE_URL,
+  baseURL: ACADEMIC_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },

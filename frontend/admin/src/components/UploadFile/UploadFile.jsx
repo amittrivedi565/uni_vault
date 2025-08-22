@@ -1,7 +1,7 @@
 import { useState } from "react";
-import uploadFile from "../../services/cssApi";
+import uploadFile from "../../services/mediaServiceApi";
 import Spinner from "../Spinner/Spinner";
-import SuccessAlert from "../SuccessAlert/SucessAert";
+import SuccessAlert from "../SuccessAlert/SuccessAlert";
 
 function UploadFile({ onFileUpload }) {
     const [selectedFile, setSelectedFile] = useState(null);

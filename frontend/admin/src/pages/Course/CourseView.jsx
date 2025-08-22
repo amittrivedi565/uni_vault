@@ -7,7 +7,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import { useCallback } from "react";
 
-import { apis } from "../../services/imsApi";
+import { apis } from "../../services/academicServiceApi";
 import useDeleteById from "../../hooks/useDeleteById";
 import useGetAllById from "../../hooks/useGetAllById";
 import { useParams } from "react-router-dom";

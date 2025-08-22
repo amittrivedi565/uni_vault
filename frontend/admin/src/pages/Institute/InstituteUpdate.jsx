@@ -5,7 +5,7 @@ import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import MainLayout from "../../layouts/MainLayout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
-import { apis } from "../../services/imsApi";
+import { apis } from "../../services/academicServiceApi";
 import useGetById from "../../hooks/useGetById";
 import useUpdate from "../../hooks/useUpdateById";
 import { useParams } from "react-router-dom";

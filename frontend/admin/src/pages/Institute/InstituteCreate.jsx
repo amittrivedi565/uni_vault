@@ -3,7 +3,7 @@ import Headerbar from "../../components/Headerbar/Headerbar";
 import CreateForm from "../../components/Form/CreateForm";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import usePost from "../../hooks/usePost";
-import { apis } from "../../services/imsApi";
+import { apis } from "../../services/academicServiceApi";
 import MainLayout from "../../layouts/MainLayout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { data } from "autoprefixer";

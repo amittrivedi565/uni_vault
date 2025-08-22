@@ -5,7 +5,7 @@ import CreateForm from "../../components/Form/CreateForm";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import UploadFile from "../../components/UploadFile/UploadFile";
 import usePost from "../../hooks/usePost";
-import { apis } from "../../services/imsApi";
+import { apis } from "../../services/academicServiceApi";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
