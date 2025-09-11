@@ -24,4 +24,9 @@ AWS_ACCESS_KEY = "access_key"
 AWS_SECRET_KEY  = "secret_key"
 AWS_BUCKET_NAME = "your_bucket_name"
 
+
+# STARTUP CONFIGS
+ADMIN_EMAIL="univault@hotmail.com"
+ADMIN_NAME="Admin"
+ADMIN_PASSWORD= "password”
 ```
