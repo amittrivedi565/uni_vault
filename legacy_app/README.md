@@ -26,7 +26,7 @@ AWS_BUCKET_NAME = "your_bucket_name"
 
 
 # STARTUP CONFIGS
-ADMIN_EMAIL="univault@hotmail.com"
+ADMIN_EMAIL="abc@xyz.com"
 ADMIN_NAME="Admin"
 ADMIN_PASSWORD= "password”
 ```
